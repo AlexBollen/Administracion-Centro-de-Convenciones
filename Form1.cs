@@ -18,5 +18,11 @@ namespace Administración_Centro_de_Convenciones {
             Clases.DBConecction connectionObject = new Clases.DBConecction();
             connectionObject.stablishConnection();
         }
+
+        private void button1_Click(object sender, EventArgs e) {
+            MenuPrincipal menu = new MenuPrincipal();
+            menu.Show();
+            this.Hide();
+        }
     }
 }
