@@ -13,5 +13,10 @@ namespace Administración_Centro_de_Convenciones {
         public Form1() {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e) {
+            Clases.DBConecction connectionObject = new Clases.DBConecction();
+            connectionObject.stablishConnection();
+        }
     }
 }
