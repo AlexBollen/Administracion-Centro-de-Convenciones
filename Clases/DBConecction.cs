@@ -25,7 +25,6 @@ namespace Administración_Centro_de_Convenciones.Clases {
             try {
                 connection.ConnectionString = connectionString;
                 connection.Open();
-                MessageBox.Show("Se conecto correctamente a la base de datos");
             } catch (SqlException e) {
                 MessageBox.Show("La conexión con la base de datos fallo\nError: " + e.ToString());
             }
