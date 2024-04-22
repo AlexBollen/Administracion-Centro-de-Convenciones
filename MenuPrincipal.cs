@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Security.Policy;
 
 namespace Administración_Centro_de_Convenciones {
     public partial class MenuPrincipal : Form {
@@ -49,21 +50,25 @@ namespace Administración_Centro_de_Convenciones {
         private void btnSpaces_Click(object sender, EventArgs e) {
             reportsMenu.Visible = false;
             btnReportsState = false;
+            OpenViewsForm(new ReporteEscpacios());
         }
 
         private void btnActivities_Click(object sender, EventArgs e) {
             reportsMenu.Visible = false;
             btnReportsState = false;
+            OpenViewsForm(new ReporteActividades());
         }
 
         private void btnOrganizers_Click(object sender, EventArgs e) {
             reportsMenu.Visible = false;
             btnReportsState = false;
+            OpenViewsForm(new ReportesOrganizador());
         }
 
         private void btnCalendar_Click(object sender, EventArgs e) {
             reportsMenu.Visible = false;
             btnReportsState = false;
+            OpenViewsForm(new ReporteCalendario());
         }
 
         private void btnLogout_Click(object sender, EventArgs e) {
@@ -77,6 +82,45 @@ namespace Administración_Centro_de_Convenciones {
 
         private void btnReports_MouseLeave(object sender, EventArgs e) {
             
+        }
+
+        private void OpenViewsForm(object formhija) {
+            if (this.controlPanel.Controls.Count > 0) 
+                this.controlPanel.Controls.RemoveAt(0);
+            Form fh = formhija as Form;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            this.controlPanel.Controls.Add(fh);
+            this.controlPanel.Tag = fh;
+            fh.Show();
+        }
+
+        private void btnReservation_Click(object sender, EventArgs e) {
+            OpenViewsForm(new Reservas());
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e) {
+            OpenViewsForm(new Menu());
+        }
+
+        private void label1_Click(object sender, EventArgs e) {
+            OpenViewsForm(new Menu());
+        }
+
+        private void label2_Click(object sender, EventArgs e) {
+            OpenViewsForm(new Menu());
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
+            OpenViewsForm(new Servicios());
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e) {
+            OpenViewsForm(new Configuracion());
+        }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e) {
+            label1_Click(null, e);
         }
     }
 }
