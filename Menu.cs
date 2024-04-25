@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Administración_Centro_de_Convenciones.Cache;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +14,14 @@ namespace Administración_Centro_de_Convenciones {
     public partial class Menu : Form {
         public Menu() {
             InitializeComponent();
+        }
+
+        private void Menu_Load(object sender, EventArgs e) {
+            LoadUserData();
+        }
+
+        private void LoadUserData() {
+
         }
     }
 }

@@ -50,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.controlPanel = new System.Windows.Forms.Panel();
+            this.labelUserData = new System.Windows.Forms.Label();
             this.titleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -62,6 +63,7 @@
             // titleBar
             // 
             this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.titleBar.Controls.Add(this.labelUserData);
             this.titleBar.Controls.Add(this.btnMinimize);
             this.titleBar.Controls.Add(this.btnClose);
             this.titleBar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -404,6 +406,19 @@
             this.controlPanel.Size = new System.Drawing.Size(1064, 573);
             this.controlPanel.TabIndex = 2;
             // 
+            // labelUserData
+            // 
+            this.labelUserData.AutoSize = true;
+            this.labelUserData.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelUserData.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserData.ForeColor = System.Drawing.Color.White;
+            this.labelUserData.Location = new System.Drawing.Point(5, 7);
+            this.labelUserData.Name = "labelUserData";
+            this.labelUserData.Size = new System.Drawing.Size(84, 25);
+            this.labelUserData.TabIndex = 13;
+            this.labelUserData.Text = "Usuario:";
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,6 +433,7 @@
             this.Text = "MenuPrincipal";
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.titleBar.ResumeLayout(false);
+            this.titleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.menuBar.ResumeLayout(false);
@@ -457,5 +473,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnSpaces;
         private System.Windows.Forms.PictureBox btnLogout;
+        private System.Windows.Forms.Label labelUserData;
     }
 }
