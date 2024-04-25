@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Security.Policy;
+using Administración_Centro_de_Convenciones.Cache;
+using System.Data.SqlClient;
 
 namespace Administración_Centro_de_Convenciones {
     public partial class MenuPrincipal : Form {
@@ -72,9 +74,10 @@ namespace Administración_Centro_de_Convenciones {
         }
 
         private void btnLogout_Click(object sender, EventArgs e) {
-            Form1 loginWindow = new Form1();
-            loginWindow.Show();
-            this.Dispose();
+            if (MessageBox.Show("¿Estás seguro de que quieres cerrar la sesión?", "Warning",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                this.Close();
+            }
         }
 
         private void btnReports_MouseHover(object sender, EventArgs e) {
@@ -120,7 +123,12 @@ namespace Administración_Centro_de_Convenciones {
         }
 
         private void MenuPrincipal_Load(object sender, EventArgs e) {
+            LoadUserData();
             label1_Click(null, e);
+        }
+
+        private void LoadUserData() {
+            labelUserData.Text = "Usuario: " + UserLoginCache.Usuario + " - ";
         }
     }
 }

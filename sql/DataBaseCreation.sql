@@ -85,8 +85,6 @@ CREATE TABLE Direccion
   DireccionDetallada VARCHAR(150) NOT NULL,
   Municipio VARCHAR(50),
   Departamento VARCHAR(50),
-  IdPersona INT NOT NULL,
-  FOREIGN KEY (IdPersona) REFERENCES Persona(IdPersona)
 );
 GO
 
@@ -144,8 +142,6 @@ CREATE TABLE Contacto
 (
   IdContacto INTEGER PRIMARY KEY IDENTITY(1,1),
   EstadoContacto BINARY NOT NULL,
-  IdPersona INT NOT NULL,
-  FOREIGN KEY (IdPersona) REFERENCES Persona(IdPersona)
 );
 GO
 
@@ -161,7 +157,7 @@ GO
 CREATE TABLE Contacto_Telefono
 (
   Telefono CHAR(8) NOT NULL,
-  IdContacto INTEGER PRIMARY KEY IDENTITY(1,1),
+  IdContacto INT NOT NULL,
   FOREIGN KEY (IdContacto) REFERENCES Contacto(IdContacto)
 );
 GO
@@ -169,16 +165,8 @@ GO
 CREATE TABLE Contacto_Email
 (
   Email VARCHAR(100) NOT NULL,
-  IdContacto INTEGER PRIMARY KEY IDENTITY(1,1),
+  IdContacto INT NOT NULL,
   FOREIGN KEY (IdContacto) REFERENCES Contacto(IdContacto)
-);
-GO
-
-CREATE TABLE TipoSalon
-(
-  IdTipoSalon INTEGER PRIMARY KEY IDENTITY(1,1),
-  NombreTipoSalon VARCHAR(100) NOT NULL,
-  ExistenciasTipoSalon INT NOT NULL,
 );
 GO
 
@@ -194,7 +182,15 @@ CREATE TABLE Usuario
   IdContacto INT NOT NULL,
   FOREIGN KEY (IdRol) REFERENCES Rol(IdRol),
   FOREIGN KEY (IdDireccion) REFERENCES Direccion(IdDireccion),
-  FOREIGN KEY (IdContacto) REFERENCES Contacto(IdContacto)
+  FOREIGN KEY (IdContacto) REFERENCES Contacto(IdContacto),
+);
+GO
+
+CREATE TABLE TipoSalon
+(
+  IdTipoSalon INTEGER PRIMARY KEY IDENTITY(1,1),
+  NombreTipoSalon VARCHAR(100) NOT NULL,
+  ExistenciasTipoSalon INT NOT NULL,
 );
 GO
 
@@ -241,3 +237,10 @@ CREATE TABLE Solicita
   UNIQUE (IdEvento, IdExistencia)
 );
 GO
+
+INSERT INTO Rol VALUES ('admin', 'Puede hacer todo');
+INSERT INTO Direccion VALUES ('Ciudad', 'Quetgo', 'Quetgo');
+INSERT INTO Contacto VALUES (1);
+INSERT INTO Contacto_Telefono VALUES ('12213422', 1);
+INSERT INTO Contacto_Email VALUES ('correo@prueba.com', 1);
+INSERT INTO Usuario VALUES ('admin', 'admin', 'Alex', 1, 1, 1, 1);
