@@ -122,6 +122,7 @@
             // 
             // btnLogout
             // 
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
             this.btnLogout.Location = new System.Drawing.Point(3, 532);
             this.btnLogout.Name = "btnLogout";
@@ -158,6 +159,7 @@
             // btnCalendar
             // 
             this.btnCalendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnCalendar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCalendar.FlatAppearance.BorderSize = 0;
             this.btnCalendar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnCalendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -183,6 +185,7 @@
             // btnOrganizers
             // 
             this.btnOrganizers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnOrganizers.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOrganizers.FlatAppearance.BorderSize = 0;
             this.btnOrganizers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnOrganizers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -208,6 +211,7 @@
             // btnActivities
             // 
             this.btnActivities.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnActivities.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnActivities.FlatAppearance.BorderSize = 0;
             this.btnActivities.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnActivities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -233,6 +237,7 @@
             // btnSpaces
             // 
             this.btnSpaces.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnSpaces.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSpaces.FlatAppearance.BorderSize = 0;
             this.btnSpaces.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnSpaces.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -258,6 +263,7 @@
             // btnReports
             // 
             this.btnReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnReports.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReports.FlatAppearance.BorderSize = 0;
             this.btnReports.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
