@@ -42,6 +42,7 @@ namespace Administración_Centro_de_Convenciones {
                     }
                 } else {
                     labelError.Text = "Se debe proporcionar la contraseña";
+                    txtBoxPassword.ForeColor = Color.LightGray;
                     labelError.Visible = true;
                 }
             } else {

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using Administración_Centro_de_Convenciones.Cache;
+using System.Windows.Forms;
 
 namespace Administración_Centro_de_Convenciones.Clases {
     internal class UserData : DBConnection {
@@ -28,9 +29,32 @@ namespace Administración_Centro_de_Convenciones.Clases {
                             UserLoginCache.IdDireccion = reader.GetInt32(6);
                             UserLoginCache.IdContacto = reader.GetInt32(7);
                         }
+                        UserLoginCache.NombreRol = NombreRol(UserLoginCache.IdRol);
                         return true;
                     } else {
                         return false;
+                    }
+                }
+            }
+        }
+
+        public string NombreRol(int idRol) {
+            using (var connection = GetConnection()) {
+                connection.Open();
+                using(var command = new SqlCommand()) {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM Rol where IdRol=@idRol";
+                    command.Parameters.AddWithValue("@idRol", idRol);
+                    command.CommandType = CommandType.Text;
+                    SqlDataReader reader = command.ExecuteReader();
+                    string rolName = "";
+                    if (reader.HasRows) {
+                        while (reader.Read()) {
+                            rolName = reader.GetString(1);
+                        }
+                        return rolName;
+                    } else {
+                        return rolName;
                     }
                 }
             }
