@@ -176,7 +176,7 @@ CREATE TABLE Usuario
   Usuario VARCHAR(50) NOT NULL,
   Contrasenia VARCHAR(126) NOT NULL,
   Nombre VARCHAR(100) NOT NULL,
-  Estado BINARY NOT NULL,
+  Estado BIT NOT NULL DEFAULT 1,
   IdRol INT NOT NULL,
   IdDireccion INT NOT NULL,
   IdContacto INT NOT NULL,
@@ -238,9 +238,39 @@ CREATE TABLE Solicita
 );
 GO
 
-INSERT INTO Rol VALUES ('admin', 'Puede hacer todo');
-INSERT INTO Direccion VALUES ('Ciudad', 'Quetgo', 'Quetgo');
-INSERT INTO Contacto VALUES (1);
-INSERT INTO Contacto_Telefono VALUES ('12213422', 1);
-INSERT INTO Contacto_Email VALUES ('correo@prueba.com', 1);
-INSERT INTO Usuario VALUES ('admin', 'admin', 'Alex', 1, 1, 1, 1);
+INSERT INTO Rol (NombreRol, Descripcion) 
+VALUES 
+	('Administrador', 'Puede hacer todo dentro del sistema'),
+	('Digitador', 'Puede realizar reservas'),
+	('Supervisor', 'Puede gestionar los servicios adicionales'),
+	('Director', 'Puede gestionar los reportes');
+INSERT INTO Direccion (DireccionDetallada, Municipio, Departamento)
+VALUES 
+	('Ciudad', 'Quetzaltenango', 'Quetzaltenango'),
+	('Ciudad', 'Colotenango', 'Huehuetenango'),
+	('Ciudad', 'Momostenango', 'Totonicapan'),
+	('Ciudad', 'Quetzaltenango', 'Quetzaltenango');
+INSERT INTO Contacto (EstadoContacto)
+VALUES 
+	(1),
+	(1),
+	(1),
+	(1);
+INSERT INTO Contacto_Telefono (Telefono, IdContacto)
+VALUES 
+	('64913620', 1),
+	('86254136', 2),
+	('52632301', 3),
+	('26514035', 4);
+INSERT INTO Contacto_Email (Email, IdContacto)
+VALUES 
+	('alex@ggmail.com', 1),
+	('samuel@ggmail.com', 2),
+	('juan@ggmail.com', 3),
+	('pedro@ggmail.com', 4);
+INSERT INTO Usuario (Usuario, Contrasenia, Nombre, Estado, IdRol, IdDireccion, IdContacto)
+VALUES 
+	('alex', 'alex', 'Alex Bollen', 1, 1, 1, 1),
+	('samuel', 'samuel', 'Samuel Quijivix', 1, 2, 2, 2),
+	('juan', 'juan', 'Juan Perez', 1, 3, 3, 3),
+	('pedro', 'pedro', 'Pedro Lopez', 1, 4, 4, 4);

@@ -125,6 +125,51 @@ namespace Administración_Centro_de_Convenciones {
         private void MenuPrincipal_Load(object sender, EventArgs e) {
             LoadUserData();
             label1_Click(null, e);
+            // Manejo de permisos por rol
+            if (UserLoginCache.IdRol == Roles.administrador)
+            {
+                btnReservation.Enabled = true;
+                btnServices.Enabled = true;
+                btnSettings.Enabled = true;
+                btnReports.Enabled = true;
+                btnSpaces.Enabled = true;
+                btnActivities.Enabled = true;
+                btnOrganizers.Enabled = true;
+                btnCalendar.Enabled = true;
+            }
+            if (UserLoginCache.IdRol == Roles.digitador)
+            {
+                btnReservation.Enabled = true;
+                btnServices.Enabled = false;
+                btnSettings.Enabled = false;
+                btnReports.Enabled = false;
+                btnSpaces.Enabled = false;
+                btnActivities.Enabled = false;
+                btnOrganizers.Enabled = false;
+                btnCalendar.Enabled = false;
+            }
+            if (UserLoginCache.IdRol == Roles.supervisor)
+            {
+                btnReservation.Enabled = false;
+                btnServices.Enabled = true;
+                btnSettings.Enabled = false;
+                btnReports.Enabled = false;
+                btnSpaces.Enabled = false;
+                btnActivities.Enabled = false;
+                btnOrganizers.Enabled = false;
+                btnCalendar.Enabled = false;
+            }
+            if (UserLoginCache.IdRol == Roles.director)
+            {
+                btnReservation.Enabled = false;
+                btnServices.Enabled = false;
+                btnSettings.Enabled = false;
+                btnReports.Enabled = true;
+                btnSpaces.Enabled = true;
+                btnActivities.Enabled = true;
+                btnOrganizers.Enabled = true;
+                btnCalendar.Enabled = true;
+            }
         }
 
         private void LoadUserData() {

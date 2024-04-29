@@ -38,11 +38,12 @@ namespace Administración_Centro_de_Convenciones {
                         labelError.Visible = true;
                         txtBoxPassword.UseSystemPasswordChar= false;
                         txtBoxPassword.Text = "PASSWORD";
+                        txtBoxPassword.ForeColor = Color.DimGray;
                         txtBoxUser.Focus();
                     }
                 } else {
                     labelError.Text = "Se debe proporcionar la contraseña";
-                    txtBoxPassword.ForeColor = Color.LightGray;
+                    txtBoxPassword.ForeColor = Color.DimGray;
                     labelError.Visible = true;
                 }
             } else {

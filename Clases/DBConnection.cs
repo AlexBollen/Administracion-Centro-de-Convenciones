@@ -7,16 +7,16 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace Administración_Centro_de_Convenciones.Clases {
-    public abstract class DBConnection {
+    public  class DBConnection {
         private readonly string connectionString;
-        static string server = "ALEX\\SQLEXPRESS";
-        static string user = "alexb";
-        static string password = "databasepass";
+        static string server = "MSI\\SQLEXPRESS";
+        static string user = "database";
+        static string password = "admin12345";
         public DBConnection() {
             connectionString = "Server="+ server+";"+ "DataBase=CentroConvenciones; user id="+user+";" + "password="+password+";";
 
         }
-        protected SqlConnection GetConnection() {
+        public SqlConnection GetConnection() {
             return new SqlConnection(connectionString);
         }
     }
