@@ -128,7 +128,7 @@ namespace Administración_Centro_de_Convenciones {
         }
 
         private void LoadUserData() {
-            labelUserData.Text = "Usuario: " + UserLoginCache.Usuario + " - ";
+            labelUserData.Text = "Usuario: " + UserLoginCache.Usuario + " - " + UserLoginCache.NombreRol;
         }
     }
 }
