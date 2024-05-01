@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Cache\Roles.cs" />
     <Compile Include="Cache\UserLoginCache.cs" />
+    <Compile Include="Clases\ClsEventos.cs" />
     <Compile Include="Clases\DBConnection.cs" />
     <Compile Include="Clases\UserData.cs" />
     <Compile Include="Clases\UserModel.cs" />
