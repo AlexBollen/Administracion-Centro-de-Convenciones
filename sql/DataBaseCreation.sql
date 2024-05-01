@@ -25,16 +25,16 @@ IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Rol')
 DROP TABLE Rol
 GO
 
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Evento')
+DROP TABLE Evento
+GO
+
 IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Organizador')
 DROP TABLE Organizador
 GO
 
 IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Responsable')
 DROP TABLE Responsable
-GO
-
-IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Evento')
-DROP TABLE Evento
 GO
 
 IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Direccion')
@@ -76,7 +76,7 @@ GO
 CREATE TABLE Persona
 (
   IdPersona INTEGER PRIMARY KEY IDENTITY(1,1),
-  Nombre VARCHAR(100) NOT NULL,
+  NombrePersona VARCHAR(100) NOT NULL,
 );
 
 CREATE TABLE Direccion
@@ -90,17 +90,15 @@ GO
 
 CREATE TABLE Organizador
 (
-  IdPersona INTEGER PRIMARY KEY IDENTITY(1,1),
-  Estado BINARY NOT NULL,
-  FOREIGN KEY (IdPersona) REFERENCES Persona(IdPersona)
+  IdOrganizador INT PRIMARY KEY REFERENCES Persona(IdPersona),
+  Estado BIT NOT NULL DEFAULT 1,
 );
 GO
 
 CREATE TABLE Responsable
 (
-  IdPersona INTEGER PRIMARY KEY IDENTITY(1,1),
+  IdResponsable INT PRIMARY KEY REFERENCES Persona(IdPersona),
   NombreComercial VARCHAR(150),
-  FOREIGN KEY (IdPersona) REFERENCES Persona(IdPersona)
 );
 GO
 
@@ -215,11 +213,13 @@ CREATE TABLE Evento
   Nombre VARCHAR(100) NOT NULL,
   FechaReserva DATE NOT NULL,
   IdItinerario INT NOT NULL,
-  IdPersona INT NOT NULL,
+  IdResponsable INT NOT NULL,
+  IdOrganizador INT NOT NULL,
   IdTipoEvento INT NOT NULL,
   IdSalon INT NOT NULL,
   FOREIGN KEY (IdItinerario) REFERENCES Itinerario(IdItinerario),
-  FOREIGN KEY (IdPersona) REFERENCES Persona(IdPersona),
+  FOREIGN KEY (IdResponsable) REFERENCES Responsable(IdResponsable),
+  FOREIGN KEY (IdOrganizador) REFERENCES Organizador(IdOrganizador),
   FOREIGN KEY (IdTipoEvento) REFERENCES TipoEvento(IdTipoEvento),
   FOREIGN KEY (IdSalon) REFERENCES Salon(IdSalon)
 );
@@ -274,3 +274,55 @@ VALUES
 	('samuel', 'samuel', 'Samuel Quijivix', 1, 2, 2, 2),
 	('juan', 'juan', 'Juan Perez', 1, 3, 3, 3),
 	('pedro', 'pedro', 'Pedro Lopez', 1, 4, 4, 4);
+INSERT INTO TipoSalon (NombreTipoSalon, ExistenciasTipoSalon)
+VALUES
+	('Eventos grandes', 10),
+	('Conferencias', 5),
+	('Bodas', 3),
+	('Fiestas privadas', 2);
+INSERT INTO Salon(NombreSalon, EstadoSalon, Capacidad, Descripcion, IdTipoSalon)
+VALUES
+	('Palacio de eventos', 'Disponible', 500, '', 1),
+	('Jardín encantado', 'Disponible', 250, '', 1),
+	('Horizonte dorado', 'Disponible', 220, 'Un ambiente armonioso y memorable, ideal para eventos sociales, conciertos o presentaciones artísticas', 1),
+	('Sinfonía de eventos', 'Disponible', 350, 'Perfecto para eventos de premiación, lanzamientos de productos, etc.', 1),
+	('Grand Atrium', 'Disponible', 370, '', 1),
+	('Festival de alegría', 'Disponible', 400, 'Evoca un ambiente festivo y divertido, ideal para fiestas infantiles, eventos familiares o celebraciones comunitarias.', 1),
+	('Esplandor', 'Disponible', 280, 'Transmite lujo, opulencia y sofisticación, perfecto para eventos de alta gama.', 1),
+	('Paraíso Mágico', 'Disponible', 250, 'Ideal para eventos que buscan crear una atmósfera única y memorable.', 1),
+	('Salón real', 'Disponible', 375, 'Inspirado en la grandiosidad de los templos antiguos, lugar sagrado donde las celebraciones adquieren un significado especial', 1),
+	('Espacio imperial', 'Disponible', 240, 'Espacio perfecto para eventos que buscan dejar una impresión duradera y memorable en los asistentes.', 1),
+	('Ágora', 'Disponible', 150, 'Perfecto para salas de conferencias donde se llevan a cabo eventos como congresos, seminarios o talleres.', 2),
+	('Circulo de ideas', 'Disponible', 100, 'Ambiente de colaboración e intercambio de conocimientos.', 2),
+	('Foro del pensamiento', 'Disponible', 130, ' Espacio para la reflexión y el análisis profundo.', 2),
+	('Simposio', 'Disponible', 110, 'Se asocia con reuniones académicas o profesionales de alto nivel.', 2),
+	('Convergencia', 'Disponible', 75, 'Evoca la unión de diferentes perspectivas y puntos de vista.', 2),
+	('Jadrín de ensueño', 'Disponible', 200, 'Evoca un ambiente romántico y mágico, perfecto para bodas al aire libre', 3),
+	('Romance encantado', 'Disponible', 250, 'Evoca un ambiente íntimo y romántico', 3),
+	('Atrio', 'Disponible', 210, 'Un nombre clásico y atemporal que denota un espacio abierto y versátil', 3),
+	('Oasis', 'Disponible', 75, '', 4),
+	('El amigo', 'Disponible', 90, '', 4);
+INSERT INTO Itinerario (FechaInicio, FechaCulminacion, HoraInicio, HoraCulminacion)
+VALUES
+	('2024-05-01', '2024-05-01', '9:00:00', '17:00:00');
+INSERT INTO TipoEvento (NombreTipoEvento, Descripcion)
+VALUES
+	('Boda', 'Celebración de matrimonios'),
+	('Fiesta', 'Celebración de cumpleaños, graduaciónes, etc.'),
+	('Conferencia', 'Conferencias, simposios, debates, etc.'),
+	('Concierto', 'Conciertos musicales'),
+	('Exposición', 'Presentaciones de productos, ideas, empresas, etc.'),
+	('Feria comercial', 'Ventas de productos');
+INSERT INTO Persona (NombrePersona)
+VALUES
+	('Pedro David Gómez Bolaños'),
+	('Juan Luis Hernández');
+INSERT INTO Organizador (IdOrganizador, Estado)
+VALUES
+	(1, 1);
+INSERT INTO Responsable (IdResponsable, NombreComercial)
+VALUES
+	(2, NULL);
+INSERT INTO Evento (Nombre, Descripcion, EstadoEvento, CantidadAsistentes, FechaReserva, IdItinerario, IdResponsable, IdOrganizador, IdTipoEvento, IdSalon)
+VALUES
+	('Boda Hernández-Dominguez', 'Celebración de matrimonio de señor Juan Hernández y Luisa Dominguez', 'Finalizado', 150, '2024-01-15', 1, 2, 1, 1, 16)
