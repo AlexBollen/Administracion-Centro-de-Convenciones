@@ -157,7 +157,15 @@ namespace Administración_Centro_de_Convenciones {
         }
 
         private void btnEliminarReserva_Click(object sender, EventArgs e) {
-
+            if (dataGridView1.SelectedRows.Count > 0) {
+                if (MessageBox.Show("¿Estás seguro de que deseas eliminar el evento?", "Warning",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                    objEventos.EliminarReserva(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
+                    MessageBox.Show("Se ha eliminado correctamente el evento");
+                    ListarEventos();
+                }
+            } else
+                MessageBox.Show("Debe seleccionar un registro a eliminar");
         }
     }
 }
