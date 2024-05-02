@@ -198,7 +198,50 @@ namespace Administración_Centro_de_Convenciones.Clases {
             return idResponsable;
         }
 
+        public void EditarReserva(
+            int IdEvento,
+            string Nombre,
+            string Descripcion,
+            string EstadoEvento,
+            int CantidadAsistentes,
+            int IdOrganizador,
+            int IdTipoEvento,
+            int IdSalon
+        ) {
+            using (var connection = GetConnection()) {
+                connection.Open();
+                using (var command = new SqlCommand()) {
+                    command.Connection = connection;
+                    command.CommandText = "UPDATE Evento SET " +
+                        "Nombre="+Nombre+
+                        ",Descripcion="+Descripcion+
+                        ",EstadoEvento="+EstadoEvento+
+                        ",CantidadAsistentes="+CantidadAsistentes+
+                        ",IdOrganizador="+IdOrganizador+
+                        ",IdTipoEvento="+IdTipoEvento+
+                        ",IdSalon="+IdSalon+
+                        " WHERE IdEvento="+IdEvento;
+                    command.CommandType = CommandType.Text;
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
 
+        public void EliminarReserva(
+            int IdEvento
+        ) {
+            using (var connection = GetConnection()) {
+                connection.Open();
+                using (var command = new SqlCommand()) {
+                    command.Connection = connection;
+                    command.CommandText = "DELETE Evento WHERE IdEvento="+IdEvento;
+                    command.CommandType = CommandType.Text;
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
 
     }
 }
