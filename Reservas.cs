@@ -15,13 +15,14 @@ namespace Administración_Centro_de_Convenciones {
         public Reservas() {
             InitializeComponent();
         }
-
+        int IdEvento;
         private void button1_Click(object sender, EventArgs e) {
             listReservations.Hide();
             addReservation.Show();
             btnAgregarReserva.Enabled = false;
             btnEditarReserva.Enabled = false;
             btnEliminarReserva.Enabled = false;
+            ClearData();
             ListarSalones();
             ListarOrganizadores();
             ListarTiposEvento();
@@ -33,6 +34,7 @@ namespace Administración_Centro_de_Convenciones {
             btnAgregarReserva.Enabled = true;
             btnEditarReserva.Enabled = true;
             btnEliminarReserva.Enabled = true;
+            btnConfirmarEdicion.Hide();
             ListarEventos();
 
         }
@@ -97,7 +99,65 @@ namespace Administración_Centro_de_Convenciones {
                 Convert.ToInt32(comboBoxSalon.SelectedValue)
             );
             MessageBox.Show("Insertado correctamente");
+            ClearData();
             btnListarReservas.PerformClick();
+        }
+
+        private void ClearData() {
+            txtBoxCantidadAsistentes.Clear();
+            txtBoxNombreEvento.Clear();
+            txtBoxDescripcionEvento.Clear();
+            txtBoxHoraInicio.Clear();
+            txtBoxHoraCulminacion.Clear();
+            txtBoxNombreCliente.Clear();
+            txtBoxNombreComercial.Clear();
+        }
+
+        private void btnEditarReserva_Click(object sender, EventArgs e) {
+            if (dataGridView1.SelectedRows.Count > 0) {
+                listReservations.Hide();
+                addReservation.Show();
+                btnRegistrar.Hide();
+                btnConfirmarEdicion.Show();
+                ListarOrganizadores();
+                ListarSalones();
+                ListarTiposEvento();
+                IdEvento = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                txtBoxNombreEvento.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                txtBoxDescripcionEvento.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                comboBoxEstadoEvento.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                txtBoxCantidadAsistentes.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                comboBoxOrganizadores.Enabled = true;
+                comboBoxOrganizadores.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                comboBoxOrganizadores.Enabled = false;
+                txtBoxNombreCliente.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                comboBoxSalon.Enabled = true;
+                comboBoxSalon.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+                comboBoxSalon.Enabled = false;
+                comboBoxTipoEvento.Enabled = true;
+                comboBoxTipoEvento.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+                comboBoxTipoEvento.Enabled = false;
+            } else
+                MessageBox.Show("Debe seleccionar un registro a editar");
+        }
+
+        private void btnConfirmarEdicion_Click(object sender, EventArgs e) {
+            objEventos.EditarReserva(
+                IdEvento,
+                txtBoxNombreEvento.Text,
+                txtBoxDescripcionEvento.Text,
+                comboBoxEstadoEvento.Text,
+                Convert.ToInt32(txtBoxCantidadAsistentes.SelectedText),
+                Convert.ToInt32(comboBoxOrganizadores.SelectedValue),
+                Convert.ToInt32(comboBoxTipoEvento.SelectedValue),
+                Convert.ToInt32(comboBoxSalon.SelectedValue)
+            );
+            btnRegistrar.Show();
+            btnConfirmarEdicion.Hide();
+        }
+
+        private void btnEliminarReserva_Click(object sender, EventArgs e) {
+
         }
     }
 }

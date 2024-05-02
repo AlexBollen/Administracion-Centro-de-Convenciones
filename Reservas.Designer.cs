@@ -23,6 +23,9 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.listReservations = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -31,6 +34,14 @@
             this.btnEditarReserva = new System.Windows.Forms.Button();
             this.btnEliminarReserva = new System.Windows.Forms.Button();
             this.addReservation = new System.Windows.Forms.GroupBox();
+            this.btnConfirmarEdicion = new System.Windows.Forms.Button();
+            this.comboBoxEstadoEvento = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtBoxNombreComercial = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtBoxNombreCliente = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             this.comboBoxOrganizadores = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -52,11 +63,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnListarReservas = new System.Windows.Forms.Button();
-            this.btnRegistrar = new System.Windows.Forms.Button();
-            this.txtBoxNombreCliente = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtBoxNombreComercial = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.listReservations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.addReservation.SuspendLayout();
@@ -76,10 +82,41 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeight = 30;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.SteelBlue;
             this.dataGridView1.Location = new System.Drawing.Point(18, 19);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.RowHeadersWidth = 30;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Size = new System.Drawing.Size(1040, 400);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -129,6 +166,7 @@
             this.btnEditarReserva.TabIndex = 5;
             this.btnEditarReserva.Text = "Editar";
             this.btnEditarReserva.UseVisualStyleBackColor = true;
+            this.btnEditarReserva.Click += new System.EventHandler(this.btnEditarReserva_Click);
             // 
             // btnEliminarReserva
             // 
@@ -139,10 +177,14 @@
             this.btnEliminarReserva.TabIndex = 6;
             this.btnEliminarReserva.Text = "Eliminar";
             this.btnEliminarReserva.UseVisualStyleBackColor = true;
+            this.btnEliminarReserva.Click += new System.EventHandler(this.btnEliminarReserva_Click);
             // 
             // addReservation
             // 
             this.addReservation.AutoSize = true;
+            this.addReservation.Controls.Add(this.btnConfirmarEdicion);
+            this.addReservation.Controls.Add(this.comboBoxEstadoEvento);
+            this.addReservation.Controls.Add(this.label15);
             this.addReservation.Controls.Add(this.txtBoxNombreComercial);
             this.addReservation.Controls.Add(this.label14);
             this.addReservation.Controls.Add(this.txtBoxNombreCliente);
@@ -174,12 +216,103 @@
             this.addReservation.TabIndex = 1;
             this.addReservation.TabStop = false;
             // 
+            // btnConfirmarEdicion
+            // 
+            this.btnConfirmarEdicion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmarEdicion.Location = new System.Drawing.Point(951, 374);
+            this.btnConfirmarEdicion.Name = "btnConfirmarEdicion";
+            this.btnConfirmarEdicion.Size = new System.Drawing.Size(107, 35);
+            this.btnConfirmarEdicion.TabIndex = 34;
+            this.btnConfirmarEdicion.Text = "Registrar";
+            this.btnConfirmarEdicion.UseVisualStyleBackColor = true;
+            this.btnConfirmarEdicion.Click += new System.EventHandler(this.btnConfirmarEdicion_Click);
+            // 
+            // comboBoxEstadoEvento
+            // 
+            this.comboBoxEstadoEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEstadoEvento.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxEstadoEvento.FormattingEnabled = true;
+            this.comboBoxEstadoEvento.Items.AddRange(new object[] {
+            "Programado",
+            "En proceso",
+            "Finalizado"});
+            this.comboBoxEstadoEvento.Location = new System.Drawing.Point(729, 217);
+            this.comboBoxEstadoEvento.Name = "comboBoxEstadoEvento";
+            this.comboBoxEstadoEvento.Size = new System.Drawing.Size(314, 30);
+            this.comboBoxEstadoEvento.TabIndex = 33;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label15.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.LightGray;
+            this.label15.Location = new System.Drawing.Point(725, 180);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(137, 22);
+            this.label15.TabIndex = 32;
+            this.label15.Text = "Estado evento:";
+            // 
+            // txtBoxNombreComercial
+            // 
+            this.txtBoxNombreComercial.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxNombreComercial.Location = new System.Drawing.Point(374, 376);
+            this.txtBoxNombreComercial.Name = "txtBoxNombreComercial";
+            this.txtBoxNombreComercial.Size = new System.Drawing.Size(314, 29);
+            this.txtBoxNombreComercial.TabIndex = 31;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label14.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.LightGray;
+            this.label14.Location = new System.Drawing.Point(370, 338);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(170, 22);
+            this.label14.TabIndex = 30;
+            this.label14.Text = "Nombre comercial:";
+            // 
+            // txtBoxNombreCliente
+            // 
+            this.txtBoxNombreCliente.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxNombreCliente.Location = new System.Drawing.Point(374, 297);
+            this.txtBoxNombreCliente.Name = "txtBoxNombreCliente";
+            this.txtBoxNombreCliente.Size = new System.Drawing.Size(314, 29);
+            this.txtBoxNombreCliente.TabIndex = 29;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label13.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.LightGray;
+            this.label13.Location = new System.Drawing.Point(370, 259);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(143, 22);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Nombre cliente:";
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrar.Location = new System.Drawing.Point(951, 375);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(107, 35);
+            this.btnRegistrar.TabIndex = 8;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
             // comboBoxOrganizadores
             // 
             this.comboBoxOrganizadores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOrganizadores.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxOrganizadores.FormattingEnabled = true;
-            this.comboBoxOrganizadores.Location = new System.Drawing.Point(70, 375);
+            this.comboBoxOrganizadores.Location = new System.Drawing.Point(25, 375);
             this.comboBoxOrganizadores.Name = "comboBoxOrganizadores";
             this.comboBoxOrganizadores.Size = new System.Drawing.Size(314, 30);
             this.comboBoxOrganizadores.TabIndex = 27;
@@ -191,7 +324,7 @@
             this.label12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label12.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.LightGray;
-            this.label12.Location = new System.Drawing.Point(73, 338);
+            this.label12.Location = new System.Drawing.Point(28, 338);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(118, 22);
             this.label12.TabIndex = 26;
@@ -244,7 +377,7 @@
             this.comboBoxTipoEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTipoEvento.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTipoEvento.FormattingEnabled = true;
-            this.comboBoxTipoEvento.Location = new System.Drawing.Point(70, 298);
+            this.comboBoxTipoEvento.Location = new System.Drawing.Point(25, 298);
             this.comboBoxTipoEvento.Name = "comboBoxTipoEvento";
             this.comboBoxTipoEvento.Size = new System.Drawing.Size(314, 30);
             this.comboBoxTipoEvento.TabIndex = 21;
@@ -256,7 +389,7 @@
             this.label9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label9.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.LightGray;
-            this.label9.Location = new System.Drawing.Point(73, 261);
+            this.label9.Location = new System.Drawing.Point(28, 261);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(141, 22);
             this.label9.TabIndex = 20;
@@ -267,9 +400,9 @@
             this.comboBoxSalon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSalon.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSalon.FormattingEnabled = true;
-            this.comboBoxSalon.Location = new System.Drawing.Point(538, 217);
+            this.comboBoxSalon.Location = new System.Drawing.Point(374, 217);
             this.comboBoxSalon.Name = "comboBoxSalon";
-            this.comboBoxSalon.Size = new System.Drawing.Size(443, 30);
+            this.comboBoxSalon.Size = new System.Drawing.Size(314, 30);
             this.comboBoxSalon.TabIndex = 19;
             // 
             // label8
@@ -279,7 +412,7 @@
             this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label8.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.LightGray;
-            this.label8.Location = new System.Drawing.Point(534, 180);
+            this.label8.Location = new System.Drawing.Point(370, 180);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 22);
             this.label8.TabIndex = 18;
@@ -351,7 +484,7 @@
             // txtBoxDescripcionEvento
             // 
             this.txtBoxDescripcionEvento.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxDescripcionEvento.Location = new System.Drawing.Point(70, 218);
+            this.txtBoxDescripcionEvento.Location = new System.Drawing.Point(25, 218);
             this.txtBoxDescripcionEvento.Name = "txtBoxDescripcionEvento";
             this.txtBoxDescripcionEvento.Size = new System.Drawing.Size(314, 29);
             this.txtBoxDescripcionEvento.TabIndex = 11;
@@ -371,7 +504,7 @@
             this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.LightGray;
-            this.label4.Location = new System.Drawing.Point(66, 180);
+            this.label4.Location = new System.Drawing.Point(21, 180);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 22);
             this.label4.TabIndex = 9;
@@ -401,66 +534,12 @@
             this.btnListarReservas.UseVisualStyleBackColor = true;
             this.btnListarReservas.Click += new System.EventHandler(this.btnListarReservas_Click);
             // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistrar.Location = new System.Drawing.Point(951, 375);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(107, 35);
-            this.btnRegistrar.TabIndex = 8;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            // 
-            // txtBoxNombreCliente
-            // 
-            this.txtBoxNombreCliente.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxNombreCliente.Location = new System.Drawing.Point(538, 297);
-            this.txtBoxNombreCliente.Name = "txtBoxNombreCliente";
-            this.txtBoxNombreCliente.Size = new System.Drawing.Size(314, 29);
-            this.txtBoxNombreCliente.TabIndex = 29;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label13.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.LightGray;
-            this.label13.Location = new System.Drawing.Point(534, 259);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(143, 22);
-            this.label13.TabIndex = 28;
-            this.label13.Text = "Nombre cliente:";
-            // 
-            // txtBoxNombreComercial
-            // 
-            this.txtBoxNombreComercial.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxNombreComercial.Location = new System.Drawing.Point(538, 376);
-            this.txtBoxNombreComercial.Name = "txtBoxNombreComercial";
-            this.txtBoxNombreComercial.Size = new System.Drawing.Size(314, 29);
-            this.txtBoxNombreComercial.TabIndex = 31;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label14.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.LightGray;
-            this.label14.Location = new System.Drawing.Point(534, 338);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(170, 22);
-            this.label14.TabIndex = 30;
-            this.label14.Text = "Nombre comercial:";
-            // 
             // Reservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(1064, 573);
-            this.Controls.Add(this.addReservation);
             this.Controls.Add(this.btnListarReservas);
             this.Controls.Add(this.btnEliminarReserva);
             this.Controls.Add(this.btnEditarReserva);
@@ -468,6 +547,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listReservations);
+            this.Controls.Add(this.addReservation);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Reservas";
             this.Text = "Reservas";
@@ -517,5 +597,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtBoxNombreCliente;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox comboBoxEstadoEvento;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnConfirmarEdicion;
     }
 }
