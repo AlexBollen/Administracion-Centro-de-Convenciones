@@ -73,6 +73,15 @@ IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Persona')
 DROP TABLE Persona
 GO
 
+DROP PROC InsertarEvento;
+DROP PROC InsertarItinerario;
+DROP PROC InsertarPersona;
+DROP PROC InsertarResponsable;
+DROP PROC ListarEventos;
+DROP PROC ListarOrganizadores;
+DROP PROC ListarSalones;
+DROP PROC ListarTipoEvento;
+
 CREATE TABLE Persona
 (
   IdPersona INTEGER PRIMARY KEY IDENTITY(1,1),
@@ -90,15 +99,19 @@ GO
 
 CREATE TABLE Organizador
 (
-  IdOrganizador INT PRIMARY KEY REFERENCES Persona(IdPersona),
+  IdOrganizador INTEGER PRIMARY KEY IDENTITY(1,1),
   Estado BIT NOT NULL DEFAULT 1,
+  IdPersona INT NOT NULL,
+  FOREIGN KEY (IdPersona) REFERENCES Persona(IdPersona)
 );
 GO
 
 CREATE TABLE Responsable
 (
-  IdResponsable INT PRIMARY KEY REFERENCES Persona(IdPersona),
-  NombreComercial VARCHAR(150),
+  IdResponsable INTEGER PRIMARY KEY IDENTITY(1,1),
+  NombreComercial VARCHAR(100),
+  IdPersona INT NOT NULL,
+  FOREIGN KEY (IdPersona) REFERENCES Persona(IdPersona)
 );
 GO
 
@@ -115,8 +128,8 @@ CREATE TABLE Itinerario
   IdItinerario INTEGER PRIMARY KEY IDENTITY(1,1),
   FechaInicio DATE NOT NULL,
   FechaCulminacion DATE NOT NULL,
-  HoraInicio TIME NOT NULL,
-  HoraCulminacion TIME NOT NULL,
+  HoraInicio VARCHAR(25) NOT NULL,
+  HoraCulminacion VARCHAR(25) NOT NULL,
 );
 GO
 
@@ -207,10 +220,10 @@ GO
 CREATE TABLE Evento
 (
   IdEvento INTEGER PRIMARY KEY IDENTITY(1,1),
+  Nombre VARCHAR(100) NOT NULL,
   Descripcion VARCHAR(150) NOT NULL,
   EstadoEvento VARCHAR(75) NOT NULL,
   CantidadAsistentes INT NOT NULL,
-  Nombre VARCHAR(100) NOT NULL,
   FechaReserva DATE NOT NULL,
   IdItinerario INT NOT NULL,
   IdResponsable INT NOT NULL,
@@ -317,12 +330,12 @@ INSERT INTO Persona (NombrePersona)
 VALUES
 	('Pedro David Gómez Bolaños'),
 	('Juan Luis Hernández');
-INSERT INTO Organizador (IdOrganizador, Estado)
+INSERT INTO Organizador (Estado, IdPersona)
 VALUES
 	(1, 1);
-INSERT INTO Responsable (IdResponsable, NombreComercial)
+INSERT INTO Responsable (NombreComercial, IdPersona)
 VALUES
-	(2, NULL);
+	(NULL, 2);
 INSERT INTO Evento (Nombre, Descripcion, EstadoEvento, CantidadAsistentes, FechaReserva, IdItinerario, IdResponsable, IdOrganizador, IdTipoEvento, IdSalon)
 VALUES
-	('Boda Hernández-Dominguez', 'Celebración de matrimonio de señor Juan Hernández y Luisa Dominguez', 'Finalizado', 150, '2024-01-15', 1, 2, 1, 1, 16)
+	('Boda Hernández-Dominguez', 'Celebración de matrimonio de señor Juan Hernández y Luisa Dominguez', 'Finalizado', 150, '2024-01-15', 1, 1, 1, 1, 16)

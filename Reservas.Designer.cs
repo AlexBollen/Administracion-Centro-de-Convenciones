@@ -31,27 +31,32 @@
             this.btnEditarReserva = new System.Windows.Forms.Button();
             this.btnEliminarReserva = new System.Windows.Forms.Button();
             this.addReservation = new System.Windows.Forms.GroupBox();
-            this.btnListarReservas = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtBoxNombreEvento = new System.Windows.Forms.TextBox();
-            this.txtBoxDescripcionEvento = new System.Windows.Forms.TextBox();
-            this.txtBoxCantidadAsistentes = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtBoxHoraInicio = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtBoxHoraCulminacion = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBoxSalon = new System.Windows.Forms.ComboBox();
+            this.comboBoxOrganizadores = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dateTimePickerFC = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerFI = new System.Windows.Forms.DateTimePicker();
             this.comboBoxTipoEvento = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.comboBoxSalon = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtBoxHoraCulminacion = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtBoxHoraInicio = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtBoxCantidadAsistentes = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtBoxDescripcionEvento = new System.Windows.Forms.TextBox();
+            this.txtBoxNombreEvento = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnListarReservas = new System.Windows.Forms.Button();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.txtBoxNombreCliente = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtBoxNombreComercial = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.listReservations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.addReservation.SuspendLayout();
@@ -138,12 +143,17 @@
             // addReservation
             // 
             this.addReservation.AutoSize = true;
-            this.addReservation.Controls.Add(this.comboBox1);
+            this.addReservation.Controls.Add(this.txtBoxNombreComercial);
+            this.addReservation.Controls.Add(this.label14);
+            this.addReservation.Controls.Add(this.txtBoxNombreCliente);
+            this.addReservation.Controls.Add(this.label13);
+            this.addReservation.Controls.Add(this.btnRegistrar);
+            this.addReservation.Controls.Add(this.comboBoxOrganizadores);
             this.addReservation.Controls.Add(this.label12);
             this.addReservation.Controls.Add(this.label11);
             this.addReservation.Controls.Add(this.label10);
-            this.addReservation.Controls.Add(this.dateTimePicker2);
-            this.addReservation.Controls.Add(this.dateTimePicker1);
+            this.addReservation.Controls.Add(this.dateTimePickerFC);
+            this.addReservation.Controls.Add(this.dateTimePickerFI);
             this.addReservation.Controls.Add(this.comboBoxTipoEvento);
             this.addReservation.Controls.Add(this.label9);
             this.addReservation.Controls.Add(this.comboBoxSalon);
@@ -164,146 +174,74 @@
             this.addReservation.TabIndex = 1;
             this.addReservation.TabStop = false;
             // 
-            // btnListarReservas
+            // comboBoxOrganizadores
             // 
-            this.btnListarReservas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnListarReservas.Location = new System.Drawing.Point(575, 101);
-            this.btnListarReservas.Name = "btnListarReservas";
-            this.btnListarReservas.Size = new System.Drawing.Size(107, 35);
-            this.btnListarReservas.TabIndex = 7;
-            this.btnListarReservas.Text = "Listar";
-            this.btnListarReservas.UseVisualStyleBackColor = true;
-            this.btnListarReservas.Click += new System.EventHandler(this.btnListarReservas_Click);
+            this.comboBoxOrganizadores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOrganizadores.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxOrganizadores.FormattingEnabled = true;
+            this.comboBoxOrganizadores.Location = new System.Drawing.Point(70, 375);
+            this.comboBoxOrganizadores.Name = "comboBoxOrganizadores";
+            this.comboBoxOrganizadores.Size = new System.Drawing.Size(314, 30);
+            this.comboBoxOrganizadores.TabIndex = 27;
             // 
-            // label3
+            // label12
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.LightGray;
-            this.label3.Location = new System.Drawing.Point(66, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 22);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Nombre del evento:";
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label12.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.LightGray;
+            this.label12.Location = new System.Drawing.Point(73, 338);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(118, 22);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "Organizador:";
             // 
-            // label4
+            // label11
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.LightGray;
-            this.label4.Location = new System.Drawing.Point(66, 95);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 22);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Descripción:";
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label11.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.LightGray;
+            this.label11.Location = new System.Drawing.Point(554, 97);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(172, 22);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Fecha culminación:";
             // 
-            // txtBoxNombreEvento
+            // label10
             // 
-            this.txtBoxNombreEvento.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxNombreEvento.Location = new System.Drawing.Point(70, 56);
-            this.txtBoxNombreEvento.Name = "txtBoxNombreEvento";
-            this.txtBoxNombreEvento.Size = new System.Drawing.Size(314, 29);
-            this.txtBoxNombreEvento.TabIndex = 10;
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label10.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.LightGray;
+            this.label10.Location = new System.Drawing.Point(66, 97);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(116, 22);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Fecha inicio:";
             // 
-            // txtBoxDescripcionEvento
+            // dateTimePickerFC
             // 
-            this.txtBoxDescripcionEvento.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxDescripcionEvento.Location = new System.Drawing.Point(70, 133);
-            this.txtBoxDescripcionEvento.Name = "txtBoxDescripcionEvento";
-            this.txtBoxDescripcionEvento.Size = new System.Drawing.Size(314, 29);
-            this.txtBoxDescripcionEvento.TabIndex = 11;
+            this.dateTimePickerFC.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerFC.Location = new System.Drawing.Point(558, 135);
+            this.dateTimePickerFC.Name = "dateTimePickerFC";
+            this.dateTimePickerFC.Size = new System.Drawing.Size(443, 29);
+            this.dateTimePickerFC.TabIndex = 23;
             // 
-            // txtBoxCantidadAsistentes
+            // dateTimePickerFI
             // 
-            this.txtBoxCantidadAsistentes.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCantidadAsistentes.Location = new System.Drawing.Point(70, 218);
-            this.txtBoxCantidadAsistentes.Name = "txtBoxCantidadAsistentes";
-            this.txtBoxCantidadAsistentes.Size = new System.Drawing.Size(314, 29);
-            this.txtBoxCantidadAsistentes.TabIndex = 13;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.LightGray;
-            this.label5.Location = new System.Drawing.Point(66, 180);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(183, 22);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Cantidad Asistentes:";
-            // 
-            // txtBoxHoraInicio
-            // 
-            this.txtBoxHoraInicio.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxHoraInicio.Location = new System.Drawing.Point(535, 69);
-            this.txtBoxHoraInicio.Name = "txtBoxHoraInicio";
-            this.txtBoxHoraInicio.Size = new System.Drawing.Size(186, 29);
-            this.txtBoxHoraInicio.TabIndex = 15;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.LightGray;
-            this.label6.Location = new System.Drawing.Point(531, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 22);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Hora de inicio:";
-            // 
-            // txtBoxHoraCulminacion
-            // 
-            this.txtBoxHoraCulminacion.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxHoraCulminacion.Location = new System.Drawing.Point(792, 69);
-            this.txtBoxHoraCulminacion.Name = "txtBoxHoraCulminacion";
-            this.txtBoxHoraCulminacion.Size = new System.Drawing.Size(186, 29);
-            this.txtBoxHoraCulminacion.TabIndex = 17;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.LightGray;
-            this.label7.Location = new System.Drawing.Point(788, 32);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(186, 22);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Hora de culminación:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label8.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.LightGray;
-            this.label8.Location = new System.Drawing.Point(538, 282);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 22);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Salon:";
-            // 
-            // comboBoxSalon
-            // 
-            this.comboBoxSalon.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxSalon.FormattingEnabled = true;
-            this.comboBoxSalon.Location = new System.Drawing.Point(535, 319);
-            this.comboBoxSalon.Name = "comboBoxSalon";
-            this.comboBoxSalon.Size = new System.Drawing.Size(443, 30);
-            this.comboBoxSalon.TabIndex = 19;
+            this.dateTimePickerFI.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerFI.Location = new System.Drawing.Point(70, 135);
+            this.dateTimePickerFI.Name = "dateTimePickerFI";
+            this.dateTimePickerFI.Size = new System.Drawing.Size(443, 29);
+            this.dateTimePickerFI.TabIndex = 22;
             // 
             // comboBoxTipoEvento
             // 
+            this.comboBoxTipoEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTipoEvento.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTipoEvento.FormattingEnabled = true;
             this.comboBoxTipoEvento.Location = new System.Drawing.Point(70, 298);
@@ -324,69 +262,197 @@
             this.label9.TabIndex = 20;
             this.label9.Text = "Tipo de evento:";
             // 
-            // dateTimePicker1
+            // comboBoxSalon
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(535, 152);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(443, 29);
-            this.dateTimePicker1.TabIndex = 22;
+            this.comboBoxSalon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSalon.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSalon.FormattingEnabled = true;
+            this.comboBoxSalon.Location = new System.Drawing.Point(538, 217);
+            this.comboBoxSalon.Name = "comboBoxSalon";
+            this.comboBoxSalon.Size = new System.Drawing.Size(443, 30);
+            this.comboBoxSalon.TabIndex = 19;
             // 
-            // dateTimePicker2
+            // label8
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(535, 233);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(443, 29);
-            this.dateTimePicker2.TabIndex = 23;
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label8.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.LightGray;
+            this.label8.Location = new System.Drawing.Point(534, 180);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(63, 22);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Salon:";
             // 
-            // label10
+            // txtBoxHoraCulminacion
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label10.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.LightGray;
-            this.label10.Location = new System.Drawing.Point(531, 114);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(116, 22);
-            this.label10.TabIndex = 24;
-            this.label10.Text = "Fecha inicio:";
+            this.txtBoxHoraCulminacion.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxHoraCulminacion.Location = new System.Drawing.Point(872, 54);
+            this.txtBoxHoraCulminacion.Name = "txtBoxHoraCulminacion";
+            this.txtBoxHoraCulminacion.Size = new System.Drawing.Size(186, 29);
+            this.txtBoxHoraCulminacion.TabIndex = 17;
             // 
-            // label11
+            // label7
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label11.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.LightGray;
-            this.label11.Location = new System.Drawing.Point(531, 195);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(172, 22);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "Fecha culminación:";
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.LightGray;
+            this.label7.Location = new System.Drawing.Point(868, 17);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(186, 22);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Hora de culminación:";
             // 
-            // comboBox1
+            // txtBoxHoraInicio
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(70, 375);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(314, 30);
-            this.comboBox1.TabIndex = 27;
+            this.txtBoxHoraInicio.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxHoraInicio.Location = new System.Drawing.Point(663, 54);
+            this.txtBoxHoraInicio.Name = "txtBoxHoraInicio";
+            this.txtBoxHoraInicio.Size = new System.Drawing.Size(186, 29);
+            this.txtBoxHoraInicio.TabIndex = 15;
             // 
-            // label12
+            // label6
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label12.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.LightGray;
-            this.label12.Location = new System.Drawing.Point(73, 338);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(118, 22);
-            this.label12.TabIndex = 26;
-            this.label12.Text = "Organizador:";
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.LightGray;
+            this.label6.Location = new System.Drawing.Point(659, 17);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(130, 22);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Hora de inicio:";
+            // 
+            // txtBoxCantidadAsistentes
+            // 
+            this.txtBoxCantidadAsistentes.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCantidadAsistentes.Location = new System.Drawing.Point(431, 54);
+            this.txtBoxCantidadAsistentes.Name = "txtBoxCantidadAsistentes";
+            this.txtBoxCantidadAsistentes.Size = new System.Drawing.Size(186, 29);
+            this.txtBoxCantidadAsistentes.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.LightGray;
+            this.label5.Location = new System.Drawing.Point(427, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(183, 22);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Cantidad Asistentes:";
+            // 
+            // txtBoxDescripcionEvento
+            // 
+            this.txtBoxDescripcionEvento.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxDescripcionEvento.Location = new System.Drawing.Point(70, 218);
+            this.txtBoxDescripcionEvento.Name = "txtBoxDescripcionEvento";
+            this.txtBoxDescripcionEvento.Size = new System.Drawing.Size(314, 29);
+            this.txtBoxDescripcionEvento.TabIndex = 11;
+            // 
+            // txtBoxNombreEvento
+            // 
+            this.txtBoxNombreEvento.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxNombreEvento.Location = new System.Drawing.Point(70, 56);
+            this.txtBoxNombreEvento.Name = "txtBoxNombreEvento";
+            this.txtBoxNombreEvento.Size = new System.Drawing.Size(314, 29);
+            this.txtBoxNombreEvento.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.LightGray;
+            this.label4.Location = new System.Drawing.Point(66, 180);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 22);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Descripción:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.LightGray;
+            this.label3.Location = new System.Drawing.Point(66, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(176, 22);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Nombre del evento:";
+            // 
+            // btnListarReservas
+            // 
+            this.btnListarReservas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListarReservas.Location = new System.Drawing.Point(575, 101);
+            this.btnListarReservas.Name = "btnListarReservas";
+            this.btnListarReservas.Size = new System.Drawing.Size(107, 35);
+            this.btnListarReservas.TabIndex = 7;
+            this.btnListarReservas.Text = "Listar";
+            this.btnListarReservas.UseVisualStyleBackColor = true;
+            this.btnListarReservas.Click += new System.EventHandler(this.btnListarReservas_Click);
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrar.Location = new System.Drawing.Point(951, 375);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(107, 35);
+            this.btnRegistrar.TabIndex = 8;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
+            // txtBoxNombreCliente
+            // 
+            this.txtBoxNombreCliente.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxNombreCliente.Location = new System.Drawing.Point(538, 297);
+            this.txtBoxNombreCliente.Name = "txtBoxNombreCliente";
+            this.txtBoxNombreCliente.Size = new System.Drawing.Size(314, 29);
+            this.txtBoxNombreCliente.TabIndex = 29;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label13.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.LightGray;
+            this.label13.Location = new System.Drawing.Point(534, 259);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(143, 22);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Nombre cliente:";
+            // 
+            // txtBoxNombreComercial
+            // 
+            this.txtBoxNombreComercial.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxNombreComercial.Location = new System.Drawing.Point(538, 376);
+            this.txtBoxNombreComercial.Name = "txtBoxNombreComercial";
+            this.txtBoxNombreComercial.Size = new System.Drawing.Size(314, 29);
+            this.txtBoxNombreComercial.TabIndex = 31;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label14.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.LightGray;
+            this.label14.Location = new System.Drawing.Point(534, 338);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(170, 22);
+            this.label14.TabIndex = 30;
+            this.label14.Text = "Nombre comercial:";
             // 
             // Reservas
             // 
@@ -426,12 +492,12 @@
         private System.Windows.Forms.Button btnEliminarReserva;
         private System.Windows.Forms.GroupBox addReservation;
         private System.Windows.Forms.Button btnListarReservas;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxOrganizadores;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFC;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFI;
         private System.Windows.Forms.ComboBox comboBoxTipoEvento;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBoxSalon;
@@ -446,5 +512,10 @@
         private System.Windows.Forms.TextBox txtBoxNombreEvento;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.TextBox txtBoxNombreComercial;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtBoxNombreCliente;
+        private System.Windows.Forms.Label label13;
     }
 }
