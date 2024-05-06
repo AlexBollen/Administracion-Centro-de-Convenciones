@@ -94,3 +94,50 @@ AS BEGIN
 	SET @IdResponsableOutput = SCOPE_IDENTITY();
 END;
 GO
+
+CREATE PROC ActualizarEvento
+@IdEvento INT,
+@Nombre VARCHAR(100),
+@Descripcion VARCHAR(150),
+@EstadoEvento VARCHAR(75),
+@CantidadAsistentes INT,
+@IdOrganizador INT,
+@IdTipoEvento INT,
+@IdSalon INT,
+@IdItinerario INT,
+@FechaInicio DATE,
+@FechaCulminacion DATE,
+@HoraInicio VARCHAR(25),
+@HoraCulminacion VARCHAR(25),
+@IdResponsable INT, 
+@NombreComercial VARCHAR(150),
+@IdPersona INT,
+@NombrePersona VARCHAR(100)
+AS BEGIN
+	UPDATE Evento SET 
+	Nombre=@Nombre, 
+	Descripcion=@Descripcion, 
+	EstadoEvento=@EstadoEvento, 
+	CantidadAsistentes=@CantidadAsistentes, 
+	IdOrganizador=@IdOrganizador,
+	IdTipoEvento=@IdTipoEvento,
+	IdSalon=@IdSalon
+	WHERE IdEvento=@IdEvento;
+
+	UPDATE Itinerario SET
+	FechaInicio=@FechaInicio,
+	FechaCulminacion=@FechaCulminacion,
+	HoraInicio=@HoraInicio,
+	HoraCulminacion=@HoraCulminacion
+	WHERE IdItinerario=@IdItinerario;
+
+	UPDATE Responsable SET
+	NombreComercial=@NombreComercial
+	WHERE IdResponsable=@IdResponsable;
+
+	UPDATE Persona SET
+	NombrePersona=@NombrePersona
+	WHERE IdPersona=@IdPersona;
+
+END;
+GO
