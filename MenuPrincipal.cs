@@ -99,26 +99,38 @@ namespace Administración_Centro_de_Convenciones {
         }
 
         private void btnReservation_Click(object sender, EventArgs e) {
+            reportsMenu.Visible = false;
+            btnReportsState = false;
             OpenViewsForm(new Reservas());
         }
 
         private void pictureBox1_Click(object sender, EventArgs e) {
+            reportsMenu.Visible = false;
+            btnReportsState = false;
             OpenViewsForm(new Menu());
         }
 
         private void label1_Click(object sender, EventArgs e) {
+            reportsMenu.Visible = false;
+            btnReportsState = false;
             OpenViewsForm(new Menu());
         }
 
         private void label2_Click(object sender, EventArgs e) {
+            reportsMenu.Visible = false;
+            btnReportsState = false;
             OpenViewsForm(new Menu());
         }
 
         private void button2_Click(object sender, EventArgs e) {
+            reportsMenu.Visible = false;
+            btnReportsState = false;
             OpenViewsForm(new Servicios());
         }
 
         private void btnSettings_Click(object sender, EventArgs e) {
+            reportsMenu.Visible = false;
+            btnReportsState = false;
             OpenViewsForm(new Configuracion());
         }
 

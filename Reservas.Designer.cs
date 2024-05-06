@@ -546,8 +546,8 @@
             this.Controls.Add(this.btnAgregarReserva);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listReservations);
             this.Controls.Add(this.addReservation);
+            this.Controls.Add(this.listReservations);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Reservas";
             this.Text = "Reservas";

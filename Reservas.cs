@@ -12,6 +12,7 @@ using System.Windows.Forms;
 namespace Administración_Centro_de_Convenciones {
     public partial class Reservas : Form {
         ClsEventos objEventos = new ClsEventos();
+        int UpdatePersonaId, UpdateResponsableId, UpdateItinerarioId;
         public Reservas() {
             InitializeComponent();
         }
@@ -115,28 +116,46 @@ namespace Administración_Centro_de_Convenciones {
 
         private void btnEditarReserva_Click(object sender, EventArgs e) {
             if (dataGridView1.SelectedRows.Count > 0) {
+                // Control de visualización de componentes
                 listReservations.Hide();
                 addReservation.Show();
                 btnRegistrar.Hide();
                 btnConfirmarEdicion.Show();
+                // Cargar tablas relacionadas a combobox
                 ListarOrganizadores();
                 ListarSalones();
                 ListarTiposEvento();
+                // Cargar datos del registro a componentes
                 IdEvento = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                txtBoxNombreEvento.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                txtBoxDescripcionEvento.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                comboBoxEstadoEvento.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                txtBoxCantidadAsistentes.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                comboBoxOrganizadores.Enabled = true;
-                comboBoxOrganizadores.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                comboBoxOrganizadores.Enabled = false;
-                txtBoxNombreCliente.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                comboBoxSalon.Enabled = true;
-                comboBoxSalon.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
-                comboBoxSalon.Enabled = false;
-                comboBoxTipoEvento.Enabled = true;
-                comboBoxTipoEvento.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
-                comboBoxTipoEvento.Enabled = false;
+                string[] registro;
+                registro = objEventos.CargarRegistroEvento(IdEvento);
+                txtBoxNombreEvento.Text = registro[1];
+                txtBoxDescripcionEvento.Text = registro[2];
+                comboBoxEstadoEvento.Text = registro[3];
+                txtBoxCantidadAsistentes.Text = registro[4];
+                UpdateItinerarioId = Convert.ToInt32(registro[6]);
+                UpdateResponsableId = Convert.ToInt32(registro[7]);
+                comboBoxOrganizadores.SelectedValue= registro[8];
+                comboBoxTipoEvento.SelectedValue = registro[9];
+                comboBoxSalon.SelectedValue = registro[10];
+                // Cargar datos de itinerario del evento
+                string[] itinerario;
+                itinerario = objEventos.CargarRegistroItinerario(Convert.ToInt32(registro[6]));
+                dateTimePickerFI.Value = Convert.ToDateTime(itinerario[1]);
+                dateTimePickerFC.Value = Convert.ToDateTime(itinerario[2]);
+                txtBoxHoraInicio.Text = itinerario[3];
+                txtBoxHoraCulminacion.Text = itinerario[4];
+                // Cargar datos de responsable del evento
+                string[] responsable;
+                responsable = objEventos.CargarRegistroResponsable(Convert.ToInt32(registro[7]));
+                txtBoxNombreComercial.Text = responsable[1];
+                UpdatePersonaId = Convert.ToInt32(responsable[2]);
+                // Cargar datos de persona 
+                string[] persona;
+                persona = objEventos.CargarRegistroPersona(Convert.ToInt32(responsable[2]));
+                txtBoxNombreCliente.Text = persona[1];
+
+
             } else
                 MessageBox.Show("Debe seleccionar un registro a editar");
         }
@@ -147,13 +166,25 @@ namespace Administración_Centro_de_Convenciones {
                 txtBoxNombreEvento.Text,
                 txtBoxDescripcionEvento.Text,
                 comboBoxEstadoEvento.Text,
-                Convert.ToInt32(txtBoxCantidadAsistentes.SelectedText),
+                Convert.ToInt32(txtBoxCantidadAsistentes.Text),
                 Convert.ToInt32(comboBoxOrganizadores.SelectedValue),
                 Convert.ToInt32(comboBoxTipoEvento.SelectedValue),
-                Convert.ToInt32(comboBoxSalon.SelectedValue)
+                Convert.ToInt32(comboBoxSalon.SelectedValue),
+                UpdateItinerarioId,
+                dateTimePickerFI.Value,
+                dateTimePickerFC.Value,
+                txtBoxHoraInicio.Text,
+                txtBoxHoraCulminacion.Text,
+                UpdateResponsableId,
+                txtBoxNombreComercial.Text,
+                UpdatePersonaId,
+                txtBoxNombreCliente.Text
             );
             btnRegistrar.Show();
             btnConfirmarEdicion.Hide();
+            MessageBox.Show("Se ha actualizado el evento correctamente");
+            btnListarReservas.PerformClick();
+
         }
 
         private void btnEliminarReserva_Click(object sender, EventArgs e) {
