@@ -9,9 +9,9 @@ using System.Windows.Forms;
 namespace Administración_Centro_de_Convenciones.Clases {
     public  class DBConnection {
         private readonly string connectionString;
-        static string server = "ALEX\\SQLEXPRESS";
-        static string user = "alexb";
-        static string password = "databasepass";
+        static string server = "";
+        static string user = "";
+        static string password = "";
         public DBConnection() {
             connectionString = "Server="+ server+";"+ "DataBase=CentroConvenciones; user id="+user+";" + "password="+password+";";
 
