@@ -21,14 +21,16 @@ INNER JOIN Persona organizador ON e.IdOrganizador=organizador.IdPersona
 INNER JOIN Persona responsable ON e.IdResponsable=responsable.IdPersona
 INNER JOIN Salon ON e.IdSalon=Salon.IdSalon
 INNER JOIN TipoEvento ON e.IdTipoEvento=TipoEvento.IdTipoEvento
-
 GO
 
+
+-- Procedimiento para listar salones
 CREATE PROC ListarSalones
 AS
 SELECT * FROM Salon ORDER BY IdSalon ASC
 GO
 
+-- Procedimiento para listar organizadores
 CREATE PROC ListarOrganizadores
 AS
 SELECT o.IdOrganizador,
@@ -37,11 +39,13 @@ FROM Organizador o
 INNER JOIN Persona organizador ON o.IdOrganizador=organizador.IdPersona
 GO
 
+-- Procedimiento para listar tipos de evento
 CREATE PROC ListarTipoEvento
 AS
 SELECT * FROM TipoEvento ORDER BY IdTipoEvento ASC
 GO
 
+-- Procedimiento para registrar nuevo evento
 CREATE PROC InsertarEvento
 @Nombre VARCHAR (100),
 @Descripcion VARCHAR(150),
@@ -58,6 +62,7 @@ INSERT INTO Evento
 VALUES (@Nombre, @Descripcion, @EstadoEvento, @CantidadAsistentes, @FechaReserva, @IdItinerario, @IdResponsable, @IdOrganizador, @IdTipoEvento, @IdSalon)
 GO
 
+-- Procedimiento para registrar nuevo itinerario
 CREATE PROC InsertarItinerario
 @FechaInicio DATE,
 @FechaCulminacion DATE,
@@ -72,6 +77,7 @@ SET @IdItinerario = SCOPE_IDENTITY();
 END;
 GO
 
+-- Procedimiento para registrar nueva persona
 CREATE PROC InsertarPersona
 @NombrePersona VARCHAR(100),
 @IdPersona INT OUTPUT
@@ -83,6 +89,7 @@ AS BEGIN
 END;
 GO
 
+-- Procedimiento para registrar nuevo responsable
 CREATE PROC InsertarResponsable
 @NombreComercial VARCHAR(150),
 @IdPersona INT,
@@ -95,6 +102,7 @@ AS BEGIN
 END;
 GO
 
+-- Procedimiento para actualizar registro de evento
 CREATE PROC ActualizarEvento
 @IdEvento INT,
 @Nombre VARCHAR(100),
@@ -141,3 +149,135 @@ AS BEGIN
 
 END;
 GO
+
+-- Procedimiento para listar usuarios
+CREATE PROC ListarUsuarios
+AS
+SELECT	usr.IdUsuario,
+		usr.Usuario,
+		usr.Nombre,
+		usr.Estado,
+		NombreRol,
+		DireccionDetallada as Direccion,
+		Municipio,
+		Departamento
+FROM Usuario usr
+INNER JOIN Rol ON usr.IdRol=Rol.IdRol
+INNER JOIN Direccion ON usr.IdDireccion=Direccion.IdDireccion
+GO
+
+-- Procedimiento para listar roles
+CREATE PROC ListarRoles
+AS
+SELECT * FROM Rol ORDER BY IdRol ASC
+GO
+
+-- Procedimiento para registra nuevo usuario
+CREATE PROC InsertarUsuario
+@Usuario VARCHAR(50),
+@Contrasenia VARCHAR(126),
+@Nombre VARCHAR(100),
+@Estado BIT,
+@IdRol INT,
+@IdDireccion INT,
+@IdContacto INT
+AS
+INSERT INTO Usuario 
+VALUES (@Usuario, @Contrasenia, @Nombre, @Estado, @IdRol, @IdDireccion, @IdContacto)
+GO
+
+-- Procedimiento para registrar nueva direccion
+CREATE PROC InsertarDireccion
+@DireccionDetallada VARCHAR(150),
+@Municipio VARCHAR(50),
+@Departamento VARCHAR(50),
+@IdDireccionOutput INT OUTPUT
+AS
+BEGIN
+	INSERT INTO Direccion
+	VALUES (@DireccionDetallada, @Municipio, @Departamento)
+
+	SET @IdDireccionOutput = SCOPE_IDENTITY();
+END;
+GO
+
+-- Procedimiento para registrar nuevo contacto
+CREATE PROC InsertarContacto
+@EstadoContacto BIT,
+@IdContactoOutput INT OUTPUT
+AS 
+BEGIN
+	INSERT INTO Contacto
+	VALUES (@EstadoContacto)
+
+	SET @IdContactoOutput = SCOPE_IDENTITY();
+END;
+GO
+
+-- Procedimiento para registrar nuevo contacto de teléfono
+CREATE PROC InsertarContactoTelefono
+@Telefono VARCHAR(8),
+@IdContacto INT
+AS 
+INSERT INTO Contacto_Telefono
+VALUES (@Telefono, @IdContacto)
+GO
+
+-- Procedimiento para registrar nuevo contacto de email
+CREATE PROC InsertarContactoEmail
+@Email VARCHAR(100),
+@IdContacto INT
+AS 
+INSERT INTO Contacto_Email
+VALUES (@Email, @IdContacto)
+GO
+
+-- Procedimiento para actualizar registro de usuario
+CREATE PROC ActualizarUsuario
+@IdUsuario INT,
+@Usuario VARCHAR(50),
+@Contrasenia VARCHAR(126),
+@Nombre VARCHAR(100),
+@Estado BIT,
+@IdRol INT,
+@IdDireccion INT,
+@DireccionDetallada VARCHAR(150),
+@Municipio VARCHAR(50),
+@Departamento VARCHAR(50),
+@IdContacto INT,
+@EstadoContacto BIT,
+@IdContactoTelefono INT,
+@Telefono VARCHAR(8),
+@IdContactoEmail INT,
+@Email VARCHAR(100)
+AS BEGIN
+	UPDATE Usuario SET
+	Usuario=@Usuario,
+	Contrasenia=@Contrasenia,
+	Nombre=@Nombre,
+	Estado=@Estado,
+	IdRol=@IdRol
+	WHERE IdUsuario = @IdUsuario
+
+	UPDATE Direccion SET
+	DireccionDetallada=@DireccionDetallada,
+	Municipio=@Municipio,
+	Departamento=@Departamento
+	WHERE IdDireccion=@IdDireccion
+
+	UPDATE Contacto SET
+	EstadoContacto=@EstadoContacto
+	WHERE IdContacto=@IdContacto
+
+	UPDATE Contacto_Telefono SET
+	Telefono=@Telefono
+	WHERE IdContactoTelefono=@IdContactoTelefono
+
+	UPDATE Contacto_Email SET
+	Email=@Email
+	WHERE IdContactoEmail=@IdContactoEmail
+
+END;
+GO
+
+exec ListarUsuarios
