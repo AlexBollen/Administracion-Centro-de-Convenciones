@@ -82,6 +82,7 @@ DROP PROC ListarOrganizadores;
 DROP PROC ListarSalones;
 DROP PROC ListarTipoEvento;
 DROP PROC ActualizarEvento;
+DROP PROC ListarUsuarios;
 
 CREATE TABLE Persona
 (
