@@ -13,6 +13,7 @@ namespace Administración_Centro_de_Convenciones {
     public partial class Usuarios : Form {
         ClsUsuarios objUsuarios = new ClsUsuarios();
         int IdUsuario, UpdateDireccionId, UpdateContactoId;
+        string UpdatePass;
         public Usuarios() {
             InitializeComponent();
         }
@@ -41,6 +42,8 @@ namespace Administración_Centro_de_Convenciones {
             ClearData();
             btnEditarUsuario.Enabled = false;
             btnEliminarUsuario.Enabled = false;
+            btnIngresarUsuario.Show();
+            btnEditUsuario.Hide();
             ListarRoles();
             addUser.Show();
             listUsers.Hide();
@@ -75,31 +78,78 @@ namespace Administración_Centro_de_Convenciones {
                 MessageBox.Show("Debe seleccionar un registro a eliminar");
         }
 
-        private void btnIngresarUsuario_Click(object sender, EventArgs e) {
-            int idDireccion = objUsuarios.InsertarDireccion(
+        private void btnEditUsuario_Click(object sender, EventArgs e)
+        {
+            btnIngresarUsuario.Show();
+            btnEditUsuario.Hide();
+            string newPass;
+            bool newEstado;
+            if (txtBoxPass1.Text == "")
+                newPass = UpdatePass;
+            else
+                newPass = txtBoxPass1.Text;
+            if (comboBoxEstadoUsuario.Text == "Activo")
+                newEstado = true;
+            else
+                newEstado = false;
+            if (!(txtBoxPass1.Text == txtBoxPass2.Text))
+                MessageBox.Show("Las contraseñas no coinciden");
+            else
+            {
+                objUsuarios.EditarUsuario(
+                IdUsuario,
+                txtBoxUsername.Text,
+                newPass,
+                txtBoxNombreUsr.Text,
+                newEstado,
+                Convert.ToInt32(comboBoxRoles.SelectedValue),
+                UpdateDireccionId,
                 txtBoxDireccion.Text,
                 comboBoxMunicipios.Text,
-                comboBoxDeptos.Text);
-            int idContacto = objUsuarios.InsertarContacto(1);
-            objUsuarios.InsertarContactoTelefono(
-                txtBoxTelefono.Text,
-                idContacto);
-            objUsuarios.InsertarContactoMail(
-                txtBoxCorreo.Text, 
-                idContacto);
-            objUsuarios.InsertarUsuario(
-                txtBoxUsername.Text,
-                txtBoxPass1.Text,
-                txtBoxNombreUsr.Text,
+                comboBoxDeptos.Text,
+                UpdateContactoId,
                 1,
-                Convert.ToInt32(comboBoxRoles.SelectedValue),
-                idDireccion,
-                idContacto);
-            MessageBox.Show("Insertado correctamente");
-            ClearData();
-            btnEditarUsuario.Enabled = true;
-            btnEliminarUsuario.Enabled = true;
-            btnListarUsuarios .PerformClick();
+                txtBoxTelefono.Text,
+                txtBoxCorreo.Text
+            );
+                UpdatePass = "";
+                MessageBox.Show("Se actualizo correctamente el usuario");
+                btnListarUsuarios.PerformClick();
+            }
+        }
+
+        private void btnIngresarUsuario_Click(object sender, EventArgs e) {
+            bool newEstado;
+            if (comboBoxEstadoUsuario.Text == "Activo")
+                newEstado = true;
+            else
+                newEstado = false;
+            if (!(txtBoxPass1.Text == txtBoxPass2.Text))
+                MessageBox.Show("Las contraseñas no coinciden");
+            else
+            {
+                int idDireccion = objUsuarios.InsertarDireccion(
+                    txtBoxDireccion.Text,
+                    comboBoxMunicipios.Text,
+                    comboBoxDeptos.Text);
+                int idContacto = objUsuarios.InsertarContacto(
+                    1,
+                    txtBoxTelefono.Text,
+                    txtBoxCorreo.Text);
+                objUsuarios.InsertarUsuario(
+                    txtBoxUsername.Text,
+                    txtBoxPass1.Text,
+                    txtBoxNombreUsr.Text,
+                    newEstado,
+                    Convert.ToInt32(comboBoxRoles.SelectedValue),
+                    idDireccion,
+                    idContacto);
+                MessageBox.Show("Insertado correctamente");
+                ClearData();
+                btnEditarUsuario.Enabled = true;
+                btnEliminarUsuario.Enabled = true;
+                btnListarUsuarios.PerformClick();
+            }
         }
 
         private void btnEditarUsuario_Click(object sender, EventArgs e) {
@@ -116,21 +166,25 @@ namespace Administración_Centro_de_Convenciones {
                 string[] registro;
                 registro = objUsuarios.CargarRegistroUsuario(IdUsuario);
                 txtBoxUsername.Text = registro[1];
+                UpdatePass = registro[2];
                 txtBoxNombreUsr.Text = registro[3];
+                if (Convert.ToBoolean(registro[4]) == true)
+                    comboBoxEstadoUsuario.Text = "Activo";
+                else
+                    comboBoxEstadoUsuario.Text = "Inactivo";
                 comboBoxRoles.SelectedValue = registro[5];
+                UpdateDireccionId = Convert.ToInt32(registro[6]);
+                UpdateContactoId = Convert.ToInt32(registro[7]);
                 // Cargar datos de itinerario del evento
                 string[] direccion;
                 direccion = objUsuarios.CargarRegistroDireccion(Convert.ToInt32(registro[6]));
                 txtBoxDireccion.Text = direccion[1];
-                // Cargar datos de responsable del evento
-                /*string[] responsable;
-                responsable = objEventos.CargarRegistroResponsable(Convert.ToInt32(registro[7]));
-                txtBoxNombreComercial.Text = responsable[1];
-                UpdatePersonaId = Convert.ToInt32(responsable[2]);
-                // Cargar datos de persona 
-                string[] persona;
-                persona = objEventos.CargarRegistroPersona(Convert.ToInt32(responsable[2]));
-                txtBoxNombreCliente.Text = persona[1];*/
+                comboBoxMunicipios.Text = direccion[2];
+                comboBoxDeptos.Text = direccion[3];
+                string[] contacto;
+                contacto = objUsuarios.CargarRegistroContacto(Convert.ToInt32(registro[7]));
+                txtBoxTelefono.Text = contacto[2];
+                txtBoxCorreo.Text = contacto[3];
             } else
                 MessageBox.Show("Debe seleccionar un registro a editar");
         }

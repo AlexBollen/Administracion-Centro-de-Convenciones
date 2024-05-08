@@ -48,7 +48,7 @@ namespace Administración_Centro_de_Convenciones.Clases {
             string Usuario,
             string Contrasenia,
             string Nombre,
-            int Estado,
+            bool Estado,
             int IdRol,
             int IdDireccion,
             int IdContacto
@@ -114,7 +114,9 @@ namespace Administración_Centro_de_Convenciones.Clases {
         }
 
         public int InsertarContacto(
-            int EstadoContacto
+            int EstadoContacto,
+            string telefono,
+            string correo
         ) {
             int idContacto;
             using (var connection = GetConnection()) {
@@ -125,6 +127,8 @@ namespace Administración_Centro_de_Convenciones.Clases {
                         command.CommandText = "InsertarContacto";
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@EstadoContacto", EstadoContacto);
+                        command.Parameters.AddWithValue("@Telefono", telefono);
+                        command.Parameters.AddWithValue("@Email", correo);
 
                         SqlParameter idContactoParameter = new SqlParameter("@IdContactoOutput", SqlDbType.Int);
                         idContactoParameter.Direction = ParameterDirection.Output;
@@ -143,51 +147,56 @@ namespace Administración_Centro_de_Convenciones.Clases {
             }
         }
 
-        public void InsertarContactoTelefono(
-            string telefono,
-            int IdContacto
-        ) {
-            using (var connection = GetConnection()) {
+        public void EditarUsuario(
+            int IdUsuario,
+            string Usuario,
+            string Contrasenia,
+            string Nombre,
+            bool Estado,
+            int IdRol,
+            int IdDireccion,
+            string DireccionDetallada,
+            string Municipio,
+            string Departamento,
+            int IdContacto,
+            int EstadoContacto,
+            string Telefono,
+            string Email
+        )
+        {
+            using (var connection = GetConnection())
+            {
                 connection.Open();
-                try {
-                    using (var command = new SqlCommand()) {
+                try
+                {
+                    using (var command = new SqlCommand())
+                    {
                         command.Connection = connection;
-                        command.CommandText = "InsertarContactoTelefono";
+                        command.CommandText = "ActualizarUsuario";
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@Telefono", telefono);
+                        command.Parameters.AddWithValue("@IdUsuario", IdUsuario);
+                        command.Parameters.AddWithValue("@Usuario", Usuario);
+                        command.Parameters.AddWithValue("@Contrasenia", Contrasenia);
+                        command.Parameters.AddWithValue("@Nombre", Nombre);
+                        command.Parameters.AddWithValue("@Estado", Estado);
+                        command.Parameters.AddWithValue("@IdRol", IdRol);
+                        command.Parameters.AddWithValue("@IdDireccion", IdDireccion);
+                        command.Parameters.AddWithValue("@DireccionDetallada", DireccionDetallada);
+                        command.Parameters.AddWithValue("@Municipio", Municipio);
+                        command.Parameters.AddWithValue("@Departamento", Departamento);
                         command.Parameters.AddWithValue("@IdContacto", IdContacto);
-                        command.ExecuteNonQuery();
-                        command.Parameters.Clear();
-                    }
-                } catch (Exception ex) {
-                    MessageBox.Show($"Ocurrio un error al registrar el contacto de teléfono. \nError: {ex.Message}");
-                    throw;
-                } finally {
-                    connection.Close();
-                }
-            }
-        }
-
-        public void InsertarContactoMail(
-            string Email,
-            int IdContacto
-        ) {
-            using (var connection = GetConnection()) {
-                connection.Open();
-                try {
-                    using (var command = new SqlCommand()) {
-                        command.Connection = connection;
-                        command.CommandText = "InsertarContactoEmail";
-                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@EstadoContacto", EstadoContacto);
+                        command.Parameters.AddWithValue("@Telefono", Telefono);
                         command.Parameters.AddWithValue("@Email", Email);
-                        command.Parameters.AddWithValue("@IdContacto", IdContacto);
                         command.ExecuteNonQuery();
-                        command.Parameters.Clear();
                     }
-                } catch (Exception ex) {
-                    MessageBox.Show($"Ocurrio un error al registrar el contacto de mail. \nError: {ex.Message}");
-                    throw;
-                } finally {
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ocurrio un error al actualizar el usuario. \nError: {ex.Message}");
+                }
+                finally
+                {
                     connection.Close();
                 }
             }
@@ -271,41 +280,12 @@ namespace Administración_Centro_de_Convenciones.Clases {
             }
         }
 
-        public string[] CargarRegistroContactoTelefono(int IdContactoTelefono) {
+        public string[] CargarRegistroContacto(int IdContacto) {
             using (var connection = GetConnection()) {
                 connection.Open();
                 using (var command = new SqlCommand()) {
                     command.Connection = connection;
-                    command.CommandText = "SELECT * FROM Contacto_Telefono WHERE IdContactoTelefono=" + IdContactoTelefono;
-                    command.CommandType = CommandType.Text;
-                    LeerFilas = command.ExecuteReader();
-                    string[] row = new string[LeerFilas.FieldCount];
-                    try {
-                        if (LeerFilas.Read()) {
-                            for (int i = 0; i < LeerFilas.FieldCount; i++) {
-                                row[i] = LeerFilas[i].ToString();
-                            }
-                            return row;
-                        } else {
-                            return null;
-                        }
-                    } catch (Exception ex) {
-                        MessageBox.Show("No se encontro el registro.\nError: " + ex.Message);
-                        throw;
-                    } finally {
-                        LeerFilas.Close();
-                        connection.Close();
-                    }
-                }
-            }
-        }
-
-        public string[] CargarRegistroContactoEmail(int IdContactoEmail) {
-            using (var connection = GetConnection()) {
-                connection.Open();
-                using (var command = new SqlCommand()) {
-                    command.Connection = connection;
-                    command.CommandText = "SELECT * FROM Contacto_Email WHERE IdContactoEmail=" + IdContactoEmail;
+                    command.CommandText = "SELECT * FROM Contacto WHERE IdContacto=" + IdContacto;
                     command.CommandType = CommandType.Text;
                     LeerFilas = command.ExecuteReader();
                     string[] row = new string[LeerFilas.FieldCount];
