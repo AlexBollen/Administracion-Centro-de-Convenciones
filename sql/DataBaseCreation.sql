@@ -53,14 +53,6 @@ IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'TipoEvent
 DROP TABLE TipoEvento
 GO
 
-IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Contacto_Telefono')
-DROP TABLE Contacto_Telefono
-GO
-
-IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Contacto_Email')
-DROP TABLE Contacto_Email
-GO
-
 IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Contacto')
 DROP TABLE Contacto
 GO
@@ -73,16 +65,66 @@ IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Persona')
 DROP TABLE Persona
 GO
 
-DROP PROC InsertarEvento;
-DROP PROC InsertarItinerario;
-DROP PROC InsertarPersona;
-DROP PROC InsertarResponsable;
-DROP PROC ListarEventos;
-DROP PROC ListarOrganizadores;
-DROP PROC ListarSalones;
-DROP PROC ListarTipoEvento;
-DROP PROC ActualizarEvento;
-DROP PROC ListarUsuarios;
+IF OBJECT_ID('dbo.InsertarEvento') IS NOT NULL
+BEGIN
+	DROP PROC InsertarEvento;
+END;
+IF OBJECT_ID('dbo.InsertarItinerario') IS NOT NULL
+BEGIN
+	DROP PROC InsertarItinerario;
+END;
+IF OBJECT_ID('dbo.InsertarPersona') IS NOT NULL
+BEGIN
+	DROP PROC InsertarPersona;
+END;
+IF OBJECT_ID('dbo.InsertarResponsable') IS NOT NULL
+BEGIN
+	DROP PROC InsertarResponsable;
+END;
+IF OBJECT_ID('dbo.ListarEventos') IS NOT NULL
+BEGIN
+	DROP PROC ListarEventos;
+END;
+IF OBJECT_ID('dbo.ListarOrganizadores') IS NOT NULL
+BEGIN
+	DROP PROC ListarOrganizadores;
+END;
+IF OBJECT_ID('dbo.ListarSalones') IS NOT NULL
+BEGIN
+	DROP PROC ListarSalones;
+END;
+IF OBJECT_ID('dbo.ListarTipoEvento') IS NOT NULL
+BEGIN
+	DROP PROC ListarTipoEvento;
+END;
+IF OBJECT_ID('dbo.ActualizarEvento') IS NOT NULL
+BEGIN
+	DROP PROC ActualizarEvento;
+END;
+IF OBJECT_ID('dbo.ListarUsuarios') IS NOT NULL
+BEGIN
+	DROP PROC ListarUsuarios;
+END;
+IF OBJECT_ID('dbo.ListarRoles') IS NOT NULL
+BEGIN
+	DROP PROC ListarRoles;
+END;
+IF OBJECT_ID('dbo.InsertarUsuario') IS NOT NULL
+BEGIN
+	DROP PROC InsertarUsuario;
+END;
+IF OBJECT_ID('dbo.InsertarDireccion') IS NOT NULL
+BEGIN
+	DROP PROC InsertarDireccion;
+END;
+IF OBJECT_ID('dbo.InsertarContacto') IS NOT NULL
+BEGIN
+	DROP PROC InsertarContacto;
+END;
+IF OBJECT_ID('dbo.ActualizarUsuario') IS NOT NULL
+BEGIN
+	DROP PROC ActualizarUsuario;
+END;
 
 CREATE TABLE Persona
 (
@@ -155,6 +197,8 @@ CREATE TABLE Contacto
 (
   IdContacto INTEGER PRIMARY KEY IDENTITY(1,1),
   EstadoContacto BINARY NOT NULL,
+  Telefono CHAR(8) NOT NULL,
+  Email VARCHAR(100) NOT NULL,
 );
 GO
 
@@ -164,22 +208,6 @@ CREATE TABLE ExistenciaServicio
   CantidadTotal INT NOT NULL,
   IdServicio INT NOT NULL,
   FOREIGN KEY (IdServicio) REFERENCES Servicios(IdServicio)
-);
-GO
-
-CREATE TABLE Contacto_Telefono
-(
-  Telefono CHAR(8) NOT NULL,
-  IdContacto INT NOT NULL,
-  FOREIGN KEY (IdContacto) REFERENCES Contacto(IdContacto)
-);
-GO
-
-CREATE TABLE Contacto_Email
-(
-  Email VARCHAR(100) NOT NULL,
-  IdContacto INT NOT NULL,
-  FOREIGN KEY (IdContacto) REFERENCES Contacto(IdContacto)
 );
 GO
 
@@ -265,24 +293,12 @@ VALUES
 	('Ciudad', 'Colotenango', 'Huehuetenango'),
 	('Ciudad', 'Momostenango', 'Totonicapan'),
 	('Ciudad', 'Quetzaltenango', 'Quetzaltenango');
-INSERT INTO Contacto (EstadoContacto)
+INSERT INTO Contacto (EstadoContacto, Telefono, Email)
 VALUES 
-	(1),
-	(1),
-	(1),
-	(1);
-INSERT INTO Contacto_Telefono (Telefono, IdContacto)
-VALUES 
-	('64913620', 1),
-	('86254136', 2),
-	('52632301', 3),
-	('26514035', 4);
-INSERT INTO Contacto_Email (Email, IdContacto)
-VALUES 
-	('alex@ggmail.com', 1),
-	('samuel@ggmail.com', 2),
-	('juan@ggmail.com', 3),
-	('pedro@ggmail.com', 4);
+	(1, '64913620', 'alex@ggmail.com'),
+	(1, '86254136', 'samuel@ggmail.com'),
+	(1, '52632301', 'juan@ggmail.com'),
+	(1, '26514035', 'pedro@ggmail.com');
 INSERT INTO Usuario (Usuario, Contrasenia, Nombre, Estado, IdRol, IdDireccion, IdContacto)
 VALUES 
 	('alex', 'alex', 'Alex Bollen', 1, 1, 1, 1),

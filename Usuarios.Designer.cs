@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.addUser = new System.Windows.Forms.Panel();
+            this.btnEditUsuario = new System.Windows.Forms.Button();
             this.btnIngresarUsuario = new System.Windows.Forms.Button();
             this.txtBoxCorreo = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.btnEliminarUsuario = new System.Windows.Forms.Button();
             this.btnEditarUsuario = new System.Windows.Forms.Button();
             this.btnAgregarUsuario = new System.Windows.Forms.Button();
-            this.btnEditUsuario = new System.Windows.Forms.Button();
             this.listUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
             this.addUser.SuspendLayout();
@@ -176,6 +176,17 @@
             this.addUser.Name = "addUser";
             this.addUser.Size = new System.Drawing.Size(879, 419);
             this.addUser.TabIndex = 2;
+            // 
+            // btnEditUsuario
+            // 
+            this.btnEditUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditUsuario.Location = new System.Drawing.Point(743, 365);
+            this.btnEditUsuario.Name = "btnEditUsuario";
+            this.btnEditUsuario.Size = new System.Drawing.Size(107, 35);
+            this.btnEditUsuario.TabIndex = 48;
+            this.btnEditUsuario.Text = "Editar";
+            this.btnEditUsuario.UseVisualStyleBackColor = true;
+            this.btnEditUsuario.Click += new System.EventHandler(this.btnEditUsuario_Click);
             // 
             // btnIngresarUsuario
             // 
@@ -522,16 +533,6 @@
             this.btnAgregarUsuario.Text = "Nueva";
             this.btnAgregarUsuario.UseVisualStyleBackColor = true;
             this.btnAgregarUsuario.Click += new System.EventHandler(this.btnAgregarUsuario_Click);
-            // 
-            // btnEditUsuario
-            // 
-            this.btnEditUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditUsuario.Location = new System.Drawing.Point(743, 365);
-            this.btnEditUsuario.Name = "btnEditUsuario";
-            this.btnEditUsuario.Size = new System.Drawing.Size(107, 35);
-            this.btnEditUsuario.TabIndex = 48;
-            this.btnEditUsuario.Text = "Editar";
-            this.btnEditUsuario.UseVisualStyleBackColor = true;
             // 
             // Usuarios
             // 

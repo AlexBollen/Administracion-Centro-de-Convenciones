@@ -204,32 +204,16 @@ GO
 -- Procedimiento para registrar nuevo contacto
 CREATE PROC InsertarContacto
 @EstadoContacto BIT,
+@Telefono VARCHAR(8),
+@Email VARCHAR(100),
 @IdContactoOutput INT OUTPUT
 AS 
 BEGIN
 	INSERT INTO Contacto
-	VALUES (@EstadoContacto)
+	VALUES (@EstadoContacto, @Telefono, @Email)
 
 	SET @IdContactoOutput = SCOPE_IDENTITY();
 END;
-GO
-
--- Procedimiento para registrar nuevo contacto de teléfono
-CREATE PROC InsertarContactoTelefono
-@Telefono VARCHAR(8),
-@IdContacto INT
-AS 
-INSERT INTO Contacto_Telefono
-VALUES (@Telefono, @IdContacto)
-GO
-
--- Procedimiento para registrar nuevo contacto de email
-CREATE PROC InsertarContactoEmail
-@Email VARCHAR(100),
-@IdContacto INT
-AS 
-INSERT INTO Contacto_Email
-VALUES (@Email, @IdContacto)
 GO
 
 -- Procedimiento para actualizar registro de usuario
@@ -246,9 +230,7 @@ CREATE PROC ActualizarUsuario
 @Departamento VARCHAR(50),
 @IdContacto INT,
 @EstadoContacto BIT,
-@IdContactoTelefono INT,
 @Telefono VARCHAR(8),
-@IdContactoEmail INT,
 @Email VARCHAR(100)
 AS BEGIN
 	UPDATE Usuario SET
@@ -266,18 +248,10 @@ AS BEGIN
 	WHERE IdDireccion=@IdDireccion
 
 	UPDATE Contacto SET
-	EstadoContacto=@EstadoContacto
-	WHERE IdContacto=@IdContacto
-
-	UPDATE Contacto_Telefono SET
-	Telefono=@Telefono
-	WHERE IdContactoTelefono=@IdContactoTelefono
-
-	UPDATE Contacto_Email SET
+	EstadoContacto=@EstadoContacto,
+	Telefono=@Telefono,
 	Email=@Email
-	WHERE IdContactoEmail=@IdContactoEmail
+	WHERE IdContacto=@IdContacto
 
 END;
 GO
-
-exec ListarUsuarios
