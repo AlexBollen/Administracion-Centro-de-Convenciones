@@ -25,9 +25,22 @@ GO
 
 
 -- Procedimiento para listar salones
-CREATE PROC ListarSalones
+CREATE PROC ListarSalon
 AS
-SELECT * FROM Salon ORDER BY IdSalon ASC
+SELECT s.IdSalon,
+	s.NombreSalon,
+	s.EstadoSalon,
+	s.Capacidad,
+	s.Descripcion,
+	NombreTipoSalon as TipoSalon
+FROM Salon s
+INNER JOIN TipoSalon ON s.IdTipoSalon= TipoSalon.IdTipoSalon
+GO
+
+-- Procedimiento para listar tipos de salones
+CREATE PROC ListarTipoSalon
+AS
+SELECT * FROM TipoSalon ORDER BY IdTipoSalon ASC
 GO
 
 -- Procedimiento para listar organizadores
