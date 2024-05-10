@@ -268,3 +268,15 @@ AS BEGIN
 
 END;
 GO
+
+-- Procedimiento para registrar nuevo salón
+Create PROC InsertarSalones
+@NombreSalon VARCHAR(100),
+@EstadoSalon VARCHAR(75),
+@Capacidad INT,
+@Descripcion VARCHAR(150),
+@IdTipoSalon INT
+AS
+INSERT INTO Salon 
+VALUES (@NombreSalon, @EstadoSalon, @Capacidad, @Descripcion, @IdTipoSalon)
+GO

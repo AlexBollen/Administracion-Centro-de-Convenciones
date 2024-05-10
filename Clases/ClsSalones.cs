@@ -21,7 +21,7 @@ namespace Administración_Centro_de_Convenciones.Clases
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "ListarSalones";
+                    command.CommandText = "ListarSalon";
                     command.CommandType = CommandType.StoredProcedure;
                     LeerFilas = command.ExecuteReader();
                     tablaSalones.Load(LeerFilas);
@@ -52,7 +52,7 @@ namespace Administración_Centro_de_Convenciones.Clases
         }
         public void InsertarSalon(
             string Nombre,
-            bool Estado,
+            string Estado,
             string descripcion,
             int capacidad,
             int IdTipoSalon
@@ -66,10 +66,10 @@ namespace Administración_Centro_de_Convenciones.Clases
                     using (var command = new SqlCommand())
                     {
                         command.Connection = connection;
-                        command.CommandText = "InsertarSalon";
+                        command.CommandText = "InsertarSalones";
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@Nombre", Nombre);
-                        command.Parameters.AddWithValue("@Estado", Estado);
+                        command.Parameters.AddWithValue("@NombreSalon", Nombre);
+                        command.Parameters.AddWithValue("@EstadoSalon", Estado);
                         command.Parameters.AddWithValue("@Capacidad", capacidad);
                         command.Parameters.AddWithValue("@Descripcion", descripcion);
                         command.Parameters.AddWithValue("@IdTipoSalon", IdTipoSalon);
@@ -85,6 +85,46 @@ namespace Administración_Centro_de_Convenciones.Clases
                 finally
                 {
                     connection.Close();
+                }
+            }
+        }
+        public string[] CargarRegistroSalon(int IdSalon)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM Salon WHERE IdSalon =" + IdSalon;
+                    command.CommandType = CommandType.Text;
+                    LeerFilas = command.ExecuteReader();
+                    string[] row = new string[LeerFilas.FieldCount];
+                    try
+                    {
+                        if (LeerFilas.Read())
+                        {
+                            for (int i = 0; i < LeerFilas.FieldCount; i++)
+                            {
+                                row[i] = LeerFilas[i].ToString();
+                            }
+                            return row;
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se encontro el registro.\nError: " + ex.Message);
+                        throw;
+                    }
+                    finally
+                    {
+                        LeerFilas.Close();
+                        connection.Close();
+                    }
                 }
             }
         }

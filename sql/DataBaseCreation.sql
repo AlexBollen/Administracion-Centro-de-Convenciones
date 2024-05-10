@@ -125,6 +125,10 @@ IF OBJECT_ID('dbo.ActualizarUsuario') IS NOT NULL
 BEGIN
 	DROP PROC ActualizarUsuario;
 END;
+IF OBJECT_ID('dbo.InsertarSalones') IS NOT NULL
+BEGIN
+	DROP PROC InsertarSalones;
+END;
 
 CREATE TABLE Persona
 (

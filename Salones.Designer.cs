@@ -23,17 +23,17 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnListarSalones = new System.Windows.Forms.Button();
             this.btnEliminarSalon = new System.Windows.Forms.Button();
-            this.btnEditarSalon = new System.Windows.Forms.Button();
+            this.btnEdiicionSalon = new System.Windows.Forms.Button();
             this.btnAgregarSalon = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewSalones = new System.Windows.Forms.DataGridView();
             this.addSalon = new System.Windows.Forms.Panel();
+            this.txtBoxDescripcion = new System.Windows.Forms.TextBox();
             this.btnEditSalon = new System.Windows.Forms.Button();
             this.btnIngresarSalon = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -45,11 +45,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtBoxNombreSalon = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtBoxDescripcion = new System.Windows.Forms.TextBox();
-            this.listSalones = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalones)).BeginInit();
+            this.listSalon = new System.Windows.Forms.Panel();
+            this.dataGridViewSalones = new System.Windows.Forms.DataGridView();
             this.addSalon.SuspendLayout();
-            this.listSalones.SuspendLayout();
+            this.listSalon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalones)).BeginInit();
             this.SuspendLayout();
             // 
             // btnListarSalones
@@ -75,16 +75,17 @@
             this.btnEliminarSalon.Text = "Eliminar";
             this.btnEliminarSalon.UseVisualStyleBackColor = true;
             // 
-            // btnEditarSalon
+            // btnEdiicionSalon
             // 
-            this.btnEditarSalon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditarSalon.Location = new System.Drawing.Point(823, 125);
-            this.btnEditarSalon.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEditarSalon.Name = "btnEditarSalon";
-            this.btnEditarSalon.Size = new System.Drawing.Size(143, 43);
-            this.btnEditarSalon.TabIndex = 16;
-            this.btnEditarSalon.Text = "Editar";
-            this.btnEditarSalon.UseVisualStyleBackColor = true;
+            this.btnEdiicionSalon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdiicionSalon.Location = new System.Drawing.Point(823, 125);
+            this.btnEdiicionSalon.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEdiicionSalon.Name = "btnEdiicionSalon";
+            this.btnEdiicionSalon.Size = new System.Drawing.Size(143, 43);
+            this.btnEdiicionSalon.TabIndex = 16;
+            this.btnEdiicionSalon.Text = "Editar";
+            this.btnEdiicionSalon.UseVisualStyleBackColor = true;
+            this.btnEdiicionSalon.Click += new System.EventHandler(this.btnEditarSalon_Click);
             // 
             // btnAgregarSalon
             // 
@@ -126,49 +127,6 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "SALONES";
             // 
-            // dataGridViewSalones
-            // 
-            this.dataGridViewSalones.AllowUserToAddRows = false;
-            this.dataGridViewSalones.AllowUserToDeleteRows = false;
-            this.dataGridViewSalones.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.dataGridViewSalones.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewSalones.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridViewSalones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSalones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
-            this.dataGridViewSalones.ColumnHeadersHeight = 30;
-            this.dataGridViewSalones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridViewSalones.EnableHeadersVisualStyles = false;
-            this.dataGridViewSalones.GridColor = System.Drawing.Color.SteelBlue;
-            this.dataGridViewSalones.Location = new System.Drawing.Point(4, 9);
-            this.dataGridViewSalones.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridViewSalones.Name = "dataGridViewSalones";
-            this.dataGridViewSalones.ReadOnly = true;
-            this.dataGridViewSalones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSalones.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            this.dataGridViewSalones.RowHeadersWidth = 30;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewSalones.RowsDefaultCellStyle = dataGridViewCellStyle15;
-            this.dataGridViewSalones.Size = new System.Drawing.Size(1159, 487);
-            this.dataGridViewSalones.TabIndex = 12;
-            // 
             // addSalon
             // 
             this.addSalon.Controls.Add(this.txtBoxDescripcion);
@@ -183,11 +141,19 @@
             this.addSalon.Controls.Add(this.label7);
             this.addSalon.Controls.Add(this.txtBoxNombreSalon);
             this.addSalon.Controls.Add(this.label6);
-            this.addSalon.Location = new System.Drawing.Point(24, 202);
+            this.addSalon.Location = new System.Drawing.Point(22, 176);
             this.addSalon.Margin = new System.Windows.Forms.Padding(4);
             this.addSalon.Name = "addSalon";
             this.addSalon.Size = new System.Drawing.Size(1186, 516);
             this.addSalon.TabIndex = 19;
+            // 
+            // txtBoxDescripcion
+            // 
+            this.txtBoxDescripcion.Location = new System.Drawing.Point(53, 288);
+            this.txtBoxDescripcion.Multiline = true;
+            this.txtBoxDescripcion.Name = "txtBoxDescripcion";
+            this.txtBoxDescripcion.Size = new System.Drawing.Size(579, 175);
+            this.txtBoxDescripcion.TabIndex = 49;
             // 
             // btnEditSalon
             // 
@@ -199,7 +165,6 @@
             this.btnEditSalon.TabIndex = 48;
             this.btnEditSalon.Text = "Editar";
             this.btnEditSalon.UseVisualStyleBackColor = true;
-            this.btnEditSalon.Click += new System.EventHandler(this.btnEditSalon_Click);
             // 
             // btnIngresarSalon
             // 
@@ -281,8 +246,8 @@
             this.comboBoxEstadoSalon.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxEstadoSalon.FormattingEnabled = true;
             this.comboBoxEstadoSalon.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
+            "Disponible",
+            "No Disponible"});
             this.comboBoxEstadoSalon.Location = new System.Drawing.Point(570, 47);
             this.comboBoxEstadoSalon.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxEstadoSalon.Name = "comboBoxEstadoSalon";
@@ -327,21 +292,57 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "Nombre:";
             // 
-            // txtBoxDescripcion
+            // listSalon
             // 
-            this.txtBoxDescripcion.Location = new System.Drawing.Point(53, 288);
-            this.txtBoxDescripcion.Multiline = true;
-            this.txtBoxDescripcion.Name = "txtBoxDescripcion";
-            this.txtBoxDescripcion.Size = new System.Drawing.Size(579, 175);
-            this.txtBoxDescripcion.TabIndex = 49;
+            this.listSalon.Controls.Add(this.dataGridViewSalones);
+            this.listSalon.Location = new System.Drawing.Point(13, 172);
+            this.listSalon.Margin = new System.Windows.Forms.Padding(4);
+            this.listSalon.Name = "listSalon";
+            this.listSalon.Size = new System.Drawing.Size(1172, 516);
+            this.listSalon.TabIndex = 50;
             // 
-            // listSalones
+            // dataGridViewSalones
             // 
-            this.listSalones.Controls.Add(this.dataGridViewSalones);
-            this.listSalones.Location = new System.Drawing.Point(22, 189);
-            this.listSalones.Name = "listSalones";
-            this.listSalones.Size = new System.Drawing.Size(1176, 529);
-            this.listSalones.TabIndex = 20;
+            this.dataGridViewSalones.AllowUserToAddRows = false;
+            this.dataGridViewSalones.AllowUserToDeleteRows = false;
+            this.dataGridViewSalones.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.dataGridViewSalones.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewSalones.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridViewSalones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSalones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewSalones.ColumnHeadersHeight = 30;
+            this.dataGridViewSalones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridViewSalones.EnableHeadersVisualStyles = false;
+            this.dataGridViewSalones.GridColor = System.Drawing.Color.SteelBlue;
+            this.dataGridViewSalones.Location = new System.Drawing.Point(28, 10);
+            this.dataGridViewSalones.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewSalones.Name = "dataGridViewSalones";
+            this.dataGridViewSalones.ReadOnly = true;
+            this.dataGridViewSalones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSalones.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewSalones.RowHeadersWidth = 30;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewSalones.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewSalones.Size = new System.Drawing.Size(1105, 482);
+            this.dataGridViewSalones.TabIndex = 1;
             // 
             // Salones
             // 
@@ -349,11 +350,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(1223, 731);
-            this.Controls.Add(this.listSalones);
+            this.Controls.Add(this.listSalon);
             this.Controls.Add(this.addSalon);
             this.Controls.Add(this.btnListarSalones);
             this.Controls.Add(this.btnEliminarSalon);
-            this.Controls.Add(this.btnEditarSalon);
+            this.Controls.Add(this.btnEdiicionSalon);
             this.Controls.Add(this.btnAgregarSalon);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -362,10 +363,10 @@
             this.Name = "Salones";
             this.Text = "Salones";
             this.Load += new System.EventHandler(this.Salones_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalones)).EndInit();
             this.addSalon.ResumeLayout(false);
             this.addSalon.PerformLayout();
-            this.listSalones.ResumeLayout(false);
+            this.listSalon.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -375,11 +376,10 @@
 
         private System.Windows.Forms.Button btnListarSalones;
         private System.Windows.Forms.Button btnEliminarSalon;
-        private System.Windows.Forms.Button btnEditarSalon;
+        private System.Windows.Forms.Button btnEdiicionSalon;
         private System.Windows.Forms.Button btnAgregarSalon;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridViewSalones;
         private System.Windows.Forms.Panel addSalon;
         private System.Windows.Forms.Button btnEditSalon;
         private System.Windows.Forms.Button btnIngresarSalon;
@@ -393,6 +393,7 @@
         private System.Windows.Forms.TextBox txtBoxNombreSalon;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtBoxDescripcion;
-        private System.Windows.Forms.Panel listSalones;
+        private System.Windows.Forms.Panel listSalon;
+        private System.Windows.Forms.DataGridView dataGridViewSalones;
     }
 }
