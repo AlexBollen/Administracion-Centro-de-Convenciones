@@ -66,7 +66,7 @@ namespace Administración_Centro_de_Convenciones.Clases
                     using (var command = new SqlCommand())
                     {
                         command.Connection = connection;
-                        command.CommandText = "InsertarSalones";
+                        command.CommandText = "InsertarSalon";
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@NombreSalon", Nombre);
                         command.Parameters.AddWithValue("@EstadoSalon", Estado);
@@ -125,6 +125,71 @@ namespace Administración_Centro_de_Convenciones.Clases
                         LeerFilas.Close();
                         connection.Close();
                     }
+                }
+            }
+        }
+        public void EditarSalon(
+            int IdSalon,
+            string Nombre,
+            string Estado,
+            string descripcion,
+            int capacidad,
+            int IdTipoSalon
+        )
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                try
+                {
+                    using (var command = new SqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "ActualizarSalones";
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@IdSalon", IdSalon);
+                        command.Parameters.AddWithValue("@NombreSalon", Nombre);
+                        command.Parameters.AddWithValue("@EstadoSalon", Estado);
+                        command.Parameters.AddWithValue("@Capacidad", capacidad);
+                        command.Parameters.AddWithValue("@Descripcion", descripcion);
+                        command.Parameters.AddWithValue("@IdTipoSalon", IdTipoSalon);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ocurrio un error al actualizar el usuario. \nError: {ex.Message}");
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+        public void EliminarSalon(
+            int IdSalon
+        )
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                try
+                {
+                    using (var command = new SqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "DELETE Salon WHERE IdSalon=" + IdSalon;
+                        command.CommandType = CommandType.Text;
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ocurrio un error al eliminar el salón. \nError: {ex.Message}");
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
         }

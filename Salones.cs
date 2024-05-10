@@ -99,9 +99,6 @@ namespace Administración_Centro_de_Convenciones {
                 ListarTipos();
                 // Cargar datos del registro a componentes
                 IdSalon = Convert.ToInt32(dataGridViewSalones.CurrentRow.Cells[0].Value);
-                
-                MessageBox.Show("IdSalon: " + IdSalon);
-                MessageBox.Show(dataGridViewSalones.CurrentRow.ToString());
                 string[] registro;
                 registro = objSalones.CargarRegistroSalon(IdSalon);
                 txtBoxNombreSalon.Text = registro[1];
@@ -112,6 +109,38 @@ namespace Administración_Centro_de_Convenciones {
             }
             else
                 MessageBox.Show("Debe seleccionar un registro a editar");
+        }
+
+        private void btnEditSalon_Click(object sender, EventArgs e)
+        {
+            btnIngresarSalon.Show();
+            btnEditSalon.Hide();
+            objSalones.EditarSalon(
+            IdSalon,
+            txtBoxNombreSalon.Text,
+            comboBoxEstadoSalon.SelectedItem.ToString(),
+            txtBoxDescripcion.Text,
+            Convert.ToInt32(txtBoxCapacidad.Text),
+            Convert.ToInt32(comboBoxTipos.SelectedValue)
+        );
+            MessageBox.Show("Se actualizo correctamente el salón");
+            btnListarSalones.PerformClick();
+        }
+
+        private void btnEliminarSalon_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewSalones.SelectedRows.Count > 0)
+            {
+                if (MessageBox.Show("¿Estás seguro de que deseas eliminar el salón?", "Warning",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    objSalones.EliminarSalon(Convert.ToInt32(dataGridViewSalones.CurrentRow.Cells[0].Value));
+                    MessageBox.Show("Se ha eliminado correctamente el salón");
+                    ListarSalones();
+                }
+            }
+            else
+                MessageBox.Show("Debe seleccionar un registro a eliminar");
         }
     }
 }
