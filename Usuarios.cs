@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Administración_Centro_de_Convenciones {
     public partial class Usuarios : Form {
@@ -57,6 +58,15 @@ namespace Administración_Centro_de_Convenciones {
             txtBoxDireccion.Clear();
             txtBoxTelefono.Clear();
             txtBoxCorreo.Clear();
+            pbValidation1.Hide();
+            pbValidation2.Hide();
+            pbValidation3.Hide();
+            pbValidation4.Hide();
+            pbValidation5.Hide();
+            pbValidation6.Hide();
+            pbValidation7.Hide();
+            pbValidation8.Hide();
+            pbValidation9.Hide();
         }
 
         private void ListarRoles() {
@@ -94,27 +104,31 @@ namespace Administración_Centro_de_Convenciones {
                 newEstado = false;
             if (!(txtBoxPass1.Text == txtBoxPass2.Text))
                 MessageBox.Show("Las contraseñas no coinciden");
-            else
-            {
-                objUsuarios.EditarUsuario(
-                IdUsuario,
-                txtBoxUsername.Text,
-                newPass,
-                txtBoxNombreUsr.Text,
-                newEstado,
-                Convert.ToInt32(comboBoxRoles.SelectedValue),
-                UpdateDireccionId,
-                txtBoxDireccion.Text,
-                comboBoxMunicipios.Text,
-                comboBoxDeptos.Text,
-                UpdateContactoId,
-                1,
-                txtBoxTelefono.Text,
-                txtBoxCorreo.Text
-            );
-                UpdatePass = "";
-                MessageBox.Show("Se actualizo correctamente el usuario");
-                btnListarUsuarios.PerformClick();
+            else{
+                if (FieldsValidation())
+                {
+                    objUsuarios.EditarUsuario(
+                    IdUsuario,
+                    txtBoxUsername.Text,
+                    newPass,
+                    txtBoxNombreUsr.Text,
+                    newEstado,
+                    Convert.ToInt32(comboBoxRoles.SelectedValue),
+                    UpdateDireccionId,
+                    txtBoxDireccion.Text,
+                    comboBoxMunicipios.Text,
+                    comboBoxDeptos.Text,
+                    UpdateContactoId,
+                    1,
+                    txtBoxTelefono.Text,
+                    txtBoxCorreo.Text
+                     );
+                    UpdatePass = "";
+                    MessageBox.Show("Se actualizo correctamente el usuario");
+                    btnListarUsuarios.PerformClick();
+                } else{
+                    MessageBox.Show("Campos invalidos, por favor verifiquelos.");
+                }
             }
         }
 
@@ -128,27 +142,32 @@ namespace Administración_Centro_de_Convenciones {
                 MessageBox.Show("Las contraseñas no coinciden");
             else
             {
-                int idDireccion = objUsuarios.InsertarDireccion(
-                    txtBoxDireccion.Text,
-                    comboBoxMunicipios.Text,
-                    comboBoxDeptos.Text);
-                int idContacto = objUsuarios.InsertarContacto(
-                    1,
-                    txtBoxTelefono.Text,
-                    txtBoxCorreo.Text);
-                objUsuarios.InsertarUsuario(
-                    txtBoxUsername.Text,
-                    txtBoxPass1.Text,
-                    txtBoxNombreUsr.Text,
-                    newEstado,
-                    Convert.ToInt32(comboBoxRoles.SelectedValue),
-                    idDireccion,
-                    idContacto);
-                MessageBox.Show("Insertado correctamente");
-                ClearData();
-                btnEditarUsuario.Enabled = true;
-                btnEliminarUsuario.Enabled = true;
-                btnListarUsuarios.PerformClick();
+                if (FieldsValidation())
+                {
+                    int idDireccion = objUsuarios.InsertarDireccion(
+                        txtBoxDireccion.Text,
+                        comboBoxMunicipios.Text,
+                        comboBoxDeptos.Text);
+                    int idContacto = objUsuarios.InsertarContacto(
+                        1,
+                        txtBoxTelefono.Text,
+                        txtBoxCorreo.Text);
+                    objUsuarios.InsertarUsuario(
+                        txtBoxUsername.Text,
+                        txtBoxPass1.Text,
+                        txtBoxNombreUsr.Text,
+                        newEstado,
+                        Convert.ToInt32(comboBoxRoles.SelectedValue),
+                        idDireccion,
+                        idContacto);
+                    MessageBox.Show("Insertado correctamente");
+                    ClearData();
+                    btnEditarUsuario.Enabled = true;
+                    btnEliminarUsuario.Enabled = true;
+                    btnListarUsuarios.PerformClick();
+                } else{
+                    MessageBox.Show("Campos invalidos, por favor verifiquelos.");
+                }
             }
         }
 
@@ -187,6 +206,74 @@ namespace Administración_Centro_de_Convenciones {
                 txtBoxCorreo.Text = contacto[3];
             } else
                 MessageBox.Show("Debe seleccionar un registro a editar");
+        }
+
+        private bool FieldsValidation(){
+            int sum = 0;
+            Regex usernameValidation = new Regex(@"^[a-zA-ZáéíóúÁÉÍÓÚ\s.]{1,50}$");
+            Regex passValidation = new Regex(@"^[a-zA-ZáéíóúÁÉÍÓÚ\s.]{1,126}$");
+            Regex nameValidation = new Regex(@"^[a-zA-ZáéíóúÁÉÍÓÚ\s.]{1,100}$");
+            Regex addressValidation = new Regex(@"^[a-zA-ZáéíóúÁÉÍÓÚ\s.\d]{1,150}$");
+            Regex phoneValidation = new Regex(@"^[0-9]{8}$");
+            Regex mailValidation = new Regex(@"^[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9]+([.][a-zA-Z0-9]+){1,3}$");
+            if (!usernameValidation.IsMatch(txtBoxUsername.Text)){
+                pbValidation1.Show();
+            } else{
+                pbValidation1.Hide();
+                sum += 1;
+            }
+            if (!passValidation.IsMatch(txtBoxPass1.Text)){
+                pbValidation2.Show();
+            } else{
+                pbValidation2.Hide();
+                sum += 1;
+            }
+            if (!nameValidation.IsMatch(txtBoxNombreUsr.Text)){
+                pbValidation5.Show();
+            } else{
+                pbValidation5.Hide();
+                sum += 1;
+            }
+            if (!addressValidation.IsMatch(txtBoxDireccion.Text)){
+                pbValidation3.Show();
+            } else{
+                pbValidation3.Hide();
+                sum += 1;
+            }
+            if (!phoneValidation.IsMatch(txtBoxTelefono.Text)){
+                pbValidation4.Show();
+            } else{
+                pbValidation4.Hide();
+                sum += 1;
+            }
+            if (!mailValidation.IsMatch(txtBoxCorreo.Text)){
+                pbValidation6.Show();
+            } else{
+                pbValidation6.Hide();
+                sum += 1;
+            }
+            if (comboBoxEstadoUsuario.Text == "")
+                pbValidation7.Show();
+            else{
+                pbValidation7.Hide();
+                sum += 1;
+            }
+            if (comboBoxDeptos.Text == "")
+                pbValidation8.Show();
+            else{
+                pbValidation8.Hide();
+                sum += 1;
+            }
+            if (comboBoxMunicipios.Text == "")
+                pbValidation9.Show();
+            else{
+                pbValidation9.Hide();
+                sum += 1;
+            }
+            if (sum == 9)
+                return true;
+            else 
+                return false;
         }
     }
 }
