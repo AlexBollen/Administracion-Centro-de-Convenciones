@@ -23,9 +23,9 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnListarOrganizadores = new System.Windows.Forms.Button();
             this.btnEliminarOrganizador = new System.Windows.Forms.Button();
             this.btnEdiicionOrganizador = new System.Windows.Forms.Button();
@@ -33,14 +33,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.addOrganizador = new System.Windows.Forms.Panel();
+            this.comboBoxEstadoOrganizador = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnEditOrganizador = new System.Windows.Forms.Button();
             this.btnIngresarOrganizador = new System.Windows.Forms.Button();
             this.txtBoxNombreOrganizador = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.listOrganizador = new System.Windows.Forms.Panel();
             this.dataGridViewOrganizadores = new System.Windows.Forms.DataGridView();
-            this.comboBoxEstadoOrganizador = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.addOrganizador.SuspendLayout();
             this.listOrganizador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrganizadores)).BeginInit();
@@ -68,6 +68,7 @@
             this.btnEliminarOrganizador.TabIndex = 63;
             this.btnEliminarOrganizador.Text = "Eliminar";
             this.btnEliminarOrganizador.UseVisualStyleBackColor = true;
+            this.btnEliminarOrganizador.Click += new System.EventHandler(this.btnEliminarOrganizador_Click);
             // 
             // btnEdiicionOrganizador
             // 
@@ -79,6 +80,7 @@
             this.btnEdiicionOrganizador.TabIndex = 62;
             this.btnEdiicionOrganizador.Text = "Editar";
             this.btnEdiicionOrganizador.UseVisualStyleBackColor = true;
+            this.btnEdiicionOrganizador.Click += new System.EventHandler(this.btnEdiicionOrganizador_Click);
             // 
             // btnAgregarOrganizador
             // 
@@ -134,6 +136,34 @@
             this.addOrganizador.Size = new System.Drawing.Size(1180, 516);
             this.addOrganizador.TabIndex = 65;
             // 
+            // comboBoxEstadoOrganizador
+            // 
+            this.comboBoxEstadoOrganizador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEstadoOrganizador.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxEstadoOrganizador.FormattingEnabled = true;
+            this.comboBoxEstadoOrganizador.Items.AddRange(new object[] {
+            "Disponible",
+            "No Disponible"});
+            this.comboBoxEstadoOrganizador.Location = new System.Drawing.Point(53, 139);
+            this.comboBoxEstadoOrganizador.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxEstadoOrganizador.Name = "comboBoxEstadoOrganizador";
+            this.comboBoxEstadoOrganizador.Size = new System.Drawing.Size(417, 35);
+            this.comboBoxEstadoOrganizador.TabIndex = 50;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.LightGray;
+            this.label7.Location = new System.Drawing.Point(48, 107);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(94, 27);
+            this.label7.TabIndex = 49;
+            this.label7.Text = "Estado:";
+            // 
             // btnEditOrganizador
             // 
             this.btnEditOrganizador.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -144,6 +174,7 @@
             this.btnEditOrganizador.TabIndex = 48;
             this.btnEditOrganizador.Text = "Editar";
             this.btnEditOrganizador.UseVisualStyleBackColor = true;
+            this.btnEditOrganizador.Click += new System.EventHandler(this.btnEditOrganizador_Click);
             // 
             // btnIngresarOrganizador
             // 
@@ -197,14 +228,14 @@
             this.dataGridViewOrganizadores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewOrganizadores.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridViewOrganizadores.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOrganizadores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOrganizadores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewOrganizadores.ColumnHeadersHeight = 30;
             this.dataGridViewOrganizadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewOrganizadores.EnableHeadersVisualStyles = false;
@@ -214,51 +245,23 @@
             this.dataGridViewOrganizadores.Name = "dataGridViewOrganizadores";
             this.dataGridViewOrganizadores.ReadOnly = true;
             this.dataGridViewOrganizadores.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOrganizadores.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOrganizadores.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewOrganizadores.RowHeadersWidth = 30;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewOrganizadores.RowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewOrganizadores.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewOrganizadores.Size = new System.Drawing.Size(1105, 482);
             this.dataGridViewOrganizadores.TabIndex = 1;
-            // 
-            // comboBoxEstadoOrganizador
-            // 
-            this.comboBoxEstadoOrganizador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxEstadoOrganizador.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxEstadoOrganizador.FormattingEnabled = true;
-            this.comboBoxEstadoOrganizador.Items.AddRange(new object[] {
-            "Disponible",
-            "No Disponible"});
-            this.comboBoxEstadoOrganizador.Location = new System.Drawing.Point(53, 139);
-            this.comboBoxEstadoOrganizador.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBoxEstadoOrganizador.Name = "comboBoxEstadoOrganizador";
-            this.comboBoxEstadoOrganizador.Size = new System.Drawing.Size(417, 35);
-            this.comboBoxEstadoOrganizador.TabIndex = 50;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.LightGray;
-            this.label7.Location = new System.Drawing.Point(48, 107);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 27);
-            this.label7.TabIndex = 49;
-            this.label7.Text = "Estado:";
             // 
             // Organizadores
             // 

@@ -47,6 +47,7 @@ GO
 CREATE PROC ListarOrganizadores
 AS
 SELECT o.IdOrganizador,	
+	o.EstadoOrganizador,
 	persona.NombrePersona as NombreOrganizador
 FROM Organizador o 
 INNER JOIN Persona persona ON o.IdPersona=Persona.IdPersona
@@ -346,9 +347,26 @@ GO
 
 -- Procedimiento para listar organizadores
 CREATE PROC InsertarOrganizadores
-@Estado BIT,
+@EstadoOrganizador VARCHAR(75),
 @IdPersona INT
 AS
 INSERT INTO Organizador 
-VALUES (@Estado, @IdPersona)
+VALUES (@EstadoOrganizador, @IdPersona)
+GO
+
+-- Procedimiento para actualizar organizador
+CREATE PROC ActualizarOrganizador
+@IdOrganizador INT,
+@EstadoOrganizador VARCHAR(75),
+@IdPersona INT,
+@NombrePersona VARCHAR(100)
+AS BEGIN
+	UPDATE Organizador SET 
+	EstadoOrganizador=@EstadoOrganizador
+	WHERE IdOrganizador=@IdOrganizador;
+
+	UPDATE Persona SET
+	NombrePersona=@NombrePersona
+	WHERE IdPersona=@IdPersona;
+END;
 GO

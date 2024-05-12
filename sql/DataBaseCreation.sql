@@ -141,6 +141,22 @@ IF OBJECT_ID('dbo.ActualizarTipoSalones') IS NOT NULL
 BEGIN
 	DROP PROC ActualizarTipoSalones;
 END;
+IF OBJECT_ID('dbo.InsertarTipoEvento') IS NOT NULL
+BEGIN
+	DROP PROC InsertarTipoEvento;
+END;
+IF OBJECT_ID('dbo.ActualizarTipoEvento') IS NOT NULL
+BEGIN
+	DROP PROC ActualizarTipoEvento;
+END;
+IF OBJECT_ID('dbo.InsertarOrganizadores') IS NOT NULL
+BEGIN
+	DROP PROC InsertarOrganizadores;
+END;
+IF OBJECT_ID('dbo.ActualizarOrganizador') IS NOT NULL
+BEGIN
+	DROP PROC ActualizarOrganizador;
+END;
 
 CREATE TABLE Persona
 (
@@ -160,7 +176,7 @@ GO
 CREATE TABLE Organizador
 (
   IdOrganizador INTEGER PRIMARY KEY IDENTITY(1,1),
-  Estado BIT NOT NULL DEFAULT 1,
+  EstadoOrganizador VARCHAR(75) NOT NULL,
   IdPersona INT NOT NULL,
   FOREIGN KEY (IdPersona) REFERENCES Persona(IdPersona)
 );
@@ -364,9 +380,9 @@ INSERT INTO Persona (NombrePersona)
 VALUES
 	('Pedro David Gómez Bolaños'),
 	('Juan Luis Hernández');
-INSERT INTO Organizador (Estado, IdPersona)
+INSERT INTO Organizador (EstadoOrganizador, IdPersona)
 VALUES
-	(1, 1);
+	('Disponible', 1);
 INSERT INTO Responsable (NombreComercial, IdPersona)
 VALUES
 	(NULL, 2);
