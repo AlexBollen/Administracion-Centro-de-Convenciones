@@ -97,7 +97,7 @@ namespace Administración_Centro_de_Convenciones {
             IdTipoSalon,
             txtBoxNombreTipoSalon.Text,
             Convert.ToInt32(txtBoxExistencias.Text)
-        );
+            );
             MessageBox.Show("Se actualizo correctamente el tipo de salón");
             btnListarSalones.PerformClick();
         }

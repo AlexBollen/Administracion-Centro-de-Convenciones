@@ -46,10 +46,10 @@ GO
 -- Procedimiento para listar organizadores
 CREATE PROC ListarOrganizadores
 AS
-SELECT o.IdOrganizador,
-		organizador.NombrePersona as NombreOrganizador
+SELECT o.IdOrganizador,	
+	persona.NombrePersona as NombreOrganizador
 FROM Organizador o 
-INNER JOIN Persona organizador ON o.IdOrganizador=organizador.IdPersona
+INNER JOIN Persona persona ON o.IdPersona=Persona.IdPersona
 GO
 
 -- Procedimiento para listar tipos de evento
@@ -270,7 +270,7 @@ END;
 GO
 
 -- Procedimiento para registrar nuevo salón
-Create PROC InsertarSalones
+Create PROC InsertarSalon
 @NombreSalon VARCHAR(100),
 @EstadoSalon VARCHAR(75),
 @Capacidad INT,
@@ -279,4 +279,76 @@ Create PROC InsertarSalones
 AS
 INSERT INTO Salon 
 VALUES (@NombreSalon, @EstadoSalon, @Capacidad, @Descripcion, @IdTipoSalon)
+GO
+
+-- Procedimiento para actualizar salón
+Create PROC ActualizarSalones
+@IdSalon INT,
+@NombreSalon VARCHAR(100),
+@EstadoSalon VARCHAR(75),
+@Capacidad INT,
+@Descripcion VARCHAR(150),
+@IdTipoSalon INT
+AS BEGIN
+	UPDATE Salon SET
+	NombreSalon=@NombreSalon,
+	EstadoSalon=@EstadoSalon,
+	Capacidad=@Capacidad,
+	Descripcion=@Descripcion,
+	IdTipoSalon=@IdTipoSalon
+	WHERE IdSalon = @IdSalon
+END;
+GO
+
+-- Procedimiento para registrar nuevo salón
+Create PROC InsertarTipoSalon
+@NombreTipoSalon VARCHAR(100),
+@ExistenciasTipoSalon INT
+AS
+INSERT INTO TipoSalon 
+VALUES (@NombreTipoSalon, @ExistenciasTipoSalon)
+GO
+
+-- Procedimiento para actualizar salón
+Create PROC ActualizarTipoSalones
+@IdTipoSalon INT,
+@NombreTipoSalon VARCHAR(100),
+@ExistenciasTipoSalon INT
+AS BEGIN
+	UPDATE TipoSalon SET
+	NombreTipoSalon=@NombreTipoSalon,
+	ExistenciasTipoSalon=@ExistenciasTipoSalon
+	WHERE IdTipoSalon = @IdTipoSalon
+END;
+GO
+
+-- Procedimiento para crear un tipo evento
+Create PROC InsertarTipoEvento
+@NombreTipoEvento VARCHAR(100),
+@Descripcion VARCHAR(150)
+AS
+INSERT INTO TipoEvento 
+VALUES (@NombreTipoEvento, @Descripcion)
+GO
+
+-- Procedimiento para actualizar tipo evento
+Create PROC ActualizarTipoEvento
+@IdTipoEvento INT,
+@NombreTipoEvento VARCHAR(100),
+@Descripcion VARCHAR(150)
+AS BEGIN
+	UPDATE TipoEvento SET
+	NombreTipoEvento=@NombreTipoEvento,
+	Descripcion=@Descripcion
+	WHERE IdTipoEvento = @IdTipoEvento
+END;
+GO
+
+-- Procedimiento para listar organizadores
+CREATE PROC InsertarOrganizadores
+@Estado BIT,
+@IdPersona INT
+AS
+INSERT INTO Organizador 
+VALUES (@Estado, @IdPersona)
 GO

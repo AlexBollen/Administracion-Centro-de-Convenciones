@@ -72,9 +72,11 @@
             // 
             this.listReservations.AutoSize = true;
             this.listReservations.Controls.Add(this.dataGridView1);
-            this.listReservations.Location = new System.Drawing.Point(-6, 142);
+            this.listReservations.Location = new System.Drawing.Point(-8, 175);
+            this.listReservations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listReservations.Name = "listReservations";
-            this.listReservations.Size = new System.Drawing.Size(1089, 446);
+            this.listReservations.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listReservations.Size = new System.Drawing.Size(1452, 549);
             this.listReservations.TabIndex = 0;
             this.listReservations.TabStop = false;
             // 
@@ -98,7 +100,8 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.SteelBlue;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 19);
+            this.dataGridView1.Location = new System.Drawing.Point(24, 23);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -117,7 +120,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.Size = new System.Drawing.Size(1040, 400);
+            this.dataGridView1.Size = new System.Drawing.Size(1387, 492);
             this.dataGridView1.TabIndex = 0;
             // 
             // label1
@@ -127,9 +130,10 @@
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(16, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 37);
+            this.label1.Size = new System.Drawing.Size(202, 46);
             this.label1.TabIndex = 2;
             this.label1.Text = "RESERVAS";
             // 
@@ -140,18 +144,20 @@
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.LightGray;
-            this.label2.Location = new System.Drawing.Point(14, 46);
+            this.label2.Location = new System.Drawing.Point(19, 57);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(271, 29);
+            this.label2.Size = new System.Drawing.Size(343, 35);
             this.label2.TabIndex = 3;
             this.label2.Text = "Administración de reservas";
             // 
             // btnAgregarReserva
             // 
             this.btnAgregarReserva.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarReserva.Location = new System.Drawing.Point(699, 101);
+            this.btnAgregarReserva.Location = new System.Drawing.Point(932, 124);
+            this.btnAgregarReserva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregarReserva.Name = "btnAgregarReserva";
-            this.btnAgregarReserva.Size = new System.Drawing.Size(107, 35);
+            this.btnAgregarReserva.Size = new System.Drawing.Size(143, 43);
             this.btnAgregarReserva.TabIndex = 4;
             this.btnAgregarReserva.Text = "Nueva";
             this.btnAgregarReserva.UseVisualStyleBackColor = true;
@@ -160,9 +166,10 @@
             // btnEditarReserva
             // 
             this.btnEditarReserva.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditarReserva.Location = new System.Drawing.Point(821, 101);
+            this.btnEditarReserva.Location = new System.Drawing.Point(1095, 124);
+            this.btnEditarReserva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditarReserva.Name = "btnEditarReserva";
-            this.btnEditarReserva.Size = new System.Drawing.Size(107, 35);
+            this.btnEditarReserva.Size = new System.Drawing.Size(143, 43);
             this.btnEditarReserva.TabIndex = 5;
             this.btnEditarReserva.Text = "Editar";
             this.btnEditarReserva.UseVisualStyleBackColor = true;
@@ -171,9 +178,10 @@
             // btnEliminarReserva
             // 
             this.btnEliminarReserva.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminarReserva.Location = new System.Drawing.Point(945, 101);
+            this.btnEliminarReserva.Location = new System.Drawing.Point(1260, 124);
+            this.btnEliminarReserva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminarReserva.Name = "btnEliminarReserva";
-            this.btnEliminarReserva.Size = new System.Drawing.Size(107, 35);
+            this.btnEliminarReserva.Size = new System.Drawing.Size(143, 43);
             this.btnEliminarReserva.TabIndex = 6;
             this.btnEliminarReserva.Text = "Eliminar";
             this.btnEliminarReserva.UseVisualStyleBackColor = true;
@@ -210,18 +218,21 @@
             this.addReservation.Controls.Add(this.txtBoxNombreEvento);
             this.addReservation.Controls.Add(this.label4);
             this.addReservation.Controls.Add(this.label3);
-            this.addReservation.Location = new System.Drawing.Point(-6, 142);
+            this.addReservation.Location = new System.Drawing.Point(-8, 175);
+            this.addReservation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addReservation.Name = "addReservation";
-            this.addReservation.Size = new System.Drawing.Size(1088, 438);
+            this.addReservation.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addReservation.Size = new System.Drawing.Size(1451, 539);
             this.addReservation.TabIndex = 1;
             this.addReservation.TabStop = false;
             // 
             // btnConfirmarEdicion
             // 
             this.btnConfirmarEdicion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConfirmarEdicion.Location = new System.Drawing.Point(951, 374);
+            this.btnConfirmarEdicion.Location = new System.Drawing.Point(1268, 460);
+            this.btnConfirmarEdicion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConfirmarEdicion.Name = "btnConfirmarEdicion";
-            this.btnConfirmarEdicion.Size = new System.Drawing.Size(107, 35);
+            this.btnConfirmarEdicion.Size = new System.Drawing.Size(143, 43);
             this.btnConfirmarEdicion.TabIndex = 34;
             this.btnConfirmarEdicion.Text = "Registrar";
             this.btnConfirmarEdicion.UseVisualStyleBackColor = true;
@@ -236,9 +247,10 @@
             "Programado",
             "En proceso",
             "Finalizado"});
-            this.comboBoxEstadoEvento.Location = new System.Drawing.Point(729, 217);
+            this.comboBoxEstadoEvento.Location = new System.Drawing.Point(972, 267);
+            this.comboBoxEstadoEvento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxEstadoEvento.Name = "comboBoxEstadoEvento";
-            this.comboBoxEstadoEvento.Size = new System.Drawing.Size(314, 30);
+            this.comboBoxEstadoEvento.Size = new System.Drawing.Size(417, 35);
             this.comboBoxEstadoEvento.TabIndex = 33;
             // 
             // label15
@@ -248,18 +260,20 @@
             this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label15.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.LightGray;
-            this.label15.Location = new System.Drawing.Point(725, 180);
+            this.label15.Location = new System.Drawing.Point(967, 222);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(137, 22);
+            this.label15.Size = new System.Drawing.Size(172, 27);
             this.label15.TabIndex = 32;
             this.label15.Text = "Estado evento:";
             // 
             // txtBoxNombreComercial
             // 
             this.txtBoxNombreComercial.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxNombreComercial.Location = new System.Drawing.Point(374, 376);
+            this.txtBoxNombreComercial.Location = new System.Drawing.Point(499, 463);
+            this.txtBoxNombreComercial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBoxNombreComercial.Name = "txtBoxNombreComercial";
-            this.txtBoxNombreComercial.Size = new System.Drawing.Size(314, 29);
+            this.txtBoxNombreComercial.Size = new System.Drawing.Size(417, 35);
             this.txtBoxNombreComercial.TabIndex = 31;
             // 
             // label14
@@ -269,18 +283,20 @@
             this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label14.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.LightGray;
-            this.label14.Location = new System.Drawing.Point(370, 338);
+            this.label14.Location = new System.Drawing.Point(493, 416);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(170, 22);
+            this.label14.Size = new System.Drawing.Size(213, 27);
             this.label14.TabIndex = 30;
             this.label14.Text = "Nombre comercial:";
             // 
             // txtBoxNombreCliente
             // 
             this.txtBoxNombreCliente.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxNombreCliente.Location = new System.Drawing.Point(374, 297);
+            this.txtBoxNombreCliente.Location = new System.Drawing.Point(499, 366);
+            this.txtBoxNombreCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBoxNombreCliente.Name = "txtBoxNombreCliente";
-            this.txtBoxNombreCliente.Size = new System.Drawing.Size(314, 29);
+            this.txtBoxNombreCliente.Size = new System.Drawing.Size(417, 35);
             this.txtBoxNombreCliente.TabIndex = 29;
             // 
             // label13
@@ -290,18 +306,20 @@
             this.label13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label13.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.LightGray;
-            this.label13.Location = new System.Drawing.Point(370, 259);
+            this.label13.Location = new System.Drawing.Point(493, 319);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(143, 22);
+            this.label13.Size = new System.Drawing.Size(181, 27);
             this.label13.TabIndex = 28;
             this.label13.Text = "Nombre cliente:";
             // 
             // btnRegistrar
             // 
             this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistrar.Location = new System.Drawing.Point(951, 375);
+            this.btnRegistrar.Location = new System.Drawing.Point(1268, 462);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(107, 35);
+            this.btnRegistrar.Size = new System.Drawing.Size(143, 43);
             this.btnRegistrar.TabIndex = 8;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
@@ -312,9 +330,10 @@
             this.comboBoxOrganizadores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOrganizadores.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxOrganizadores.FormattingEnabled = true;
-            this.comboBoxOrganizadores.Location = new System.Drawing.Point(25, 375);
+            this.comboBoxOrganizadores.Location = new System.Drawing.Point(33, 462);
+            this.comboBoxOrganizadores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxOrganizadores.Name = "comboBoxOrganizadores";
-            this.comboBoxOrganizadores.Size = new System.Drawing.Size(314, 30);
+            this.comboBoxOrganizadores.Size = new System.Drawing.Size(417, 35);
             this.comboBoxOrganizadores.TabIndex = 27;
             // 
             // label12
@@ -324,9 +343,10 @@
             this.label12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label12.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.LightGray;
-            this.label12.Location = new System.Drawing.Point(28, 338);
+            this.label12.Location = new System.Drawing.Point(37, 416);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(118, 22);
+            this.label12.Size = new System.Drawing.Size(152, 27);
             this.label12.TabIndex = 26;
             this.label12.Text = "Organizador:";
             // 
@@ -337,9 +357,10 @@
             this.label11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label11.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.LightGray;
-            this.label11.Location = new System.Drawing.Point(554, 97);
+            this.label11.Location = new System.Drawing.Point(739, 119);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(172, 22);
+            this.label11.Size = new System.Drawing.Size(221, 27);
             this.label11.TabIndex = 25;
             this.label11.Text = "Fecha culminación:";
             // 
@@ -350,26 +371,29 @@
             this.label10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label10.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.LightGray;
-            this.label10.Location = new System.Drawing.Point(66, 97);
+            this.label10.Location = new System.Drawing.Point(88, 119);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(116, 22);
+            this.label10.Size = new System.Drawing.Size(147, 27);
             this.label10.TabIndex = 24;
             this.label10.Text = "Fecha inicio:";
             // 
             // dateTimePickerFC
             // 
             this.dateTimePickerFC.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerFC.Location = new System.Drawing.Point(558, 135);
+            this.dateTimePickerFC.Location = new System.Drawing.Point(744, 166);
+            this.dateTimePickerFC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePickerFC.Name = "dateTimePickerFC";
-            this.dateTimePickerFC.Size = new System.Drawing.Size(443, 29);
+            this.dateTimePickerFC.Size = new System.Drawing.Size(589, 35);
             this.dateTimePickerFC.TabIndex = 23;
             // 
             // dateTimePickerFI
             // 
             this.dateTimePickerFI.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerFI.Location = new System.Drawing.Point(70, 135);
+            this.dateTimePickerFI.Location = new System.Drawing.Point(93, 166);
+            this.dateTimePickerFI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePickerFI.Name = "dateTimePickerFI";
-            this.dateTimePickerFI.Size = new System.Drawing.Size(443, 29);
+            this.dateTimePickerFI.Size = new System.Drawing.Size(589, 35);
             this.dateTimePickerFI.TabIndex = 22;
             // 
             // comboBoxTipoEvento
@@ -377,9 +401,10 @@
             this.comboBoxTipoEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTipoEvento.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTipoEvento.FormattingEnabled = true;
-            this.comboBoxTipoEvento.Location = new System.Drawing.Point(25, 298);
+            this.comboBoxTipoEvento.Location = new System.Drawing.Point(33, 367);
+            this.comboBoxTipoEvento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxTipoEvento.Name = "comboBoxTipoEvento";
-            this.comboBoxTipoEvento.Size = new System.Drawing.Size(314, 30);
+            this.comboBoxTipoEvento.Size = new System.Drawing.Size(417, 35);
             this.comboBoxTipoEvento.TabIndex = 21;
             // 
             // label9
@@ -389,9 +414,10 @@
             this.label9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label9.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.LightGray;
-            this.label9.Location = new System.Drawing.Point(28, 261);
+            this.label9.Location = new System.Drawing.Point(37, 321);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(141, 22);
+            this.label9.Size = new System.Drawing.Size(176, 27);
             this.label9.TabIndex = 20;
             this.label9.Text = "Tipo de evento:";
             // 
@@ -400,9 +426,10 @@
             this.comboBoxSalon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSalon.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSalon.FormattingEnabled = true;
-            this.comboBoxSalon.Location = new System.Drawing.Point(374, 217);
+            this.comboBoxSalon.Location = new System.Drawing.Point(499, 267);
+            this.comboBoxSalon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxSalon.Name = "comboBoxSalon";
-            this.comboBoxSalon.Size = new System.Drawing.Size(314, 30);
+            this.comboBoxSalon.Size = new System.Drawing.Size(417, 35);
             this.comboBoxSalon.TabIndex = 19;
             // 
             // label8
@@ -412,18 +439,20 @@
             this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label8.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.LightGray;
-            this.label8.Location = new System.Drawing.Point(370, 180);
+            this.label8.Location = new System.Drawing.Point(493, 222);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 22);
+            this.label8.Size = new System.Drawing.Size(81, 27);
             this.label8.TabIndex = 18;
             this.label8.Text = "Salon:";
             // 
             // txtBoxHoraCulminacion
             // 
             this.txtBoxHoraCulminacion.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxHoraCulminacion.Location = new System.Drawing.Point(872, 54);
+            this.txtBoxHoraCulminacion.Location = new System.Drawing.Point(1163, 66);
+            this.txtBoxHoraCulminacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBoxHoraCulminacion.Name = "txtBoxHoraCulminacion";
-            this.txtBoxHoraCulminacion.Size = new System.Drawing.Size(186, 29);
+            this.txtBoxHoraCulminacion.Size = new System.Drawing.Size(247, 35);
             this.txtBoxHoraCulminacion.TabIndex = 17;
             // 
             // label7
@@ -433,18 +462,20 @@
             this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.LightGray;
-            this.label7.Location = new System.Drawing.Point(868, 17);
+            this.label7.Location = new System.Drawing.Point(1157, 21);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(186, 22);
+            this.label7.Size = new System.Drawing.Size(239, 27);
             this.label7.TabIndex = 16;
             this.label7.Text = "Hora de culminación:";
             // 
             // txtBoxHoraInicio
             // 
             this.txtBoxHoraInicio.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxHoraInicio.Location = new System.Drawing.Point(663, 54);
+            this.txtBoxHoraInicio.Location = new System.Drawing.Point(884, 66);
+            this.txtBoxHoraInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBoxHoraInicio.Name = "txtBoxHoraInicio";
-            this.txtBoxHoraInicio.Size = new System.Drawing.Size(186, 29);
+            this.txtBoxHoraInicio.Size = new System.Drawing.Size(247, 35);
             this.txtBoxHoraInicio.TabIndex = 15;
             // 
             // label6
@@ -454,18 +485,20 @@
             this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.LightGray;
-            this.label6.Location = new System.Drawing.Point(659, 17);
+            this.label6.Location = new System.Drawing.Point(879, 21);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 22);
+            this.label6.Size = new System.Drawing.Size(165, 27);
             this.label6.TabIndex = 14;
             this.label6.Text = "Hora de inicio:";
             // 
             // txtBoxCantidadAsistentes
             // 
             this.txtBoxCantidadAsistentes.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCantidadAsistentes.Location = new System.Drawing.Point(431, 54);
+            this.txtBoxCantidadAsistentes.Location = new System.Drawing.Point(575, 66);
+            this.txtBoxCantidadAsistentes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBoxCantidadAsistentes.Name = "txtBoxCantidadAsistentes";
-            this.txtBoxCantidadAsistentes.Size = new System.Drawing.Size(186, 29);
+            this.txtBoxCantidadAsistentes.Size = new System.Drawing.Size(247, 35);
             this.txtBoxCantidadAsistentes.TabIndex = 13;
             // 
             // label5
@@ -475,26 +508,29 @@
             this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.LightGray;
-            this.label5.Location = new System.Drawing.Point(427, 16);
+            this.label5.Location = new System.Drawing.Point(569, 20);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(183, 22);
+            this.label5.Size = new System.Drawing.Size(232, 27);
             this.label5.TabIndex = 12;
             this.label5.Text = "Cantidad Asistentes:";
             // 
             // txtBoxDescripcionEvento
             // 
             this.txtBoxDescripcionEvento.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxDescripcionEvento.Location = new System.Drawing.Point(25, 218);
+            this.txtBoxDescripcionEvento.Location = new System.Drawing.Point(33, 268);
+            this.txtBoxDescripcionEvento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBoxDescripcionEvento.Name = "txtBoxDescripcionEvento";
-            this.txtBoxDescripcionEvento.Size = new System.Drawing.Size(314, 29);
+            this.txtBoxDescripcionEvento.Size = new System.Drawing.Size(417, 35);
             this.txtBoxDescripcionEvento.TabIndex = 11;
             // 
             // txtBoxNombreEvento
             // 
             this.txtBoxNombreEvento.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxNombreEvento.Location = new System.Drawing.Point(70, 56);
+            this.txtBoxNombreEvento.Location = new System.Drawing.Point(93, 69);
+            this.txtBoxNombreEvento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBoxNombreEvento.Name = "txtBoxNombreEvento";
-            this.txtBoxNombreEvento.Size = new System.Drawing.Size(314, 29);
+            this.txtBoxNombreEvento.Size = new System.Drawing.Size(417, 35);
             this.txtBoxNombreEvento.TabIndex = 10;
             // 
             // label4
@@ -504,9 +540,10 @@
             this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.LightGray;
-            this.label4.Location = new System.Drawing.Point(21, 180);
+            this.label4.Location = new System.Drawing.Point(28, 222);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 22);
+            this.label4.Size = new System.Drawing.Size(144, 27);
             this.label4.TabIndex = 9;
             this.label4.Text = "Descripción:";
             // 
@@ -517,18 +554,20 @@
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.LightGray;
-            this.label3.Location = new System.Drawing.Point(66, 19);
+            this.label3.Location = new System.Drawing.Point(88, 23);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 22);
+            this.label3.Size = new System.Drawing.Size(222, 27);
             this.label3.TabIndex = 8;
             this.label3.Text = "Nombre del evento:";
             // 
             // btnListarReservas
             // 
             this.btnListarReservas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnListarReservas.Location = new System.Drawing.Point(575, 101);
+            this.btnListarReservas.Location = new System.Drawing.Point(767, 124);
+            this.btnListarReservas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnListarReservas.Name = "btnListarReservas";
-            this.btnListarReservas.Size = new System.Drawing.Size(107, 35);
+            this.btnListarReservas.Size = new System.Drawing.Size(143, 43);
             this.btnListarReservas.TabIndex = 7;
             this.btnListarReservas.Text = "Listar";
             this.btnListarReservas.UseVisualStyleBackColor = true;
@@ -536,10 +575,10 @@
             // 
             // Reservas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.ClientSize = new System.Drawing.Size(1064, 573);
+            this.ClientSize = new System.Drawing.Size(1419, 705);
             this.Controls.Add(this.btnListarReservas);
             this.Controls.Add(this.btnEliminarReserva);
             this.Controls.Add(this.btnEditarReserva);
@@ -549,6 +588,7 @@
             this.Controls.Add(this.addReservation);
             this.Controls.Add(this.listReservations);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Reservas";
             this.Text = "Reservas";
             this.Load += new System.EventHandler(this.Reservas_Load);

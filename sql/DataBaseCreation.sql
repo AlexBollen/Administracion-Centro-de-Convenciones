@@ -125,9 +125,21 @@ IF OBJECT_ID('dbo.ActualizarUsuario') IS NOT NULL
 BEGIN
 	DROP PROC ActualizarUsuario;
 END;
-IF OBJECT_ID('dbo.InsertarSalones') IS NOT NULL
+IF OBJECT_ID('dbo.InsertarSalon') IS NOT NULL
 BEGIN
-	DROP PROC InsertarSalones;
+	DROP PROC InsertarSalon;
+END;
+IF OBJECT_ID('dbo.ActualizarSalones') IS NOT NULL
+BEGIN
+	DROP PROC ActualizarSalones;
+END;
+IF OBJECT_ID('dbo.InsertarTipoSalon') IS NOT NULL
+BEGIN
+	DROP PROC InsertarTipoSalon;
+END;
+IF OBJECT_ID('dbo.ActualizarTipoSalones') IS NOT NULL
+BEGIN
+	DROP PROC ActualizarTipoSalones;
 END;
 
 CREATE TABLE Persona

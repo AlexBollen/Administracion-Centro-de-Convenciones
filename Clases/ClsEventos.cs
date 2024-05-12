@@ -34,7 +34,7 @@ namespace Administración_Centro_de_Convenciones.Clases {
                 connection.Open();
                 using (var command = new SqlCommand()) {
                     command.Connection = connection;
-                    command.CommandText = "ListarSalones";
+                    command.CommandText = "ListarSalon";
                     command.CommandType = CommandType.StoredProcedure;
                     LeerFilas = command.ExecuteReader();
                     tablaSalones.Load(LeerFilas);

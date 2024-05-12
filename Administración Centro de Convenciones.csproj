@@ -49,7 +49,9 @@
     <Compile Include="Cache\Roles.cs" />
     <Compile Include="Cache\UserLoginCache.cs" />
     <Compile Include="Clases\ClsEventos.cs" />
+    <Compile Include="Clases\ClsOrganizadores.cs" />
     <Compile Include="Clases\ClsSalones.cs" />
+    <Compile Include="Clases\ClsTipoEvento.cs" />
     <Compile Include="Clases\ClsTipoSalon.cs" />
     <Compile Include="Clases\ClsUsuarios.cs" />
     <Compile Include="Clases\DBConnection.cs" />
