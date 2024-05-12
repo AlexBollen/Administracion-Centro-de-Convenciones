@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -62,6 +63,10 @@ namespace Administración_Centro_de_Convenciones {
             txtBoxNombreSalon.Clear();
             txtBoxCapacidad.Clear();
             txtBoxDescripcion.Clear();
+            pbValidation1.Hide();
+            pbValidation2.Hide();
+            pbValidation3.Hide();
+            pbValidation4.Hide();
         }
         private void ListarTipos()
         {
@@ -73,23 +78,29 @@ namespace Administración_Centro_de_Convenciones {
 
         private void btnIngresarSalon_Click(object sender, EventArgs e)
         {
-            objSalones.InsertarSalon(
-                txtBoxNombreSalon.Text,
-                comboBoxEstadoSalon.SelectedItem.ToString(),
-                txtBoxDescripcion.Text,
-                Convert.ToInt32(txtBoxCapacidad.Text),
-                Convert.ToInt32(comboBoxTipos.SelectedValue));
-            MessageBox.Show("Insertado correctamente");
-            ClearData();
-            btnEdiicionSalon.Enabled = true;
-            btnEliminarSalon.Enabled = true;
-            btnListarSalones.PerformClick();
+            if (FieldsValidation())
+            {
+                objSalones.InsertarSalon(
+                    txtBoxNombreSalon.Text,
+                    comboBoxEstadoSalon.SelectedItem.ToString(),
+                    txtBoxDescripcion.Text,
+                    Convert.ToInt32(txtBoxCapacidad.Text),
+                    Convert.ToInt32(comboBoxTipos.SelectedValue));
+                MessageBox.Show("Insertado correctamente");
+                ClearData();
+                btnEdiicionSalon.Enabled = true;
+                btnEliminarSalon.Enabled = true;
+                btnListarSalones.PerformClick();
+            } else
+                MessageBox.Show("Campos invalidos, por favor verifiquelos.");
+
         }
 
         private void btnEditarSalon_Click(object sender, EventArgs e)
         {
             if (dataGridViewSalones.SelectedRows.Count > 0)
             {
+                ClearData();
                 // Control de visualización de componentes
                 listSalon.Hide();
                 addSalon.Show();
@@ -113,18 +124,23 @@ namespace Administración_Centro_de_Convenciones {
 
         private void btnEditSalon_Click(object sender, EventArgs e)
         {
-            btnIngresarSalon.Show();
-            btnEditSalon.Hide();
-            objSalones.EditarSalon(
-            IdSalon,
-            txtBoxNombreSalon.Text,
-            comboBoxEstadoSalon.SelectedItem.ToString(),
-            txtBoxDescripcion.Text,
-            Convert.ToInt32(txtBoxCapacidad.Text),
-            Convert.ToInt32(comboBoxTipos.SelectedValue)
-        );
-            MessageBox.Show("Se actualizo correctamente el salón");
-            btnListarSalones.PerformClick();
+            if (FieldsValidation())
+            {
+                btnIngresarSalon.Show();
+                btnEditSalon.Hide();
+                objSalones.EditarSalon(
+                IdSalon,
+                txtBoxNombreSalon.Text,
+                comboBoxEstadoSalon.SelectedItem.ToString(),
+                txtBoxDescripcion.Text,
+                Convert.ToInt32(txtBoxCapacidad.Text),
+                Convert.ToInt32(comboBoxTipos.SelectedValue)
+                );
+                MessageBox.Show("Se actualizo correctamente el salón");
+                btnListarSalones.PerformClick();
+            } else
+                MessageBox.Show("Campos invalidos, por favor verifiquelos.");
+
         }
 
         private void btnEliminarSalon_Click(object sender, EventArgs e)
@@ -141,6 +157,47 @@ namespace Administración_Centro_de_Convenciones {
             }
             else
                 MessageBox.Show("Debe seleccionar un registro a eliminar");
+        }
+
+        private bool FieldsValidation()
+        {
+            int sum = 0;
+            Regex salonNameValidation = new Regex(@"^[a-zA-ZáéíóúÁÉÍÓÚ\s.]{1,100}$");
+            Regex salonCapacityValidation = new Regex(@"^[\d]{1,5}$");
+            if (!salonNameValidation.IsMatch(txtBoxNombreSalon.Text))
+                pbValidation1.Show();
+            else{
+                pbValidation1.Hide();
+                sum += 1;
+            }
+            if (!salonCapacityValidation.IsMatch(txtBoxCapacidad.Text))
+                pbValidation2.Show();
+            else{
+                pbValidation2.Hide();
+                sum += 1;
+            }
+            if (comboBoxEstadoSalon.Text == "")
+                pbValidation3.Show();
+            else{
+                pbValidation3.Hide();
+                sum += 1;
+            }
+            if (comboBoxTipos.Text == "")
+                pbValidation4.Show();
+            else
+            {
+                pbValidation4.Hide();
+                sum += 1;
+            }
+            if (sum == 4)
+                return true;
+            else
+                return false;
+        }
+
+        private void addSalon_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

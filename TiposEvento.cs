@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,15 +20,19 @@ namespace Administración_Centro_de_Convenciones {
 
         private void btnEditTipoSalon_Click(object sender, EventArgs e)
         {
-            btnIngresarTipoEvento.Show();
-            btnEditTipoEvento.Hide();
-            objTipoEventos.EditarTipoEvento(
-            IdTipoEvento,
-            txtBoxNombreTipoEvento.Text,
-            txtBoxDescripcion.Text
-            );
-            MessageBox.Show("Se actualizo correctamente el tipo de evento");
-            btnListarTiposEventos.PerformClick();
+            if (FieldsValidation())
+            {
+                btnIngresarTipoEvento.Show();
+                btnEditTipoEvento.Hide();
+                objTipoEventos.EditarTipoEvento(
+                IdTipoEvento,
+                txtBoxNombreTipoEvento.Text,
+                txtBoxDescripcion.Text
+                );
+                MessageBox.Show("Se actualizo correctamente el tipo de evento");
+                btnListarTiposEventos.PerformClick();
+            } else
+                MessageBox.Show("Campos invalidos, por favor verifiquelos.");
         }
 
         private void btnListarTiposEventos_Click(object sender, EventArgs e)
@@ -66,18 +71,23 @@ namespace Administración_Centro_de_Convenciones {
         {
             txtBoxNombreTipoEvento.Clear();
             txtBoxDescripcion.Clear();
+            pbValidation1.Hide();
         }
 
         private void btnIngresarTipoEvento_Click(object sender, EventArgs e)
         {
-            objTipoEventos.InsertarTipoEvento(
-            txtBoxNombreTipoEvento.Text,
-            txtBoxDescripcion.Text);
-            MessageBox.Show("Insertado correctamente");
-            ClearData();
-            btnEdiicionTipoEvento.Enabled = true;
-            btnEliminarTipoEvento.Enabled = true;
-            btnListarTiposEventos.PerformClick();
+            if (FieldsValidation())
+            {
+                objTipoEventos.InsertarTipoEvento(
+                txtBoxNombreTipoEvento.Text,
+                txtBoxDescripcion.Text);
+                MessageBox.Show("Insertado correctamente");
+                ClearData();
+                btnEdiicionTipoEvento.Enabled = true;
+                btnEliminarTipoEvento.Enabled = true;
+                btnListarTiposEventos.PerformClick();
+            } else
+                MessageBox.Show("Campos invalidos, por favor verifiquelos.");
         }
 
         private void btnEdiicionTipoEvento_Click(object sender, EventArgs e)
@@ -114,6 +124,22 @@ namespace Administración_Centro_de_Convenciones {
             }
             else
                 MessageBox.Show("Debe seleccionar un registro a eliminar");
+        }
+
+        private bool FieldsValidation()
+        {
+            int sum = 0;
+            Regex eventTypeNameValidation = new Regex(@"^[a-zA-ZáéíóúÁÉÍÓÚ\s.]{1,75}$");
+            if (!eventTypeNameValidation.IsMatch(txtBoxNombreTipoEvento.Text))
+                pbValidation1.Show();
+            else{
+                pbValidation1.Hide();
+                sum += 1;
+            }
+            if (sum == 1)
+                return true;
+            else
+                return false;
         }
     }
 }
