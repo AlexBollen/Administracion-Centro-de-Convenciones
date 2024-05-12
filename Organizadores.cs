@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Administración_Centro_de_Convenciones {
     public partial class Organizadores : Form {
@@ -44,6 +45,8 @@ namespace Administración_Centro_de_Convenciones {
         private void ClearData()
         {
             txtBoxNombreOrganizador.Clear();
+            pbValidation1.Hide();
+            pbValidation2.Hide();
         }
 
         private void btnAgregarOrganizador_Click(object sender, EventArgs e)
@@ -60,23 +63,27 @@ namespace Administración_Centro_de_Convenciones {
 
         private void btnIngresarOrganizador_Click(object sender, EventArgs e)
         {
-            int idPersona = objOrganizadores.InsertarPersona(
-                txtBoxNombreOrganizador.Text);
-            objOrganizadores.InsertarOrganizador(
-                comboBoxEstadoOrganizador.SelectedItem.ToString(),
-                idPersona
-                );
-            MessageBox.Show("Insertado correctamente");
-            ClearData();
-            btnEdiicionOrganizador.Enabled = true;
-            btnEliminarOrganizador.Enabled = true;
-            btnListarOrganizadores.PerformClick();
+            if (FieldsValidation()){
+                int idPersona = objOrganizadores.InsertarPersona(
+                    txtBoxNombreOrganizador.Text);
+                objOrganizadores.InsertarOrganizador(
+                    comboBoxEstadoOrganizador.SelectedItem.ToString(),
+                    idPersona
+                    );
+                MessageBox.Show("Insertado correctamente");
+                ClearData();
+                btnEdiicionOrganizador.Enabled = true;
+                btnEliminarOrganizador.Enabled = true;
+                btnListarOrganizadores.PerformClick();
+            } else
+                MessageBox.Show("Campos invalidos, por favor verifiquelos.");
         }
 
         private void btnEdiicionOrganizador_Click(object sender, EventArgs e)
         {
             if (dataGridViewOrganizadores.SelectedRows.Count > 0)
             {
+                ClearData();
                 // Control de visualización de componentes
                 listOrganizador.Hide();
                 addOrganizador.Show();
@@ -117,14 +124,39 @@ namespace Administración_Centro_de_Convenciones {
 
         private void btnEditOrganizador_Click(object sender, EventArgs e)
         {
-            objOrganizadores.EditarOrganizador(
-                IdOrganizador,
-                comboBoxEstadoOrganizador.SelectedItem.ToString(),
-                UpdatePersonaId,
-                txtBoxNombreOrganizador.Text
-            );
-            MessageBox.Show("Se actualizo correctamente el organizador");
-            btnListarOrganizadores.PerformClick();
+            if (FieldsValidation()){
+                objOrganizadores.EditarOrganizador(
+                    IdOrganizador,
+                    comboBoxEstadoOrganizador.SelectedItem.ToString(),
+                    UpdatePersonaId,
+                    txtBoxNombreOrganizador.Text
+                );
+                MessageBox.Show("Se actualizo correctamente el organizador");
+                btnListarOrganizadores.PerformClick();
+            }else
+                MessageBox.Show("Campos invalidos, por favor verifiquelos.");
+        }
+
+        private bool FieldsValidation()
+        {
+            int sum = 0;
+            Regex organizerNameValidation = new Regex(@"^[a-zA-ZáéíóúÁÉÍÓÚ\s.]{1,100}$");
+            if (!organizerNameValidation.IsMatch(txtBoxNombreOrganizador.Text))
+                pbValidation1.Show();
+            else{
+                pbValidation1.Hide();
+                sum += 1;
+            }
+            if (comboBoxEstadoOrganizador.Text == "")
+                pbValidation2.Show();
+            else{
+                pbValidation2.Hide();
+                sum += 1;
+            }
+            if (sum == 2)
+                return true;
+            else
+                return false;
         }
     }
 }

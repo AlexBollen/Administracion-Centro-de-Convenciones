@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -55,18 +56,24 @@ namespace Administración_Centro_de_Convenciones {
         {
             txtBoxNombreTipoSalon.Clear();
             txtBoxExistencias.Clear();
+            pbValidation1.Hide();
+            pbValidation2.Hide();
         }
 
         private void btnIngresarSalon_Click(object sender, EventArgs e)
         {
-            objTipoSalones.InsertarTipoSalon(
-            txtBoxNombreTipoSalon.Text,
-            Convert.ToInt32(txtBoxExistencias.Text));
-            MessageBox.Show("Insertado correctamente");
-            ClearData();
-            btnEdiicionTipoSalon.Enabled = true;
-            btnEliminarTipoSalon.Enabled = true;
-            btnListarSalones.PerformClick();
+            if (FieldsValidation())
+            {
+                objTipoSalones.InsertarTipoSalon(
+                txtBoxNombreTipoSalon.Text,
+                Convert.ToInt32(txtBoxExistencias.Text));
+                MessageBox.Show("Insertado correctamente");
+                ClearData();
+                btnEdiicionTipoSalon.Enabled = true;
+                btnEliminarTipoSalon.Enabled = true;
+                btnListarSalones.PerformClick();
+            } else
+                MessageBox.Show("Campos invalidos, por favor verifiquelos.");
         }
 
         private void btnEdiicionTipoSalon_Click(object sender, EventArgs e)
@@ -91,15 +98,19 @@ namespace Administración_Centro_de_Convenciones {
 
         private void btnEditTipoSalon_Click(object sender, EventArgs e)
         {
-            btnIngresarSalon.Show();
-            btnEditTipoSalon.Hide();
-            objTipoSalones.EditarTipoSalon(
-            IdTipoSalon,
-            txtBoxNombreTipoSalon.Text,
-            Convert.ToInt32(txtBoxExistencias.Text)
-            );
-            MessageBox.Show("Se actualizo correctamente el tipo de salón");
-            btnListarSalones.PerformClick();
+            if (FieldsValidation())
+            {
+                btnIngresarSalon.Show();
+                btnEditTipoSalon.Hide();
+                objTipoSalones.EditarTipoSalon(
+                IdTipoSalon,
+                txtBoxNombreTipoSalon.Text,
+                Convert.ToInt32(txtBoxExistencias.Text)
+                );
+                MessageBox.Show("Se actualizo correctamente el tipo de salón");
+                btnListarSalones.PerformClick();
+            } else
+                MessageBox.Show("Campos invalidos, por favor verifiquelos.");
         }
 
         private void btnEliminarTipoSalon_Click(object sender, EventArgs e)
@@ -116,6 +127,23 @@ namespace Administración_Centro_de_Convenciones {
             }
             else
                 MessageBox.Show("Debe seleccionar un registro a eliminar");
+        }
+
+        private bool FieldsValidation()
+        {
+            int sum = 0;
+            Regex salonTypeNameValidation = new Regex(@"^[a-zA-ZáéíóúÁÉÍÓÚ\s.]{1,100}$");
+            if (!salonTypeNameValidation.IsMatch(txtBoxNombreTipoSalon.Text))
+                pbValidation1.Show();
+            else
+            {
+                pbValidation1.Hide();
+                sum += 1;
+            }
+            if (sum == 1)
+                return true;
+            else
+                return false;
         }
     }
 }
