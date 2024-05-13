@@ -140,11 +140,7 @@ namespace Administración_Centro_de_Convenciones {
                 Convert.ToInt32(txtBoxCapacidad.Text),
                 Convert.ToInt32(comboBoxTipos.SelectedValue)
                 );
-                if (Convert.ToInt32(comboBoxTipos.SelectedValue) == tipoSalonActual)
-                    ActualizarExistenciasTipoSalon(
-                    Convert.ToInt32(comboBoxTipos.SelectedValue),
-                    true);
-                else {
+                if (Convert.ToInt32(comboBoxTipos.SelectedValue) != tipoSalonActual) {
                     ActualizarExistenciasTipoSalon(
                     Convert.ToInt32(comboBoxTipos.SelectedValue),
                     true);
@@ -152,7 +148,6 @@ namespace Administración_Centro_de_Convenciones {
                     tipoSalonActual,
                     false);
                 }
-                
                 MessageBox.Show("Se actualizo correctamente el salón");
                 btnListarSalones.PerformClick();
             } else
