@@ -323,6 +323,17 @@ AS BEGIN
 END;
 GO
 
+-- Procedimiento para actualizar existencias de tipo de salon
+CREATE PROC ActualizarExistenciasTipoSalon
+@IdTipoSalon INT,
+@ExistenciasTipoSalon INT
+AS BEGIN
+	UPDATE TipoSalon SET
+	ExistenciasTipoSalon=@ExistenciasTipoSalon
+	WHERE IdTipoSalon=@IdTipoSalon
+END;
+GO
+
 -- Procedimiento para crear un tipo evento
 Create PROC InsertarTipoEvento
 @NombreTipoEvento VARCHAR(100),
