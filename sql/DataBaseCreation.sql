@@ -89,9 +89,13 @@ IF OBJECT_ID('dbo.ListarOrganizadores') IS NOT NULL
 BEGIN
 	DROP PROC ListarOrganizadores;
 END;
-IF OBJECT_ID('dbo.ListarSalones') IS NOT NULL
+IF OBJECT_ID('dbo.ListarSalon') IS NOT NULL
 BEGIN
-	DROP PROC ListarSalones;
+	DROP PROC ListarSalon;
+END;
+IF OBJECT_ID('dbo.ListarTipoSalon') IS NOT NULL
+BEGIN
+	DROP PROC ListarTipoSalon;
 END;
 IF OBJECT_ID('dbo.ListarTipoEvento') IS NOT NULL
 BEGIN
@@ -140,6 +144,10 @@ END;
 IF OBJECT_ID('dbo.ActualizarTipoSalones') IS NOT NULL
 BEGIN
 	DROP PROC ActualizarTipoSalones;
+END;
+IF OBJECT_ID('dbo.ActualizarExistenciasTipoSalon') IS NOT NULL
+BEGIN
+	DROP PROC ActualizarExistenciasTipoSalon;
 END;
 IF OBJECT_ID('dbo.InsertarTipoEvento') IS NOT NULL
 BEGIN
