@@ -13,9 +13,7 @@ using System.Windows.Forms;
 namespace Administración_Centro_de_Convenciones {
     public partial class TiposSalon : Form {
         ClsTipoSalon objTipoSalones = new ClsTipoSalon();
-        int IdTipoSalon;
-
-
+        int IdTipoSalon, existenciasSalon;
         public TiposSalon() {
             InitializeComponent();
         }
@@ -55,9 +53,7 @@ namespace Administración_Centro_de_Convenciones {
         private void ClearData()
         {
             txtBoxNombreTipoSalon.Clear();
-            txtBoxExistencias.Clear();
             pbValidation1.Hide();
-            pbValidation2.Hide();
         }
 
         private void btnIngresarSalon_Click(object sender, EventArgs e)
@@ -66,7 +62,7 @@ namespace Administración_Centro_de_Convenciones {
             {
                 objTipoSalones.InsertarTipoSalon(
                 txtBoxNombreTipoSalon.Text,
-                Convert.ToInt32(txtBoxExistencias.Text));
+                0);
                 MessageBox.Show("Insertado correctamente");
                 ClearData();
                 btnEdiicionTipoSalon.Enabled = true;
@@ -76,7 +72,7 @@ namespace Administración_Centro_de_Convenciones {
                 MessageBox.Show("Campos invalidos, por favor verifiquelos.");
         }
 
-        private void btnEdiicionTipoSalon_Click(object sender, EventArgs e)
+        public void btnEdiicionTipoSalon_Click(object sender, EventArgs e)
         {
             if (dataGridViewTipoSalones.SelectedRows.Count > 0)
             {
@@ -90,7 +86,7 @@ namespace Administración_Centro_de_Convenciones {
                 string[] registro;
                 registro = objTipoSalones.CargarRegistroTipoSalon(IdTipoSalon);
                 txtBoxNombreTipoSalon.Text = registro[1];
-                txtBoxExistencias.Text = registro[2].ToString();
+                existenciasSalon = Convert.ToInt32(registro[2].ToString());
             }
             else
                 MessageBox.Show("Debe seleccionar un registro a editar");
@@ -105,8 +101,7 @@ namespace Administración_Centro_de_Convenciones {
                 objTipoSalones.EditarTipoSalon(
                 IdTipoSalon,
                 txtBoxNombreTipoSalon.Text,
-                Convert.ToInt32(txtBoxExistencias.Text)
-                );
+                existenciasSalon);
                 MessageBox.Show("Se actualizo correctamente el tipo de salón");
                 btnListarSalones.PerformClick();
             } else

@@ -13,7 +13,7 @@ using System.Windows.Forms;
 namespace Administración_Centro_de_Convenciones {
     public partial class Salones : Form {
         ClsSalones objSalones = new ClsSalones();
-        int IdSalon;
+        int IdSalon, tipoSalonActual;
 
         public Salones() {
             InitializeComponent();
@@ -86,6 +86,9 @@ namespace Administración_Centro_de_Convenciones {
                     txtBoxDescripcion.Text,
                     Convert.ToInt32(txtBoxCapacidad.Text),
                     Convert.ToInt32(comboBoxTipos.SelectedValue));
+                ActualizarExistenciasTipoSalon(
+                    Convert.ToInt32(comboBoxTipos.SelectedValue),
+                    true);
                 MessageBox.Show("Insertado correctamente");
                 ClearData();
                 btnEdiicionSalon.Enabled = true;
@@ -117,6 +120,7 @@ namespace Administración_Centro_de_Convenciones {
                 txtBoxCapacidad.Text = registro[3];
                 txtBoxDescripcion.Text = registro[4];
                 comboBoxTipos.SelectedValue = registro[5];
+                tipoSalonActual = Convert.ToInt32(registro[5]);
             }
             else
                 MessageBox.Show("Debe seleccionar un registro a editar");
@@ -136,6 +140,19 @@ namespace Administración_Centro_de_Convenciones {
                 Convert.ToInt32(txtBoxCapacidad.Text),
                 Convert.ToInt32(comboBoxTipos.SelectedValue)
                 );
+                if (Convert.ToInt32(comboBoxTipos.SelectedValue) == tipoSalonActual)
+                    ActualizarExistenciasTipoSalon(
+                    Convert.ToInt32(comboBoxTipos.SelectedValue),
+                    true);
+                else {
+                    ActualizarExistenciasTipoSalon(
+                    Convert.ToInt32(comboBoxTipos.SelectedValue),
+                    true);
+                    ActualizarExistenciasTipoSalon(
+                    tipoSalonActual,
+                    false);
+                }
+                
                 MessageBox.Show("Se actualizo correctamente el salón");
                 btnListarSalones.PerformClick();
             } else
@@ -150,6 +167,13 @@ namespace Administración_Centro_de_Convenciones {
                 if (MessageBox.Show("¿Estás seguro de que deseas eliminar el salón?", "Warning",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
+                    string[] registro;
+                    registro = objSalones.CargarRegistroSalon(
+                        Convert.ToInt32(dataGridViewSalones.CurrentRow.Cells[0].Value));
+                    int tipoSalon = Convert.ToInt32(registro[5]);
+                    ActualizarExistenciasTipoSalon(
+                    tipoSalon,
+                    false);
                     objSalones.EliminarSalon(Convert.ToInt32(dataGridViewSalones.CurrentRow.Cells[0].Value));
                     MessageBox.Show("Se ha eliminado correctamente el salón");
                     ListarSalones();
@@ -197,6 +221,18 @@ namespace Administración_Centro_de_Convenciones {
 
         private void addSalon_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void ActualizarExistenciasTipoSalon(int IdTipoSalon, bool operation) {
+            string[] registro;
+            registro = objSalones.ObtenerExistenciasTipoSalon(IdTipoSalon);
+            int cantidadExistente = Convert.ToInt32(registro[2]);
+            if (operation)
+                cantidadExistente+= 1;
+            else
+                cantidadExistente-= 1;
+            objSalones.ActualizarExistenciasTipoSalon(IdTipoSalon, cantidadExistente);
 
         }
     }

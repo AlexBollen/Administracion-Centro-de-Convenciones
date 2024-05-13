@@ -193,5 +193,56 @@ namespace Administración_Centro_de_Convenciones.Clases
                 }
             }
         }
+
+        public string[]  ObtenerExistenciasTipoSalon(int IdTipoSalon) {
+            using (var connection = GetConnection()) {
+                connection.Open();
+                using (var command = new SqlCommand()) {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM TipoSalon WHERE IdTipoSalon =" + IdTipoSalon;
+                    command.CommandType = CommandType.Text;
+                    LeerFilas = command.ExecuteReader();
+                    string[] row = new string[LeerFilas.FieldCount];
+                    try {
+                        if (LeerFilas.Read()) {
+                            for (int i = 0; i < LeerFilas.FieldCount; i++) {
+                                row[i] = LeerFilas[i].ToString();
+                            }
+                            return row;
+                        } else {
+                            return null;
+                        }
+                    } catch (Exception ex) {
+                        MessageBox.Show("No se encontro el registro.\nError: " + ex.Message);
+                        throw;
+                    } finally {
+                        LeerFilas.Close();
+                        connection.Close();
+                    }
+                }
+            }
+        }
+
+        public void ActualizarExistenciasTipoSalon(
+            int IdTipoSalon, 
+            int cantidadActualizada) {
+            using (var connection = GetConnection()) {
+                connection.Open();
+                try {
+                    using (var command = new SqlCommand()) {
+                        command.Connection = connection;
+                        command.CommandText = "ActualizarExistenciasTipoSalon";
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@IdTipoSalon", IdTipoSalon);
+                        command.Parameters.AddWithValue("@ExistenciasTipoSalon", cantidadActualizada);
+                        command.ExecuteNonQuery();
+                    }
+                } catch (Exception ex) {
+                    MessageBox.Show($"Ocurrio un error al actualizar el tipo de salon. \nError: {ex.Message}");
+                } finally {
+                    connection.Close();
+                }
+            }
+        }
     }
 }

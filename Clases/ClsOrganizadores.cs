@@ -35,9 +35,7 @@ namespace Administración_Centro_de_Convenciones.Clases
             string estado,
             int IdPersona
         )
-        {
-            int idItinerario;
-            using (var connection = GetConnection())
+        {            using (var connection = GetConnection())
             {
                 connection.Open();
                 try
