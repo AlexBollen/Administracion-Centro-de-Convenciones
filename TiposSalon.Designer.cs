@@ -23,15 +23,14 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TiposSalon));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TiposSalon));
             this.addTipoSalon = new System.Windows.Forms.Panel();
+            this.pbValidation1 = new System.Windows.Forms.PictureBox();
             this.btnEditTipoSalon = new System.Windows.Forms.Button();
             this.btnIngresarSalon = new System.Windows.Forms.Button();
-            this.txtBoxExistencias = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.txtBoxNombreTipoSalon = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnListarSalones = new System.Windows.Forms.Button();
@@ -42,29 +41,33 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listTipoSalon = new System.Windows.Forms.Panel();
             this.dataGridViewTipoSalones = new System.Windows.Forms.DataGridView();
-            this.pbValidation1 = new System.Windows.Forms.PictureBox();
-            this.pbValidation2 = new System.Windows.Forms.PictureBox();
             this.addTipoSalon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).BeginInit();
             this.listTipoSalon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTipoSalones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation2)).BeginInit();
             this.SuspendLayout();
             // 
             // addTipoSalon
             // 
-            this.addTipoSalon.Controls.Add(this.pbValidation2);
             this.addTipoSalon.Controls.Add(this.pbValidation1);
             this.addTipoSalon.Controls.Add(this.btnEditTipoSalon);
             this.addTipoSalon.Controls.Add(this.btnIngresarSalon);
-            this.addTipoSalon.Controls.Add(this.txtBoxExistencias);
-            this.addTipoSalon.Controls.Add(this.label8);
             this.addTipoSalon.Controls.Add(this.txtBoxNombreTipoSalon);
             this.addTipoSalon.Controls.Add(this.label6);
             this.addTipoSalon.Location = new System.Drawing.Point(4, 173);
             this.addTipoSalon.Name = "addTipoSalon";
             this.addTipoSalon.Size = new System.Drawing.Size(885, 419);
             this.addTipoSalon.TabIndex = 57;
+            // 
+            // pbValidation1
+            // 
+            this.pbValidation1.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation1.Image")));
+            this.pbValidation1.Location = new System.Drawing.Point(360, 43);
+            this.pbValidation1.Name = "pbValidation1";
+            this.pbValidation1.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation1.TabIndex = 59;
+            this.pbValidation1.TabStop = false;
             // 
             // btnEditTipoSalon
             // 
@@ -87,27 +90,6 @@
             this.btnIngresarSalon.Text = "Crear";
             this.btnIngresarSalon.UseVisualStyleBackColor = true;
             this.btnIngresarSalon.Click += new System.EventHandler(this.btnIngresarSalon_Click);
-            // 
-            // txtBoxExistencias
-            // 
-            this.txtBoxExistencias.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxExistencias.Location = new System.Drawing.Point(40, 133);
-            this.txtBoxExistencias.Name = "txtBoxExistencias";
-            this.txtBoxExistencias.Size = new System.Drawing.Size(314, 29);
-            this.txtBoxExistencias.TabIndex = 38;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label8.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.LightGray;
-            this.label8.Location = new System.Drawing.Point(36, 108);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(106, 22);
-            this.label8.TabIndex = 35;
-            this.label8.Text = "Existencias";
             // 
             // txtBoxNombreTipoSalon
             // 
@@ -250,26 +232,6 @@
             this.dataGridViewTipoSalones.Size = new System.Drawing.Size(829, 392);
             this.dataGridViewTipoSalones.TabIndex = 1;
             // 
-            // pbValidation1
-            // 
-            this.pbValidation1.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation1.Image")));
-            this.pbValidation1.Location = new System.Drawing.Point(360, 43);
-            this.pbValidation1.Name = "pbValidation1";
-            this.pbValidation1.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation1.TabIndex = 59;
-            this.pbValidation1.TabStop = false;
-            // 
-            // pbValidation2
-            // 
-            this.pbValidation2.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation2.Image")));
-            this.pbValidation2.Location = new System.Drawing.Point(360, 140);
-            this.pbValidation2.Name = "pbValidation2";
-            this.pbValidation2.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation2.TabIndex = 60;
-            this.pbValidation2.TabStop = false;
-            // 
             // TiposSalon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,10 +252,9 @@
             this.Load += new System.EventHandler(this.TiposSalon_Load);
             this.addTipoSalon.ResumeLayout(false);
             this.addTipoSalon.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).EndInit();
             this.listTipoSalon.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTipoSalones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,8 +265,6 @@
         private System.Windows.Forms.Panel addTipoSalon;
         private System.Windows.Forms.Button btnEditTipoSalon;
         private System.Windows.Forms.Button btnIngresarSalon;
-        private System.Windows.Forms.TextBox txtBoxExistencias;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtBoxNombreTipoSalon;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnListarSalones;
@@ -316,7 +275,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel listTipoSalon;
         private System.Windows.Forms.DataGridView dataGridViewTipoSalones;
-        private System.Windows.Forms.PictureBox pbValidation2;
         private System.Windows.Forms.PictureBox pbValidation1;
     }
 }

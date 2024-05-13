@@ -301,7 +301,7 @@ AS BEGIN
 END;
 GO
 
--- Procedimiento para registrar nuevo salón
+-- Procedimiento para registrar nuevo tipo de salón
 Create PROC InsertarTipoSalon
 @NombreTipoSalon VARCHAR(100),
 @ExistenciasTipoSalon INT
@@ -310,7 +310,7 @@ INSERT INTO TipoSalon
 VALUES (@NombreTipoSalon, @ExistenciasTipoSalon)
 GO
 
--- Procedimiento para actualizar salón
+-- Procedimiento para actualizar un tipo de salón
 Create PROC ActualizarTipoSalones
 @IdTipoSalon INT,
 @NombreTipoSalon VARCHAR(100),
