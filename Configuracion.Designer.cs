@@ -39,13 +39,17 @@
             this.btnSalones = new System.Windows.Forms.Button();
             this.panelSettings = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.btnServicios = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelSettings.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btnServicios);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.btnTipoSalon);
@@ -68,7 +72,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 261);
+            this.label2.Location = new System.Drawing.Point(12, 230);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 19);
             this.label2.TabIndex = 18;
@@ -79,7 +83,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 101);
+            this.label1.Location = new System.Drawing.Point(12, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 19);
             this.label1.TabIndex = 17;
@@ -88,7 +92,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel6.Location = new System.Drawing.Point(2, 413);
+            this.panel6.Location = new System.Drawing.Point(2, 382);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(10, 32);
             this.panel6.TabIndex = 16;
@@ -104,7 +108,7 @@
             this.btnTipoSalon.ForeColor = System.Drawing.Color.White;
             this.btnTipoSalon.Image = ((System.Drawing.Image)(resources.GetObject("btnTipoSalon.Image")));
             this.btnTipoSalon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTipoSalon.Location = new System.Drawing.Point(12, 413);
+            this.btnTipoSalon.Location = new System.Drawing.Point(12, 382);
             this.btnTipoSalon.Name = "btnTipoSalon";
             this.btnTipoSalon.Size = new System.Drawing.Size(193, 32);
             this.btnTipoSalon.TabIndex = 15;
@@ -115,7 +119,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel5.Location = new System.Drawing.Point(2, 348);
+            this.panel5.Location = new System.Drawing.Point(2, 317);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(10, 32);
             this.panel5.TabIndex = 14;
@@ -131,7 +135,7 @@
             this.btnTipoEvento.ForeColor = System.Drawing.Color.White;
             this.btnTipoEvento.Image = ((System.Drawing.Image)(resources.GetObject("btnTipoEvento.Image")));
             this.btnTipoEvento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTipoEvento.Location = new System.Drawing.Point(12, 348);
+            this.btnTipoEvento.Location = new System.Drawing.Point(12, 317);
             this.btnTipoEvento.Name = "btnTipoEvento";
             this.btnTipoEvento.Size = new System.Drawing.Size(193, 32);
             this.btnTipoEvento.TabIndex = 13;
@@ -142,7 +146,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel4.Location = new System.Drawing.Point(2, 123);
+            this.panel4.Location = new System.Drawing.Point(2, 92);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(10, 32);
             this.panel4.TabIndex = 12;
@@ -158,7 +162,7 @@
             this.btnOrganizadores.ForeColor = System.Drawing.Color.White;
             this.btnOrganizadores.Image = ((System.Drawing.Image)(resources.GetObject("btnOrganizadores.Image")));
             this.btnOrganizadores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrganizadores.Location = new System.Drawing.Point(12, 123);
+            this.btnOrganizadores.Location = new System.Drawing.Point(12, 92);
             this.btnOrganizadores.Name = "btnOrganizadores";
             this.btnOrganizadores.Size = new System.Drawing.Size(193, 32);
             this.btnOrganizadores.TabIndex = 11;
@@ -169,7 +173,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel2.Location = new System.Drawing.Point(2, 183);
+            this.panel2.Location = new System.Drawing.Point(2, 152);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 32);
             this.panel2.TabIndex = 10;
@@ -185,7 +189,7 @@
             this.btnUsuarios.ForeColor = System.Drawing.Color.White;
             this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
             this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.Location = new System.Drawing.Point(12, 183);
+            this.btnUsuarios.Location = new System.Drawing.Point(12, 152);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(193, 32);
             this.btnUsuarios.TabIndex = 9;
@@ -196,7 +200,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel3.Location = new System.Drawing.Point(2, 283);
+            this.panel3.Location = new System.Drawing.Point(2, 252);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(10, 32);
             this.panel3.TabIndex = 8;
@@ -212,7 +216,7 @@
             this.btnSalones.ForeColor = System.Drawing.Color.White;
             this.btnSalones.Image = ((System.Drawing.Image)(resources.GetObject("btnSalones.Image")));
             this.btnSalones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalones.Location = new System.Drawing.Point(12, 283);
+            this.btnSalones.Location = new System.Drawing.Point(12, 252);
             this.btnSalones.Name = "btnSalones";
             this.btnSalones.Size = new System.Drawing.Size(193, 32);
             this.btnSalones.TabIndex = 7;
@@ -240,6 +244,33 @@
             this.label3.TabIndex = 18;
             this.label3.Text = "         ADMINISTRA Y GESTIONA\r\n    EL CENTRO DE CONVENCIONES\r\nDE LA CIUDAD DE QU" +
     "ETZALTENANGO";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel7.Location = new System.Drawing.Point(2, 444);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(10, 32);
+            this.panel7.TabIndex = 20;
+            // 
+            // btnServicios
+            // 
+            this.btnServicios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnServicios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnServicios.FlatAppearance.BorderSize = 0;
+            this.btnServicios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnServicios.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServicios.ForeColor = System.Drawing.Color.White;
+            this.btnServicios.Image = ((System.Drawing.Image)(resources.GetObject("btnServicios.Image")));
+            this.btnServicios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnServicios.Location = new System.Drawing.Point(12, 444);
+            this.btnServicios.Name = "btnServicios";
+            this.btnServicios.Size = new System.Drawing.Size(193, 32);
+            this.btnServicios.TabIndex = 19;
+            this.btnServicios.Text = "Servicios";
+            this.btnServicios.UseVisualStyleBackColor = false;
+            this.btnServicios.Click += new System.EventHandler(this.btnServicios_Click);
             // 
             // Configuracion
             // 
@@ -276,5 +307,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button btnServicios;
     }
 }

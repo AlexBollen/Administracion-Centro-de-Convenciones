@@ -44,5 +44,9 @@ namespace Administración_Centro_de_Convenciones {
         private void btnTipoSalon_Click(object sender, EventArgs e) {
             OpenViewsForm(new TiposSalon());
         }
+
+        private void btnServicios_Click(object sender, EventArgs e) {
+            OpenViewsForm(new CreacionServicios());
+        }
     }
 }
