@@ -180,6 +180,17 @@ INNER JOIN Rol ON usr.IdRol=Rol.IdRol
 INNER JOIN Direccion ON usr.IdDireccion=Direccion.IdDireccion
 GO
 
+-- Procedimiento para listar servicios y existencias
+CREATE PROC ListarServicios
+AS
+SELECT	extSer.IdServicio,
+		extSer.CantidadTotal as 'Total existencias',
+		NombreServicio as 'Nombre servicio',
+		DescripcionServicio as 'Descripción'
+FROM ExistenciaServicio extSer
+INNER JOIN Servicios ON extSer.IdServicio=Servicios.IdServicio
+GO
+
 -- Procedimiento para listar roles
 CREATE PROC ListarRoles
 AS
@@ -213,6 +224,29 @@ BEGIN
 
 	SET @IdDireccionOutput = SCOPE_IDENTITY();
 END;
+GO
+
+-- Procedimiento para registrar nuevo servicio
+CREATE PROC InsertarServicio
+@NombreServicio VARCHAR(100),
+@DescripcionServicio VARCHAR(150),
+@IdServicioOutput INT OUTPUT
+AS
+BEGIN
+	INSERT INTO Servicios
+	VALUES (@NombreServicio, @DescripcionServicio)
+
+	SET @IdServicioOutput = SCOPE_IDENTITY();
+END;
+GO
+
+-- Procedimiento para registrar existencias de servicio
+CREATE PROC InsertarExistenciaServicio
+@CantidadTotal INT,
+@IdServicio INT
+AS
+INSERT INTO ExistenciaServicio
+	VALUES (@CantidadTotal, @IdServicio)
 GO
 
 -- Procedimiento para registrar nuevo contacto
@@ -379,5 +413,23 @@ AS BEGIN
 	UPDATE Persona SET
 	NombrePersona=@NombrePersona
 	WHERE IdPersona=@IdPersona;
+END;
+GO
+
+-- Procedimiento para actualizar servicio
+CREATE PROC ActualizarServicio
+@IdServicio INT,
+@NombreServicio VARCHAR(100),
+@DescripcionServicio VARCHAR(150),
+@CantidadTotal INT
+AS BEGIN
+	UPDATE Servicios SET
+	NombreServicio=@NombreServicio,
+	DescripcionServicio=@DescripcionServicio
+	WHERE IdServicio=@IdServicio;
+
+	UPDATE ExistenciaServicio SET
+	CantidadTotal=@CantidadTotal
+	WHERE IdServicio=@IdServicio;
 END;
 GO

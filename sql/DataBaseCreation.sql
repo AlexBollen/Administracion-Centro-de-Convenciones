@@ -109,6 +109,10 @@ IF OBJECT_ID('dbo.ListarUsuarios') IS NOT NULL
 BEGIN
 	DROP PROC ListarUsuarios;
 END;
+IF OBJECT_ID('dbo.ListarServicios') IS NOT NULL
+BEGIN
+	DROP PROC ListarServicios;
+END;
 IF OBJECT_ID('dbo.ListarRoles') IS NOT NULL
 BEGIN
 	DROP PROC ListarRoles;
@@ -120,6 +124,14 @@ END;
 IF OBJECT_ID('dbo.InsertarDireccion') IS NOT NULL
 BEGIN
 	DROP PROC InsertarDireccion;
+END;
+IF OBJECT_ID('dbo.InsertarServicio') IS NOT NULL
+BEGIN
+	DROP PROC InsertarServicio;
+END;
+IF OBJECT_ID('dbo.InsertarExistenciaServicio') IS NOT NULL
+BEGIN
+	DROP PROC InsertarExistenciaServicio;
 END;
 IF OBJECT_ID('dbo.InsertarContacto') IS NOT NULL
 BEGIN
@@ -164,6 +176,10 @@ END;
 IF OBJECT_ID('dbo.ActualizarOrganizador') IS NOT NULL
 BEGIN
 	DROP PROC ActualizarOrganizador;
+END;
+IF OBJECT_ID('dbo.ActualizarServicio') IS NOT NULL
+BEGIN
+	DROP PROC ActualizarServicio;
 END;
 
 CREATE TABLE Persona
@@ -397,3 +413,17 @@ VALUES
 INSERT INTO Evento (Nombre, Descripcion, EstadoEvento, CantidadAsistentes, FechaReserva, IdItinerario, IdResponsable, IdOrganizador, IdTipoEvento, IdSalon)
 VALUES
 	('Boda Hernández-Dominguez', 'Celebración de matrimonio de señor Juan Hernández y Luisa Dominguez', 'Finalizado', 150, '2024-01-15', 1, 1, 1, 1, 16)
+INSERT INTO Servicios (NombreServicio, DescripcionServicio)
+VALUES
+	('Mesas', 'Mesas de alta calidad para todo tipo de eventos'),
+	('Manteles', 'Manteles de alta calidad que aportarán un toque de elegancia y sofisticación a tus mesas.'),
+	('Sillas', 'Cómodas y elegantes, perfectas para cualquier tipo de evento.'),
+	('Velas', 'Complemento perfecto para crear una atmósfera acogedora.'),
+	('Bola disco', 'Añade un toque de diversión y energía a tu evento con nuestra bola disco.');
+INSERT INTO ExistenciaServicio (CantidadTotal, IdServicio)
+VALUES
+	(350, 1),
+	(375, 2),
+	(1500, 3),
+	(1000, 4),
+	(15, 5);

@@ -90,8 +90,6 @@ namespace Administración_Centro_de_Convenciones {
 
         private void btnEditUsuario_Click(object sender, EventArgs e)
         {
-            btnIngresarUsuario.Show();
-            btnEditUsuario.Hide();
             string newPass;
             bool newEstado;
             if (txtBoxPass1.Text == "")
@@ -130,6 +128,8 @@ namespace Administración_Centro_de_Convenciones {
                     MessageBox.Show("Campos invalidos, por favor verifiquelos.");
                 }
             }
+            btnIngresarUsuario.Show();
+            btnEditUsuario.Hide();
         }
 
         private void btnIngresarUsuario_Click(object sender, EventArgs e) {

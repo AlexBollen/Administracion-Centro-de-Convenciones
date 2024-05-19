@@ -23,10 +23,10 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Salones));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnListarSalones = new System.Windows.Forms.Button();
             this.btnEliminarSalon = new System.Windows.Forms.Button();
             this.btnEdiicionSalon = new System.Windows.Forms.Button();
@@ -34,6 +34,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.addSalon = new System.Windows.Forms.Panel();
+            this.pbValidation4 = new System.Windows.Forms.PictureBox();
+            this.pbValidation3 = new System.Windows.Forms.PictureBox();
+            this.pbValidation2 = new System.Windows.Forms.PictureBox();
+            this.pbValidation1 = new System.Windows.Forms.PictureBox();
             this.txtBoxDescripcion = new System.Windows.Forms.TextBox();
             this.btnEditSalon = new System.Windows.Forms.Button();
             this.btnIngresarSalon = new System.Windows.Forms.Button();
@@ -48,23 +52,19 @@
             this.label6 = new System.Windows.Forms.Label();
             this.listSalon = new System.Windows.Forms.Panel();
             this.dataGridViewSalones = new System.Windows.Forms.DataGridView();
-            this.pbValidation1 = new System.Windows.Forms.PictureBox();
-            this.pbValidation2 = new System.Windows.Forms.PictureBox();
-            this.pbValidation3 = new System.Windows.Forms.PictureBox();
-            this.pbValidation4 = new System.Windows.Forms.PictureBox();
             this.addSalon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).BeginInit();
             this.listSalon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation4)).BeginInit();
             this.SuspendLayout();
             // 
             // btnListarSalones
             // 
             this.btnListarSalones.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnListarSalones.Location = new System.Drawing.Point(371, 102);
+            this.btnListarSalones.Location = new System.Drawing.Point(369, 102);
             this.btnListarSalones.Name = "btnListarSalones";
             this.btnListarSalones.Size = new System.Drawing.Size(107, 35);
             this.btnListarSalones.TabIndex = 18;
@@ -75,7 +75,7 @@
             // btnEliminarSalon
             // 
             this.btnEliminarSalon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminarSalon.Location = new System.Drawing.Point(742, 102);
+            this.btnEliminarSalon.Location = new System.Drawing.Point(740, 102);
             this.btnEliminarSalon.Name = "btnEliminarSalon";
             this.btnEliminarSalon.Size = new System.Drawing.Size(107, 35);
             this.btnEliminarSalon.TabIndex = 17;
@@ -86,7 +86,7 @@
             // btnEdiicionSalon
             // 
             this.btnEdiicionSalon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdiicionSalon.Location = new System.Drawing.Point(617, 102);
+            this.btnEdiicionSalon.Location = new System.Drawing.Point(615, 102);
             this.btnEdiicionSalon.Name = "btnEdiicionSalon";
             this.btnEdiicionSalon.Size = new System.Drawing.Size(107, 35);
             this.btnEdiicionSalon.TabIndex = 16;
@@ -97,7 +97,7 @@
             // btnAgregarSalon
             // 
             this.btnAgregarSalon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarSalon.Location = new System.Drawing.Point(496, 102);
+            this.btnAgregarSalon.Location = new System.Drawing.Point(494, 102);
             this.btnAgregarSalon.Name = "btnAgregarSalon";
             this.btnAgregarSalon.Size = new System.Drawing.Size(107, 35);
             this.btnAgregarSalon.TabIndex = 15;
@@ -149,17 +149,57 @@
             this.addSalon.Controls.Add(this.label7);
             this.addSalon.Controls.Add(this.txtBoxNombreSalon);
             this.addSalon.Controls.Add(this.label6);
-            this.addSalon.Location = new System.Drawing.Point(16, 143);
+            this.addSalon.Location = new System.Drawing.Point(-16, 153);
             this.addSalon.Name = "addSalon";
-            this.addSalon.Size = new System.Drawing.Size(890, 419);
+            this.addSalon.Size = new System.Drawing.Size(890, 408);
             this.addSalon.TabIndex = 19;
             this.addSalon.Paint += new System.Windows.Forms.PaintEventHandler(this.addSalon_Paint);
+            // 
+            // pbValidation4
+            // 
+            this.pbValidation4.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation4.Image")));
+            this.pbValidation4.Location = new System.Drawing.Point(748, 141);
+            this.pbValidation4.Name = "pbValidation4";
+            this.pbValidation4.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation4.TabIndex = 54;
+            this.pbValidation4.TabStop = false;
+            // 
+            // pbValidation3
+            // 
+            this.pbValidation3.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation3.Image")));
+            this.pbValidation3.Location = new System.Drawing.Point(748, 44);
+            this.pbValidation3.Name = "pbValidation3";
+            this.pbValidation3.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation3.TabIndex = 53;
+            this.pbValidation3.TabStop = false;
+            // 
+            // pbValidation2
+            // 
+            this.pbValidation2.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation2.Image")));
+            this.pbValidation2.Location = new System.Drawing.Point(360, 141);
+            this.pbValidation2.Name = "pbValidation2";
+            this.pbValidation2.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation2.TabIndex = 52;
+            this.pbValidation2.TabStop = false;
+            // 
+            // pbValidation1
+            // 
+            this.pbValidation1.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation1.Image")));
+            this.pbValidation1.Location = new System.Drawing.Point(360, 44);
+            this.pbValidation1.Name = "pbValidation1";
+            this.pbValidation1.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation1.TabIndex = 51;
+            this.pbValidation1.TabStop = false;
             // 
             // txtBoxDescripcion
             // 
             this.txtBoxDescripcion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxDescripcion.Location = new System.Drawing.Point(40, 234);
-            this.txtBoxDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBoxDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtBoxDescripcion.Multiline = true;
             this.txtBoxDescripcion.Name = "txtBoxDescripcion";
             this.txtBoxDescripcion.Size = new System.Drawing.Size(435, 143);
@@ -297,7 +337,7 @@
             // listSalon
             // 
             this.listSalon.Controls.Add(this.dataGridViewSalones);
-            this.listSalon.Location = new System.Drawing.Point(10, 140);
+            this.listSalon.Location = new System.Drawing.Point(-7, 154);
             this.listSalon.Name = "listSalon";
             this.listSalon.Size = new System.Drawing.Size(879, 419);
             this.listSalon.TabIndex = 50;
@@ -310,14 +350,14 @@
             this.dataGridViewSalones.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewSalones.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridViewSalones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSalones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSalones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewSalones.ColumnHeadersHeight = 30;
             this.dataGridViewSalones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewSalones.EnableHeadersVisualStyles = false;
@@ -326,90 +366,50 @@
             this.dataGridViewSalones.Name = "dataGridViewSalones";
             this.dataGridViewSalones.ReadOnly = true;
             this.dataGridViewSalones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSalones.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSalones.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewSalones.RowHeadersWidth = 30;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewSalones.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewSalones.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewSalones.Size = new System.Drawing.Size(829, 392);
             this.dataGridViewSalones.TabIndex = 1;
-            // 
-            // pbValidation1
-            // 
-            this.pbValidation1.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation1.Image")));
-            this.pbValidation1.Location = new System.Drawing.Point(360, 44);
-            this.pbValidation1.Name = "pbValidation1";
-            this.pbValidation1.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation1.TabIndex = 51;
-            this.pbValidation1.TabStop = false;
-            // 
-            // pbValidation2
-            // 
-            this.pbValidation2.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation2.Image")));
-            this.pbValidation2.Location = new System.Drawing.Point(360, 141);
-            this.pbValidation2.Name = "pbValidation2";
-            this.pbValidation2.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation2.TabIndex = 52;
-            this.pbValidation2.TabStop = false;
-            // 
-            // pbValidation3
-            // 
-            this.pbValidation3.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation3.Image")));
-            this.pbValidation3.Location = new System.Drawing.Point(748, 44);
-            this.pbValidation3.Name = "pbValidation3";
-            this.pbValidation3.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation3.TabIndex = 53;
-            this.pbValidation3.TabStop = false;
-            // 
-            // pbValidation4
-            // 
-            this.pbValidation4.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation4.Image")));
-            this.pbValidation4.Location = new System.Drawing.Point(748, 141);
-            this.pbValidation4.Name = "pbValidation4";
-            this.pbValidation4.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation4.TabIndex = 54;
-            this.pbValidation4.TabStop = false;
             // 
             // Salones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.ClientSize = new System.Drawing.Size(917, 594);
-            this.Controls.Add(this.addSalon);
+            this.ClientSize = new System.Drawing.Size(859, 573);
+            this.Controls.Add(this.listSalon);
             this.Controls.Add(this.btnListarSalones);
             this.Controls.Add(this.btnEliminarSalon);
             this.Controls.Add(this.btnEdiicionSalon);
             this.Controls.Add(this.btnAgregarSalon);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listSalon);
+            this.Controls.Add(this.addSalon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Salones";
             this.Text = "Salones";
             this.Load += new System.EventHandler(this.Salones_Load);
             this.addSalon.ResumeLayout(false);
             this.addSalon.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).EndInit();
             this.listSalon.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
