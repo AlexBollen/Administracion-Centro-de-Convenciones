@@ -181,6 +181,30 @@ IF OBJECT_ID('dbo.ActualizarServicio') IS NOT NULL
 BEGIN
 	DROP PROC ActualizarServicio;
 END;
+IF OBJECT_ID('dbo.ObtenerExistenciasServicios') IS NOT NULL
+BEGIN
+	DROP PROC ObtenerExistenciasServicios;
+END;
+IF OBJECT_ID('dbo.ListarAsignacionEventos') IS NOT NULL
+BEGIN
+	DROP PROC ListarAsignacionEventos;
+END;
+IF OBJECT_ID('dbo.AsignacionServicio') IS NOT NULL
+BEGIN
+	DROP PROC AsignacionServicio;
+END;
+IF OBJECT_ID('dbo.ObtenerFechaEvento') IS NOT NULL
+BEGIN
+	DROP PROC ObtenerFechaEvento;
+END;
+IF OBJECT_ID('dbo.ObtenerServiciosEvento') IS NOT NULL
+BEGIN
+	DROP PROC ObtenerServiciosEvento;
+END;
+IF OBJECT_ID('dbo.InsertarAsignacionServicio') IS NOT NULL
+BEGIN
+	DROP PROC InsertarAsignacionServicio;
+END;
 
 CREATE TABLE Persona
 (
@@ -311,6 +335,7 @@ CREATE TABLE Evento
   EstadoEvento VARCHAR(75) NOT NULL,
   CantidadAsistentes INT NOT NULL,
   FechaReserva DATE NOT NULL,
+  Servicios BIT NOT NULL DEFAULT 0,
   IdItinerario INT NOT NULL,
   IdResponsable INT NOT NULL,
   IdOrganizador INT NOT NULL,
@@ -391,7 +416,8 @@ VALUES
 	('El amigo', 'Disponible', 90, '', 4);
 INSERT INTO Itinerario (FechaInicio, FechaCulminacion, HoraInicio, HoraCulminacion)
 VALUES
-	('2024-05-01', '2024-05-01', '9:00:00', '17:00:00');
+	('2024-05-01', '2024-05-01', '9:00:00', '17:00:00'),
+	('2024-05-01', '2024-05-01', '14:00:00', '19:00:00');
 INSERT INTO TipoEvento (NombreTipoEvento, Descripcion)
 VALUES
 	('Boda', 'Celebración de matrimonios'),
@@ -403,16 +429,17 @@ VALUES
 INSERT INTO Persona (NombrePersona)
 VALUES
 	('Pedro David Gómez Bolaños'),
-	('Juan Luis Hernández');
+	('Juan Luis Hernández'),
+	('Luis Enrique Juárez'),
+	('Pedro López Pérez');
 INSERT INTO Organizador (EstadoOrganizador, IdPersona)
 VALUES
-	('Disponible', 1);
+	('Ocupado', 1),
+	('Ocupado', 4);
 INSERT INTO Responsable (NombreComercial, IdPersona)
 VALUES
-	(NULL, 2);
-INSERT INTO Evento (Nombre, Descripcion, EstadoEvento, CantidadAsistentes, FechaReserva, IdItinerario, IdResponsable, IdOrganizador, IdTipoEvento, IdSalon)
-VALUES
-	('Boda Hernández-Dominguez', 'Celebración de matrimonio de señor Juan Hernández y Luisa Dominguez', 'Finalizado', 150, '2024-01-15', 1, 1, 1, 1, 16)
+	(NULL, 2),
+	(NULL, 3);
 INSERT INTO Servicios (NombreServicio, DescripcionServicio)
 VALUES
 	('Mesas', 'Mesas de alta calidad para todo tipo de eventos'),
@@ -427,3 +454,11 @@ VALUES
 	(1500, 3),
 	(1000, 4),
 	(15, 5);
+INSERT INTO Evento (Nombre, Descripcion, EstadoEvento, CantidadAsistentes, FechaReserva, Servicios, IdItinerario, IdResponsable, IdOrganizador, IdTipoEvento, IdSalon)
+VALUES
+	('Boda Hernández-Dominguez', 'Celebración de matrimonio de señor Juan Hernández y Luisa Dominguez', 'Programado', 150, '2024-01-15', 1, 1, 1, 1, 1, 16),
+	('Cumpleaños Don Pedro', 'Celebración de cumpleaños No. 30 señor Don Pedro', 'Programado', 75, '2024-01-01', 0, 2, 2, 2, 2, 19);
+INSERT INTO Solicita (Detalle, Cantidad, IdEvento, IdExistencia)
+VALUES
+	('Prestamo de mesas', 10, 1, 1),
+	('Prestamo de sillas', 100, 1, 3);
