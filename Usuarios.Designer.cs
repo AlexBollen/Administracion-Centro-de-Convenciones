@@ -26,15 +26,24 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
             this.listUsers = new System.Windows.Forms.Panel();
             this.dataGridViewUsuarios = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.addUser = new System.Windows.Forms.Panel();
+            this.pbValidation9 = new System.Windows.Forms.PictureBox();
+            this.pbValidation8 = new System.Windows.Forms.PictureBox();
+            this.pbValidation7 = new System.Windows.Forms.PictureBox();
+            this.pbValidation6 = new System.Windows.Forms.PictureBox();
+            this.pbValidation5 = new System.Windows.Forms.PictureBox();
+            this.pbValidation4 = new System.Windows.Forms.PictureBox();
+            this.pbValidation3 = new System.Windows.Forms.PictureBox();
+            this.pbValidation2 = new System.Windows.Forms.PictureBox();
+            this.pbValidation1 = new System.Windows.Forms.PictureBox();
             this.btnEditUsuario = new System.Windows.Forms.Button();
             this.btnIngresarUsuario = new System.Windows.Forms.Button();
             this.txtBoxCorreo = new System.Windows.Forms.TextBox();
@@ -64,28 +73,19 @@
             this.btnEliminarUsuario = new System.Windows.Forms.Button();
             this.btnEditarUsuario = new System.Windows.Forms.Button();
             this.btnAgregarUsuario = new System.Windows.Forms.Button();
-            this.pbValidation1 = new System.Windows.Forms.PictureBox();
-            this.pbValidation2 = new System.Windows.Forms.PictureBox();
-            this.pbValidation3 = new System.Windows.Forms.PictureBox();
-            this.pbValidation4 = new System.Windows.Forms.PictureBox();
-            this.pbValidation5 = new System.Windows.Forms.PictureBox();
-            this.pbValidation6 = new System.Windows.Forms.PictureBox();
-            this.pbValidation7 = new System.Windows.Forms.PictureBox();
-            this.pbValidation8 = new System.Windows.Forms.PictureBox();
-            this.pbValidation9 = new System.Windows.Forms.PictureBox();
             this.listUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
             this.addUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbValidation9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // listUsers
@@ -175,7 +175,6 @@
             this.addUser.Controls.Add(this.pbValidation3);
             this.addUser.Controls.Add(this.pbValidation2);
             this.addUser.Controls.Add(this.pbValidation1);
-            this.addUser.Controls.Add(this.btnEditUsuario);
             this.addUser.Controls.Add(this.btnIngresarUsuario);
             this.addUser.Controls.Add(this.txtBoxCorreo);
             this.addUser.Controls.Add(this.label13);
@@ -200,10 +199,101 @@
             this.addUser.Controls.Add(this.txtBoxUsername);
             this.addUser.Controls.Add(this.label3);
             this.addUser.Controls.Add(this.dataGridView1);
+            this.addUser.Controls.Add(this.btnEditUsuario);
             this.addUser.Location = new System.Drawing.Point(-9, 161);
             this.addUser.Name = "addUser";
             this.addUser.Size = new System.Drawing.Size(879, 419);
             this.addUser.TabIndex = 2;
+            // 
+            // pbValidation9
+            // 
+            this.pbValidation9.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation9.Image")));
+            this.pbValidation9.Location = new System.Drawing.Point(835, 260);
+            this.pbValidation9.Name = "pbValidation9";
+            this.pbValidation9.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation9.TabIndex = 57;
+            this.pbValidation9.TabStop = false;
+            // 
+            // pbValidation8
+            // 
+            this.pbValidation8.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation8.Image")));
+            this.pbValidation8.Location = new System.Drawing.Point(616, 260);
+            this.pbValidation8.Name = "pbValidation8";
+            this.pbValidation8.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation8.TabIndex = 56;
+            this.pbValidation8.TabStop = false;
+            // 
+            // pbValidation7
+            // 
+            this.pbValidation7.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation7.Image")));
+            this.pbValidation7.Location = new System.Drawing.Point(777, 119);
+            this.pbValidation7.Name = "pbValidation7";
+            this.pbValidation7.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation7.TabIndex = 55;
+            this.pbValidation7.TabStop = false;
+            // 
+            // pbValidation6
+            // 
+            this.pbValidation6.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation6.Image")));
+            this.pbValidation6.Location = new System.Drawing.Point(777, 334);
+            this.pbValidation6.Name = "pbValidation6";
+            this.pbValidation6.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation6.TabIndex = 54;
+            this.pbValidation6.TabStop = false;
+            // 
+            // pbValidation5
+            // 
+            this.pbValidation5.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation5.Image")));
+            this.pbValidation5.Location = new System.Drawing.Point(777, 50);
+            this.pbValidation5.Name = "pbValidation5";
+            this.pbValidation5.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation5.TabIndex = 53;
+            this.pbValidation5.TabStop = false;
+            // 
+            // pbValidation4
+            // 
+            this.pbValidation4.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation4.Image")));
+            this.pbValidation4.Location = new System.Drawing.Point(360, 334);
+            this.pbValidation4.Name = "pbValidation4";
+            this.pbValidation4.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation4.TabIndex = 52;
+            this.pbValidation4.TabStop = false;
+            // 
+            // pbValidation3
+            // 
+            this.pbValidation3.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation3.Image")));
+            this.pbValidation3.Location = new System.Drawing.Point(360, 260);
+            this.pbValidation3.Name = "pbValidation3";
+            this.pbValidation3.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation3.TabIndex = 51;
+            this.pbValidation3.TabStop = false;
+            // 
+            // pbValidation2
+            // 
+            this.pbValidation2.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation2.Image")));
+            this.pbValidation2.Location = new System.Drawing.Point(360, 119);
+            this.pbValidation2.Name = "pbValidation2";
+            this.pbValidation2.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation2.TabIndex = 50;
+            this.pbValidation2.TabStop = false;
+            // 
+            // pbValidation1
+            // 
+            this.pbValidation1.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation1.Image")));
+            this.pbValidation1.Location = new System.Drawing.Point(360, 50);
+            this.pbValidation1.Name = "pbValidation1";
+            this.pbValidation1.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation1.TabIndex = 49;
+            this.pbValidation1.TabStop = false;
             // 
             // btnEditUsuario
             // 
@@ -562,96 +652,6 @@
             this.btnAgregarUsuario.UseVisualStyleBackColor = true;
             this.btnAgregarUsuario.Click += new System.EventHandler(this.btnAgregarUsuario_Click);
             // 
-            // pbValidation1
-            // 
-            this.pbValidation1.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation1.Image")));
-            this.pbValidation1.Location = new System.Drawing.Point(360, 50);
-            this.pbValidation1.Name = "pbValidation1";
-            this.pbValidation1.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation1.TabIndex = 49;
-            this.pbValidation1.TabStop = false;
-            // 
-            // pbValidation2
-            // 
-            this.pbValidation2.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation2.Image")));
-            this.pbValidation2.Location = new System.Drawing.Point(360, 119);
-            this.pbValidation2.Name = "pbValidation2";
-            this.pbValidation2.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation2.TabIndex = 50;
-            this.pbValidation2.TabStop = false;
-            // 
-            // pbValidation3
-            // 
-            this.pbValidation3.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation3.Image")));
-            this.pbValidation3.Location = new System.Drawing.Point(360, 260);
-            this.pbValidation3.Name = "pbValidation3";
-            this.pbValidation3.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation3.TabIndex = 51;
-            this.pbValidation3.TabStop = false;
-            // 
-            // pbValidation4
-            // 
-            this.pbValidation4.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation4.Image")));
-            this.pbValidation4.Location = new System.Drawing.Point(360, 334);
-            this.pbValidation4.Name = "pbValidation4";
-            this.pbValidation4.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation4.TabIndex = 52;
-            this.pbValidation4.TabStop = false;
-            // 
-            // pbValidation5
-            // 
-            this.pbValidation5.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation5.Image")));
-            this.pbValidation5.Location = new System.Drawing.Point(777, 50);
-            this.pbValidation5.Name = "pbValidation5";
-            this.pbValidation5.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation5.TabIndex = 53;
-            this.pbValidation5.TabStop = false;
-            // 
-            // pbValidation6
-            // 
-            this.pbValidation6.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation6.Image")));
-            this.pbValidation6.Location = new System.Drawing.Point(777, 334);
-            this.pbValidation6.Name = "pbValidation6";
-            this.pbValidation6.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation6.TabIndex = 54;
-            this.pbValidation6.TabStop = false;
-            // 
-            // pbValidation7
-            // 
-            this.pbValidation7.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation7.Image")));
-            this.pbValidation7.Location = new System.Drawing.Point(777, 119);
-            this.pbValidation7.Name = "pbValidation7";
-            this.pbValidation7.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation7.TabIndex = 55;
-            this.pbValidation7.TabStop = false;
-            // 
-            // pbValidation8
-            // 
-            this.pbValidation8.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation8.Image")));
-            this.pbValidation8.Location = new System.Drawing.Point(616, 260);
-            this.pbValidation8.Name = "pbValidation8";
-            this.pbValidation8.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation8.TabIndex = 56;
-            this.pbValidation8.TabStop = false;
-            // 
-            // pbValidation9
-            // 
-            this.pbValidation9.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation9.Image")));
-            this.pbValidation9.Location = new System.Drawing.Point(835, 260);
-            this.pbValidation9.Name = "pbValidation9";
-            this.pbValidation9.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation9.TabIndex = 57;
-            this.pbValidation9.TabStop = false;
-            // 
             // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -674,16 +674,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).EndInit();
             this.addUser.ResumeLayout(false);
             this.addUser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbValidation9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

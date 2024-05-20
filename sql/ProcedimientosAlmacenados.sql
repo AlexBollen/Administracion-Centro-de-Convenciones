@@ -73,7 +73,7 @@ CREATE PROC InsertarEvento
 @IdSalon INT
 AS
 INSERT INTO Evento 
-VALUES (@Nombre, @Descripcion, @EstadoEvento, @CantidadAsistentes, @FechaReserva, @IdItinerario, @IdResponsable, @IdOrganizador, @IdTipoEvento, @IdSalon)
+VALUES (@Nombre, @Descripcion, @EstadoEvento, @CantidadAsistentes, @FechaReserva, 0, @IdItinerario, @IdResponsable, @IdOrganizador, @IdTipoEvento, @IdSalon)
 GO
 
 -- Procedimiento para registrar nuevo itinerario
@@ -432,4 +432,93 @@ AS BEGIN
 	CantidadTotal=@CantidadTotal
 	WHERE IdServicio=@IdServicio;
 END;
+GO
+
+-- Procedimiento para verificar servicios apartados para una fecha especifica
+CREATE PROC ObtenerExistenciasServicios
+@FechaEvento DATE
+AS
+BEGIN
+	SELECT
+		serv.IdServicio,
+		serv.NombreServicio,
+		es.CantidadTotal - ISNULL(SUM(sol.Cantidad), 0) AS 'Disponibles'
+	FROM Servicios serv
+	JOIN
+		ExistenciaServicio es ON serv.IdServicio=es.IdServicio
+	LEFT JOIN 
+		Solicita sol ON serv.IdServicio = sol.IdExistencia
+	LEFT JOIN
+		Evento ev ON sol.IdEvento=ev.IdEvento
+	LEFT JOIN
+		Itinerario it ON ev.IdItinerario=it.IdItinerario AND it.FechaInicio=@FechaEvento
+	GROUP BY
+		serv.IdServicio,
+		serv.NombreServicio,
+		serv.DescripcionServicio,
+		es.CantidadTotal;
+END;
+GO
+
+-- Procedimiento para ver eventos que tienen servicios asignados
+CREATE PROC ListarAsignacionEventos
+AS
+SELECT	Evento.IdEvento,
+		Evento.Nombre as Evento,
+		Evento.Servicios as 'Asignación Servicios'
+FROM Evento
+GO
+
+-- Procedimiento para asignar servicio a evento
+CREATE PROC AsignacionServicio
+@Detalle VARCHAR(100),
+@Cantidad INT,
+@IdEvento INT,
+@IdExistencia INT
+AS
+BEGIN
+	INSERT INTO Solicita
+	VALUES (@Detalle, @Cantidad, @IdEvento, @IdExistencia)
+END;
+GO
+
+-- Procedimiento para obtener la fecha de un evento
+CREATE PROC ObtenerFechaEvento
+@IdEvento INT
+AS
+BEGIN
+    SELECT i.FechaInicio
+    FROM Evento e
+    INNER JOIN Itinerario i ON e.idItinerario = i.idItinerario
+    WHERE e.idEvento = @idEvento;
+END;
+GO
+
+-- Procedimiento para obtener servicios de un evento
+CREATE PROC ObtenerServiciosEvento
+@IdEvento INT
+AS
+BEGIN
+	SELECT 
+		sol.Cantidad,
+		ser.NombreServicio
+	FROM Solicita sol
+	JOIN
+		ExistenciaServicio es ON sol.IdExistencia=es.IdExistencia
+	LEFT JOIN 
+		Servicios ser ON es.IdServicio=ser.IdServicio
+	WHERE
+		sol.IdEvento=@IdEvento
+END;
+GO
+
+-- Procedimiento para registrar asginacion de servicio a evento
+CREATE PROC InsertarAsignacionServicio
+@Detalle VARCHAR(100),
+@Cantidad INT,
+@IdEvento INT,
+@IdExistencia INT
+AS
+INSERT INTO Solicita
+VALUES (@Detalle, @Cantidad, @IdEvento, @IdExistencia)
 GO
