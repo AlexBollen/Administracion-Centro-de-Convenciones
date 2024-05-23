@@ -151,5 +151,84 @@ namespace Administración_Centro_de_Convenciones.Clases {
             }
         }
 
+        public void EliminarAsignacionEspecifica(
+            int IdEvento,
+            int IdExistencia
+        ) {
+            using (var connection = GetConnection()) {
+                connection.Open();
+                try {
+                    using (var command = new SqlCommand()) {
+                        command.Connection = connection;
+                        command.CommandText = $"DELETE Solicita WHERE IdEvento={IdEvento} and IdExistencia={IdExistencia}";
+                        command.CommandType = CommandType.Text;
+                        command.ExecuteNonQuery();
+                    }
+                } catch (Exception ex) {
+                    MessageBox.Show($"Ocurrio un error al eliminar los servicios del evento. \nError: {ex.Message}");
+                } finally {
+                    connection.Close();
+                }
+            }
+        }
+
+        public void EditarAsignacionEspecifica(
+            int IdEvento,
+            int IdExistencia,
+            string Detalle,
+            int Cantidad
+        ) {
+            using (var connection = GetConnection()) {
+                connection.Open();
+                try {
+                    using (var command = new SqlCommand()) {
+                        command.Connection = connection;
+                        command.CommandText = "ActualizarAsignacionEspecifica";
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@Detalle", Detalle);
+                        command.Parameters.AddWithValue("@Cantidad", Cantidad);
+                        command.Parameters.AddWithValue("@IdEvento", IdEvento);
+                        command.Parameters.AddWithValue("@IdExistencia", IdExistencia);
+                        command.ExecuteNonQuery();
+                        command.Parameters.Clear();
+                    }
+                } catch (Exception ex) {
+                    MessageBox.Show($"Ocurrio un error al actualizar el servicio al evento. \nError: {ex.Message}");
+                    throw;
+                } finally {
+                    connection.Close();
+                }
+            }
+        }
+
+        public string[] CargarRegistroAsignacion(int IdExistencia, int IdEvento) {
+            using (var connection = GetConnection()) {
+                connection.Open();
+                using (var command = new SqlCommand()) {
+                    command.Connection = connection;
+                    command.CommandText = $"SELECT * FROM Solicita WHERE IdEvento={IdEvento} and IdExistencia={IdExistencia}";
+                    command.CommandType = CommandType.Text;
+                    LeerFilas = command.ExecuteReader();
+                    string[] row = new string[LeerFilas.FieldCount];
+                    try {
+                        if (LeerFilas.Read()) {
+                            for (int i = 0; i < LeerFilas.FieldCount; i++) {
+                                row[i] = LeerFilas[i].ToString();
+                            }
+                            return row;
+                        } else {
+                            return null;
+                        }
+                    } catch (Exception ex) {
+                        MessageBox.Show("No se encontro el registro.\nError: " + ex.Message);
+                        throw;
+                    } finally {
+                        LeerFilas.Close();
+                        connection.Close();
+                    }
+                }
+            }
+        }
+
     }
 }

@@ -434,6 +434,21 @@ AS BEGIN
 END;
 GO
 
+-- Procedimiento para actualizar asignacion específica
+CREATE PROC ActualizarAsignacionEspecifica
+@IdEvento INT,
+@IdExistencia INT,
+@Detalle VARCHAR(100),
+@Cantidad INT
+AS BEGIN 
+	UPDATE Solicita SET
+	Detalle=@Detalle,
+	Cantidad=@Cantidad
+	WHERE IdEvento=@IdEvento and 
+	IdExistencia=@IdExistencia
+END;
+GO
+
 -- Procedimiento para verificar servicios apartados para una fecha especifica
 CREATE PROC ObtenerExistenciasServicios
 @FechaEvento DATE
@@ -500,6 +515,7 @@ CREATE PROC ObtenerServiciosEvento
 AS
 BEGIN
 	SELECT 
+		sol.IdExistencia,
 		sol.Cantidad,
 		ser.NombreServicio
 	FROM Solicita sol
