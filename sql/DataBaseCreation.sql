@@ -181,6 +181,10 @@ IF OBJECT_ID('dbo.ActualizarServicio') IS NOT NULL
 BEGIN
 	DROP PROC ActualizarServicio;
 END;
+IF OBJECT_ID('dbo.ActualizarAsignacionEspecifica') IS NOT NULL
+BEGIN
+	DROP PROC ActualizarAsignacionEspecifica;
+END;
 IF OBJECT_ID('dbo.ObtenerExistenciasServicios') IS NOT NULL
 BEGIN
 	DROP PROC ObtenerExistenciasServicios;
