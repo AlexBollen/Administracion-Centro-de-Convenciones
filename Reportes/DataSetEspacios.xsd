@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetEspacios" targetNamespace="http://tempuri.org/DataSetEspacios.xsd" xmlns:mstns="http://tempuri.org/DataSetEspacios.xsd" xmlns="http://tempuri.org/DataSetEspacios.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetEspacios" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSetEspacios" msprop:Generator_DataSetName="DataSetEspacios">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Espacios" msprop:Generator_RowEvHandlerName="EspaciosRowChangeEventHandler" msprop:Generator_RowDeletedName="EspaciosRowDeleted" msprop:Generator_RowDeletingName="EspaciosRowDeleting" msprop:Generator_RowEvArgName="EspaciosRowChangeEvent" msprop:Generator_TablePropName="Espacios" msprop:Generator_RowChangedName="EspaciosRowChanged" msprop:Generator_RowChangingName="EspaciosRowChanging" msprop:Generator_TableClassName="EspaciosDataTable" msprop:Generator_RowClassName="EspaciosRow" msprop:Generator_TableVarName="tableEspacios" msprop:Generator_UserTableName="Espacios">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdTipoSalon" msprop:Generator_ColumnPropNameInRow="IdTipoSalon" msprop:Generator_ColumnPropNameInTable="IdTipoSalonColumn" msprop:Generator_ColumnVarNameInTable="columnIdTipoSalon" msprop:Generator_UserColumnName="IdTipoSalon" type="xs:string" minOccurs="0" />
+              <xs:element name="NombreTipoSalon" msprop:Generator_ColumnPropNameInRow="NombreTipoSalon" msprop:Generator_ColumnPropNameInTable="NombreTipoSalonColumn" msprop:Generator_ColumnVarNameInTable="columnNombreTipoSalon" msprop:Generator_UserColumnName="NombreTipoSalon" type="xs:string" minOccurs="0" />
+              <xs:element name="ExistenciasTipoSalon" msprop:Generator_ColumnPropNameInRow="ExistenciasTipoSalon" msprop:Generator_ColumnPropNameInTable="ExistenciasTipoSalonColumn" msprop:Generator_ColumnVarNameInTable="columnExistenciasTipoSalon" msprop:Generator_UserColumnName="ExistenciasTipoSalon" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

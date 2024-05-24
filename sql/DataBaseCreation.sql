@@ -209,6 +209,10 @@ IF OBJECT_ID('dbo.InsertarAsignacionServicio') IS NOT NULL
 BEGIN
 	DROP PROC InsertarAsignacionServicio;
 END;
+IF OBJECT_ID('dbo.ListarCantidadTiposSalones') IS NOT NULL
+BEGIN
+	DROP PROC ListarCantidadTiposSalones;
+END;
 
 CREATE TABLE Persona
 (

@@ -13,5 +13,10 @@ namespace Administración_Centro_de_Convenciones {
         public ReporteCalendario() {
             InitializeComponent();
         }
+
+        private void ReporteCalendario_Load(object sender, EventArgs e) {
+
+            this.reportViewer1.RefreshReport();
+        }
     }
 }

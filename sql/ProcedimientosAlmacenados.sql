@@ -538,3 +538,15 @@ AS
 INSERT INTO Solicita
 VALUES (@Detalle, @Cantidad, @IdEvento, @IdExistencia)
 GO
+
+-- Procedimiento para listar todos los tipos de espacios y la cantidad existente
+CREATE PROC ListarCantidadTiposSalones
+AS
+BEGIN
+	SELECT 
+		IdTipoSalon,
+		NombreTipoSalon,
+		ExistenciasTipoSalon
+	FROM TipoSalon
+END;
+GO
