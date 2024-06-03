@@ -11,18 +11,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Drawing;
-
+using Administración_Centro_de_Convenciones.Clases;
+using Microsoft.Reporting.WinForms;
 
 namespace Administración_Centro_de_Convenciones {
     public partial class ReporteCalendario : Form {
-        private Dictionary<DateTime, string> eventos;
+        ClsReportes objReportes = new ClsReportes();
+        private Dictionary<DateTime, int> eventos;
         private DateTime fechaActual;
 
         public ReporteCalendario() {
             InitializeComponent();
-            eventos = new Dictionary<DateTime, string>();
+            eventos = new Dictionary<DateTime, int>();
             fechaActual = DateTime.Now;
 
+            eventos = objReportes.CargarEventosDesdeBaseDeDatos();
             // Cargar eventos desde la base de datos
             //CargarEventosDesdeBaseDeDatos();
 
@@ -115,22 +118,6 @@ namespace Administración_Centro_de_Convenciones {
             }
         }
 
-        //private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-        //    {
-        //        var cellValue = dataGridView1[e.ColumnIndex, e.RowIndex].Value;
-        //        if (cellValue != null && int.TryParse(cellValue.ToString(), out int dia))
-        //        {
-        //            DateTime fecha = new DateTime(fechaActual.Year, fechaActual.Month, dia);
-        //            if (eventos.ContainsKey(fecha))
-        //            {
-        //                MessageBox.Show(eventos[fecha], "Información del Evento", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //            }
-        //        }
-        //    }
-        //}
-
         private void btnMesAnterior_Click(object sender, EventArgs e)
         {
             fechaActual = fechaActual.AddMonths(-1);
@@ -155,24 +142,37 @@ namespace Administración_Centro_de_Convenciones {
             ActualizarCalendario();
         }
 
-        //dataGridView1.CellClick += DataGridView1_CellClick;
-        /*private void CargarEventosDesdeBaseDeDatos()
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //string connectionString = ConfigurationManager.ConnectionStrings["EventosDB"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                connection.Open();
-                string query = "SELECT Fecha, Descripcion FROM Eventos";
-                SqlCommand command = new SqlCommand(query, connection);
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
+                var cellValue = dataGridView1[e.ColumnIndex, e.RowIndex].Value;
+                if (cellValue != null && int.TryParse(cellValue.ToString(), out int dia))
                 {
-                    DateTime fecha = reader.GetDateTime(0);
-                    string descripcion = reader.GetString(1);
-                    eventos[fecha] = descripcion;
+                    DateTime fecha = new DateTime(fechaActual.Year, fechaActual.Month, dia);
+                    if (eventos.ContainsKey(fecha))
+                    {
+                        // Llamar al método para obtener los datos
+                        DataTable tablaActividades = objReportes.ListarEventosYEspacioes(eventos[fecha]);
+
+                        // Configurar el ReportViewer
+                        reportViewer1.ProcessingMode = ProcessingMode.Local;
+                        reportViewer1.LocalReport.ReportPath = @"Reportes\ReporteActividades.rdlc";
+
+                        // Limpia las fuentes de datos del informe
+                        reportViewer1.LocalReport.DataSources.Clear();
+
+                        // Configura la fuente de datos del informe
+                        ReportDataSource rds = new ReportDataSource("DataSetActividades", tablaActividades);
+                        reportViewer1.LocalReport.DataSources.Add(rds);
+
+                        // Refrescar el ReportViewer
+                        this.reportViewer1.RefreshReport();
+                    }
                 }
             }
-        }*/
+        }
+
+
     }
 }

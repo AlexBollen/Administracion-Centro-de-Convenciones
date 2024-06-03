@@ -237,6 +237,10 @@ IF OBJECT_ID('dbo.ActualizarEstadoOrganizadorOcupado') IS NOT NULL
 BEGIN
 	DROP PROC ActualizarEstadoOrganizadorOcupado;
 END;
+IF OBJECT_ID('dbo.ReporteCalendario') IS NOT NULL
+BEGIN
+	DROP PROC ReporteCalendario;
+END;
 
 CREATE TABLE Persona
 (
@@ -447,8 +451,8 @@ VALUES
 	('El amigo', 'Disponible', 90, '', 4);
 INSERT INTO Itinerario (FechaInicio, HoraInicio, HoraCulminacion)
 VALUES
-	('2024-01-15', '9:00:00', '17:00:00'),
-	('2024-01-01', '14:00:00', '19:00:00');
+	('2024-01-15', '9:00', '17:00'),
+	('2024-01-01', '14:00', '19:00');
 INSERT INTO TipoEvento (NombreTipoEvento, Descripcion)
 VALUES
 	('Boda', 'Celebración de matrimonios'),

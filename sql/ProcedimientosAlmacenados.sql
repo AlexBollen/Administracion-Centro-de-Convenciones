@@ -583,6 +583,39 @@ where e.IdEvento = @IdEvento
 END;
 GO
 
+-- Procedimiento para reporte calendario
+CREATE PROC ReporteCalendario
+@IdItinerario INT
+AS
+BEGIN
+	Select e.IdEvento,
+	e.Nombre AS NombreEvento,
+	e.Descripcion,
+	e.EstadoEvento,
+	e.CantidadAsistentes,
+	per.NombrePersona AS Responsable,
+	tipEven.NombreTipoEvento AS TipoEvento,
+	salon.NombreSalon,
+	tipsalon.NombreTipoSalon AS TipoSalon,
+	perorga.NombrePersona AS Organizador,
+	STUFF((
+           SELECT ', ' + soli.Detalle
+           FROM Solicita soli
+           WHERE soli.IdEvento = e.IdEvento
+           FOR XML PATH(''), TYPE
+       ).value('.', 'NVARCHAR(MAX)'), 1, 2, '') AS PrestamoServicios
+from Evento e
+	inner join Responsable res on res.IdResponsable = e.IdResponsable
+	inner join Persona per on per.IdPersona = res.IdPersona
+	inner join TipoEvento tipEven on tipEven.IdTipoEvento = e.IdEvento
+	inner join Salon salon on salon.IdSalon = e.IdSalon
+	inner join TipoSalon tipsalon on tipsalon.IdTipoSalon = salon.IdTipoSalon
+	inner join Organizador orga on orga.IdOrganizador = e.IdOrganizador
+	inner join Persona perorga	on perorga.IdPersona = orga.IdPersona
+where e.IdItinerario = @IdItinerario 
+END;
+GO
+
 CREATE PROC ListarFechas
 AS
 SELECT * FROM Evento ORDER BY IdEvento ASC
