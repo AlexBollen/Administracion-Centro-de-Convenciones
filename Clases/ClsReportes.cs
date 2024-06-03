@@ -86,5 +86,26 @@ namespace Administración_Centro_de_Convenciones.Clases {
             }
             return EventosFechas;
         }
+        public DataTable CargarEventos(
+            string apellido)
+        {
+            DataTable EventosFechas = new DataTable();
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "ReporteOrganizadorAntiguos";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@Apellido", apellido);
+                    LeerFilas = command.ExecuteReader();
+                    EventosFechas.Load(LeerFilas);
+                    LeerFilas.Close();
+                    connection.Close();
+                }
+            }
+            return EventosFechas;
+        }
     }
 }
