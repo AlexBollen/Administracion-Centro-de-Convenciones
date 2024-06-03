@@ -24,9 +24,9 @@
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Salones));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnListarSalones = new System.Windows.Forms.Button();
             this.btnEliminarSalon = new System.Windows.Forms.Button();
             this.btnEdiicionSalon = new System.Windows.Forms.Button();
@@ -64,9 +64,10 @@
             // btnListarSalones
             // 
             this.btnListarSalones.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnListarSalones.Location = new System.Drawing.Point(369, 102);
+            this.btnListarSalones.Location = new System.Drawing.Point(492, 126);
+            this.btnListarSalones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnListarSalones.Name = "btnListarSalones";
-            this.btnListarSalones.Size = new System.Drawing.Size(107, 35);
+            this.btnListarSalones.Size = new System.Drawing.Size(143, 43);
             this.btnListarSalones.TabIndex = 18;
             this.btnListarSalones.Text = "Listar";
             this.btnListarSalones.UseVisualStyleBackColor = true;
@@ -75,9 +76,10 @@
             // btnEliminarSalon
             // 
             this.btnEliminarSalon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminarSalon.Location = new System.Drawing.Point(740, 102);
+            this.btnEliminarSalon.Location = new System.Drawing.Point(987, 126);
+            this.btnEliminarSalon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminarSalon.Name = "btnEliminarSalon";
-            this.btnEliminarSalon.Size = new System.Drawing.Size(107, 35);
+            this.btnEliminarSalon.Size = new System.Drawing.Size(143, 43);
             this.btnEliminarSalon.TabIndex = 17;
             this.btnEliminarSalon.Text = "Eliminar";
             this.btnEliminarSalon.UseVisualStyleBackColor = true;
@@ -86,9 +88,10 @@
             // btnEdiicionSalon
             // 
             this.btnEdiicionSalon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdiicionSalon.Location = new System.Drawing.Point(615, 102);
+            this.btnEdiicionSalon.Location = new System.Drawing.Point(820, 126);
+            this.btnEdiicionSalon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEdiicionSalon.Name = "btnEdiicionSalon";
-            this.btnEdiicionSalon.Size = new System.Drawing.Size(107, 35);
+            this.btnEdiicionSalon.Size = new System.Drawing.Size(143, 43);
             this.btnEdiicionSalon.TabIndex = 16;
             this.btnEdiicionSalon.Text = "Editar";
             this.btnEdiicionSalon.UseVisualStyleBackColor = true;
@@ -97,9 +100,10 @@
             // btnAgregarSalon
             // 
             this.btnAgregarSalon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarSalon.Location = new System.Drawing.Point(494, 102);
+            this.btnAgregarSalon.Location = new System.Drawing.Point(659, 126);
+            this.btnAgregarSalon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregarSalon.Name = "btnAgregarSalon";
-            this.btnAgregarSalon.Size = new System.Drawing.Size(107, 35);
+            this.btnAgregarSalon.Size = new System.Drawing.Size(143, 43);
             this.btnAgregarSalon.TabIndex = 15;
             this.btnAgregarSalon.Text = "Nueva";
             this.btnAgregarSalon.UseVisualStyleBackColor = true;
@@ -112,9 +116,10 @@
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.LightGray;
-            this.label2.Location = new System.Drawing.Point(13, 45);
+            this.label2.Location = new System.Drawing.Point(17, 55);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(262, 29);
+            this.label2.Size = new System.Drawing.Size(332, 35);
             this.label2.TabIndex = 14;
             this.label2.Text = "Administración de salones";
             // 
@@ -125,9 +130,10 @@
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(10, 7);
+            this.label1.Location = new System.Drawing.Point(13, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 37);
+            this.label1.Size = new System.Drawing.Size(180, 46);
             this.label1.TabIndex = 13;
             this.label1.Text = "SALONES";
             // 
@@ -149,16 +155,18 @@
             this.addSalon.Controls.Add(this.label7);
             this.addSalon.Controls.Add(this.txtBoxNombreSalon);
             this.addSalon.Controls.Add(this.label6);
-            this.addSalon.Location = new System.Drawing.Point(-16, 153);
+            this.addSalon.Location = new System.Drawing.Point(-21, 188);
+            this.addSalon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addSalon.Name = "addSalon";
-            this.addSalon.Size = new System.Drawing.Size(890, 408);
+            this.addSalon.Size = new System.Drawing.Size(1187, 502);
             this.addSalon.TabIndex = 19;
             this.addSalon.Paint += new System.Windows.Forms.PaintEventHandler(this.addSalon_Paint);
             // 
             // pbValidation4
             // 
             this.pbValidation4.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation4.Image")));
-            this.pbValidation4.Location = new System.Drawing.Point(748, 141);
+            this.pbValidation4.Location = new System.Drawing.Point(997, 174);
+            this.pbValidation4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbValidation4.Name = "pbValidation4";
             this.pbValidation4.Size = new System.Drawing.Size(15, 15);
             this.pbValidation4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -168,7 +176,8 @@
             // pbValidation3
             // 
             this.pbValidation3.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation3.Image")));
-            this.pbValidation3.Location = new System.Drawing.Point(748, 44);
+            this.pbValidation3.Location = new System.Drawing.Point(997, 54);
+            this.pbValidation3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbValidation3.Name = "pbValidation3";
             this.pbValidation3.Size = new System.Drawing.Size(15, 15);
             this.pbValidation3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -178,7 +187,8 @@
             // pbValidation2
             // 
             this.pbValidation2.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation2.Image")));
-            this.pbValidation2.Location = new System.Drawing.Point(360, 141);
+            this.pbValidation2.Location = new System.Drawing.Point(480, 174);
+            this.pbValidation2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbValidation2.Name = "pbValidation2";
             this.pbValidation2.Size = new System.Drawing.Size(15, 15);
             this.pbValidation2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -188,7 +198,8 @@
             // pbValidation1
             // 
             this.pbValidation1.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation1.Image")));
-            this.pbValidation1.Location = new System.Drawing.Point(360, 44);
+            this.pbValidation1.Location = new System.Drawing.Point(480, 54);
+            this.pbValidation1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbValidation1.Name = "pbValidation1";
             this.pbValidation1.Size = new System.Drawing.Size(15, 15);
             this.pbValidation1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -198,19 +209,20 @@
             // txtBoxDescripcion
             // 
             this.txtBoxDescripcion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxDescripcion.Location = new System.Drawing.Point(40, 234);
-            this.txtBoxDescripcion.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBoxDescripcion.Location = new System.Drawing.Point(53, 288);
+            this.txtBoxDescripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxDescripcion.Multiline = true;
             this.txtBoxDescripcion.Name = "txtBoxDescripcion";
-            this.txtBoxDescripcion.Size = new System.Drawing.Size(435, 143);
+            this.txtBoxDescripcion.Size = new System.Drawing.Size(579, 175);
             this.txtBoxDescripcion.TabIndex = 49;
             // 
             // btnEditSalon
             // 
             this.btnEditSalon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditSalon.Location = new System.Drawing.Point(663, 290);
+            this.btnEditSalon.Location = new System.Drawing.Point(884, 357);
+            this.btnEditSalon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditSalon.Name = "btnEditSalon";
-            this.btnEditSalon.Size = new System.Drawing.Size(128, 46);
+            this.btnEditSalon.Size = new System.Drawing.Size(171, 57);
             this.btnEditSalon.TabIndex = 48;
             this.btnEditSalon.Text = "Editar";
             this.btnEditSalon.UseVisualStyleBackColor = true;
@@ -219,9 +231,10 @@
             // btnIngresarSalon
             // 
             this.btnIngresarSalon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnIngresarSalon.Location = new System.Drawing.Point(663, 290);
+            this.btnIngresarSalon.Location = new System.Drawing.Point(884, 357);
+            this.btnIngresarSalon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIngresarSalon.Name = "btnIngresarSalon";
-            this.btnIngresarSalon.Size = new System.Drawing.Size(128, 46);
+            this.btnIngresarSalon.Size = new System.Drawing.Size(171, 57);
             this.btnIngresarSalon.TabIndex = 47;
             this.btnIngresarSalon.Text = "Crear";
             this.btnIngresarSalon.UseVisualStyleBackColor = true;
@@ -234,18 +247,20 @@
             this.label12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label12.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.LightGray;
-            this.label12.Location = new System.Drawing.Point(36, 210);
+            this.label12.Location = new System.Drawing.Point(48, 258);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(116, 22);
+            this.label12.Size = new System.Drawing.Size(144, 27);
             this.label12.TabIndex = 43;
             this.label12.Text = "Descripción:";
             // 
             // txtBoxCapacidad
             // 
             this.txtBoxCapacidad.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCapacidad.Location = new System.Drawing.Point(40, 133);
+            this.txtBoxCapacidad.Location = new System.Drawing.Point(53, 164);
+            this.txtBoxCapacidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBoxCapacidad.Name = "txtBoxCapacidad";
-            this.txtBoxCapacidad.Size = new System.Drawing.Size(314, 29);
+            this.txtBoxCapacidad.Size = new System.Drawing.Size(417, 35);
             this.txtBoxCapacidad.TabIndex = 38;
             // 
             // label9
@@ -255,9 +270,10 @@
             this.label9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label9.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.LightGray;
-            this.label9.Location = new System.Drawing.Point(424, 108);
+            this.label9.Location = new System.Drawing.Point(565, 133);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(132, 22);
+            this.label9.Size = new System.Drawing.Size(167, 27);
             this.label9.TabIndex = 37;
             this.label9.Text = "Tipo de Salón:";
             // 
@@ -266,9 +282,10 @@
             this.comboBoxTipos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTipos.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTipos.FormattingEnabled = true;
-            this.comboBoxTipos.Location = new System.Drawing.Point(428, 135);
+            this.comboBoxTipos.Location = new System.Drawing.Point(571, 166);
+            this.comboBoxTipos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxTipos.Name = "comboBoxTipos";
-            this.comboBoxTipos.Size = new System.Drawing.Size(314, 30);
+            this.comboBoxTipos.Size = new System.Drawing.Size(417, 35);
             this.comboBoxTipos.TabIndex = 36;
             // 
             // label8
@@ -278,9 +295,10 @@
             this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label8.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.LightGray;
-            this.label8.Location = new System.Drawing.Point(36, 108);
+            this.label8.Location = new System.Drawing.Point(48, 133);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(101, 22);
+            this.label8.Size = new System.Drawing.Size(127, 27);
             this.label8.TabIndex = 35;
             this.label8.Text = "Capacidad";
             // 
@@ -294,9 +312,10 @@
             "No Disponible",
             "En construcción",
             "En remodelación"});
-            this.comboBoxEstadoSalon.Location = new System.Drawing.Point(428, 38);
+            this.comboBoxEstadoSalon.Location = new System.Drawing.Point(571, 47);
+            this.comboBoxEstadoSalon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxEstadoSalon.Name = "comboBoxEstadoSalon";
-            this.comboBoxEstadoSalon.Size = new System.Drawing.Size(314, 30);
+            this.comboBoxEstadoSalon.Size = new System.Drawing.Size(417, 35);
             this.comboBoxEstadoSalon.TabIndex = 34;
             // 
             // label7
@@ -306,9 +325,10 @@
             this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.LightGray;
-            this.label7.Location = new System.Drawing.Point(424, 12);
+            this.label7.Location = new System.Drawing.Point(565, 15);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 22);
+            this.label7.Size = new System.Drawing.Size(94, 27);
             this.label7.TabIndex = 19;
             this.label7.Text = "Estado:";
             this.label7.Click += new System.EventHandler(this.label7_Click);
@@ -316,9 +336,10 @@
             // txtBoxNombreSalon
             // 
             this.txtBoxNombreSalon.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxNombreSalon.Location = new System.Drawing.Point(40, 37);
+            this.txtBoxNombreSalon.Location = new System.Drawing.Point(53, 46);
+            this.txtBoxNombreSalon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBoxNombreSalon.Name = "txtBoxNombreSalon";
-            this.txtBoxNombreSalon.Size = new System.Drawing.Size(314, 29);
+            this.txtBoxNombreSalon.Size = new System.Drawing.Size(417, 35);
             this.txtBoxNombreSalon.TabIndex = 18;
             // 
             // label6
@@ -328,18 +349,20 @@
             this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.LightGray;
-            this.label6.Location = new System.Drawing.Point(36, 12);
+            this.label6.Location = new System.Drawing.Point(48, 15);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 22);
+            this.label6.Size = new System.Drawing.Size(104, 27);
             this.label6.TabIndex = 17;
             this.label6.Text = "Nombre:";
             // 
             // listSalon
             // 
             this.listSalon.Controls.Add(this.dataGridViewSalones);
-            this.listSalon.Location = new System.Drawing.Point(-7, 154);
+            this.listSalon.Location = new System.Drawing.Point(-9, 190);
+            this.listSalon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listSalon.Name = "listSalon";
-            this.listSalon.Size = new System.Drawing.Size(879, 419);
+            this.listSalon.Size = new System.Drawing.Size(1172, 516);
             this.listSalon.TabIndex = 50;
             // 
             // dataGridViewSalones
@@ -350,47 +373,47 @@
             this.dataGridViewSalones.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewSalones.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridViewSalones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSalones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSalones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewSalones.ColumnHeadersHeight = 30;
             this.dataGridViewSalones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewSalones.EnableHeadersVisualStyles = false;
             this.dataGridViewSalones.GridColor = System.Drawing.Color.SteelBlue;
-            this.dataGridViewSalones.Location = new System.Drawing.Point(21, 8);
+            this.dataGridViewSalones.Location = new System.Drawing.Point(28, 10);
+            this.dataGridViewSalones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewSalones.Name = "dataGridViewSalones";
             this.dataGridViewSalones.ReadOnly = true;
             this.dataGridViewSalones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSalones.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSalones.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewSalones.RowHeadersWidth = 30;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewSalones.RowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewSalones.Size = new System.Drawing.Size(829, 392);
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewSalones.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewSalones.Size = new System.Drawing.Size(1105, 482);
             this.dataGridViewSalones.TabIndex = 1;
             // 
             // Salones
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.ClientSize = new System.Drawing.Size(859, 573);
-            this.Controls.Add(this.listSalon);
+            this.ClientSize = new System.Drawing.Size(1145, 705);
             this.Controls.Add(this.btnListarSalones);
             this.Controls.Add(this.btnEliminarSalon);
             this.Controls.Add(this.btnEdiicionSalon);
@@ -398,7 +421,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.addSalon);
+            this.Controls.Add(this.listSalon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Salones";
             this.Text = "Salones";
             this.Load += new System.EventHandler(this.Salones_Load);

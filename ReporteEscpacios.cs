@@ -35,5 +35,6 @@ namespace Administración_Centro_de_Convenciones {
             // Refrescar el ReportViewer
             this.reportViewer1.RefreshReport();
         }
+
     }
 }
