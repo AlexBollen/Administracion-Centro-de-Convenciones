@@ -54,6 +54,7 @@ namespace Administración_Centro_de_Convenciones {
         {
             txtBoxNombreTipoSalon.Clear();
             pbValidation1.Hide();
+            
         }
 
         private void btnIngresarSalon_Click(object sender, EventArgs e)
@@ -76,11 +77,13 @@ namespace Administración_Centro_de_Convenciones {
         {
             if (dataGridViewTipoSalones.SelectedRows.Count > 0)
             {
+                ClearData();
                 // Control de visualización de componentes
                 listTipoSalon.Hide();
                 addTipoSalon.Show();
                 btnIngresarSalon.Hide();
                 btnEditTipoSalon.Show();
+                btnEliminarTipoSalon.Enabled = false;
                 // Cargar datos del registro a componentes
                 IdTipoSalon = Convert.ToInt32(dataGridViewTipoSalones.CurrentRow.Cells[0].Value);
                 string[] registro;

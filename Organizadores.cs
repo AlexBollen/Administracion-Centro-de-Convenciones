@@ -89,6 +89,7 @@ namespace Administración_Centro_de_Convenciones {
                 addOrganizador.Show();
                 btnIngresarOrganizador.Hide();
                 btnEditOrganizador.Show();
+                btnEliminarOrganizador.Enabled = false;
                 // Cargar datos del organizador a componentes
                 IdOrganizador = Convert.ToInt32(dataGridViewOrganizadores.CurrentRow.Cells[0].Value);
                 string[] organizador;

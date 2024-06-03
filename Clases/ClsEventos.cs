@@ -122,7 +122,6 @@ namespace Administración_Centro_de_Convenciones.Clases {
 
         public int InsertarItinerario(
             DateTime FechaInicio,
-            DateTime FechaCulminacion,
             string HoraInicio,
             string HoraCulminacion
         ) {
@@ -135,7 +134,6 @@ namespace Administración_Centro_de_Convenciones.Clases {
                         command.CommandText = "InsertarItinerario";
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@FechaInicio", FechaInicio.Date);
-                        command.Parameters.AddWithValue("@FechaCulminacion", FechaCulminacion.Date);
                         command.Parameters.AddWithValue("@HoraInicio", HoraInicio);
                         command.Parameters.AddWithValue("@HoraCulminacion", HoraCulminacion);
 
@@ -230,7 +228,6 @@ namespace Administración_Centro_de_Convenciones.Clases {
             int IdSalon,
             int IdItinerario,
             DateTime FechaInicio,
-            DateTime FechaCulminacion,
             string HoraInicio,
             string HoraCulminacion,
             int IdResponsable, 
@@ -255,7 +252,6 @@ namespace Administración_Centro_de_Convenciones.Clases {
                         command.Parameters.AddWithValue("@IdSalon", IdSalon);
                         command.Parameters.AddWithValue("@IdItinerario", IdItinerario);
                         command.Parameters.AddWithValue("@FechaInicio", FechaInicio.Date);
-                        command.Parameters.AddWithValue("@FechaCulminacion", FechaCulminacion.Date);
                         command.Parameters.AddWithValue("@HoraInicio", HoraInicio);
                         command.Parameters.AddWithValue("@HoraCulminacion", HoraCulminacion);
                         command.Parameters.AddWithValue("@IdResponsable", IdResponsable);
@@ -406,6 +402,106 @@ namespace Administración_Centro_de_Convenciones.Clases {
                         LeerFilas.Close();
                         connection.Close();
                     }
+                }
+            }
+        }
+
+        public string[] CargarCapacidadSalon(int IdSalon) {
+            using (var connection = GetConnection()) {
+                connection.Open();
+                using (var command = new SqlCommand()) {
+                    command.Connection = connection;
+                    command.CommandText = $"SELECT Capacidad FROM Salon WHERE IdSalon={IdSalon}";
+                    command.CommandType = CommandType.Text;
+                    LeerFilas = command.ExecuteReader();
+                    string[] row = new string[LeerFilas.FieldCount];
+                    try {
+                        if (LeerFilas.Read()) {
+                            for (int i = 0; i < LeerFilas.FieldCount; i++) {
+                                row[i] = LeerFilas[i].ToString();
+                            }
+                            return row;
+                        } else {
+                            return null;
+                        }
+                    } catch (Exception ex) {
+                        MessageBox.Show("No se encontro el registro.\nError: " + ex.Message);
+                        throw;
+                    } finally {
+                        LeerFilas.Close();
+                        connection.Close();
+                    }
+                }
+            }
+        }
+
+        public string[] CargarEstadoOrganizador(int IdOrganizador) {
+            using (var connection = GetConnection()) {
+                connection.Open();
+                using (var command = new SqlCommand()) {
+                    command.Connection = connection;
+                    command.CommandText = $"SELECT EstadoOrganizador FROM Organizador WHERE IdOrganizador={IdOrganizador}";
+                    command.CommandType = CommandType.Text;
+                    LeerFilas = command.ExecuteReader();
+                    string[] row = new string[LeerFilas.FieldCount];
+                    try {
+                        if (LeerFilas.Read()) {
+                            for (int i = 0; i < LeerFilas.FieldCount; i++) {
+                                row[i] = LeerFilas[i].ToString();
+                            }
+                            return row;
+                        } else {
+                            return null;
+                        }
+                    } catch (Exception ex) {
+                        MessageBox.Show("No se encontro el registro.\nError: " + ex.Message);
+                        throw;
+                    } finally {
+                        LeerFilas.Close();
+                        connection.Close();
+                    }
+                }
+            }
+        }
+
+        public void EditarEstadoOrganizador(
+            int IdOrganizador
+        ) {
+            using (var connection = GetConnection()) {
+                connection.Open();
+                try {
+                    using (var command = new SqlCommand()) {
+                        command.Connection = connection;
+                        command.CommandText = "ActualizarEstadoOrganizador";
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@IdOrganizador", IdOrganizador);
+                        command.ExecuteNonQuery();
+                    }
+                } catch (Exception ex) {
+                    MessageBox.Show($"Ocurrio un error al actualizar el estado del organizador. \nError: {ex.Message}");
+                } finally {
+                    connection.Close();
+                }
+            }
+        }
+
+        public void EditarEstadoOrganizadorOcupado(
+            int IdOrganizador
+        ) {
+            using (var connection = GetConnection()) {
+                connection.Open();
+                try {
+                    using (var command = new SqlCommand()) {
+                        command.Connection = connection;
+                        command.CommandText = "ActualizarEstadoOrganizadorOcupado";
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@IdOrganizador", IdOrganizador);
+                        command.ExecuteNonQuery();
+                    }
+                } catch (Exception ex) {
+                    MessageBox.Show($"Ocurrio un error al actualizar el estado del organizador. \nError: {ex.Message}");
+                } finally {
+                    connection.Close();
                 }
             }
         }

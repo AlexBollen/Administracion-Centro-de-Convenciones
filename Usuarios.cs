@@ -15,6 +15,7 @@ namespace Administración_Centro_de_Convenciones {
         ClsUsuarios objUsuarios = new ClsUsuarios();
         int IdUsuario, UpdateDireccionId, UpdateContactoId;
         string UpdatePass;
+        bool samePass = false;
         public Usuarios() {
             InitializeComponent();
         }
@@ -91,45 +92,52 @@ namespace Administración_Centro_de_Convenciones {
         private void btnEditUsuario_Click(object sender, EventArgs e)
         {
             string newPass;
-            bool newEstado;
-            if (txtBoxPass1.Text == "")
+            bool newEstado, verif;
+            if (txtBoxPass1.Text == "") {
                 newPass = UpdatePass;
-            else
-                newPass = txtBoxPass1.Text;
-            if (comboBoxEstadoUsuario.Text == "Activo")
-                newEstado = true;
-            else
-                newEstado = false;
-            if (!(txtBoxPass1.Text == txtBoxPass2.Text))
-                MessageBox.Show("Las contraseñas no coinciden");
-            else{
-                if (FieldsValidation())
-                {
-                    objUsuarios.EditarUsuario(
-                    IdUsuario,
-                    txtBoxUsername.Text,
-                    newPass,
-                    txtBoxNombreUsr.Text,
-                    newEstado,
-                    Convert.ToInt32(comboBoxRoles.SelectedValue),
-                    UpdateDireccionId,
-                    txtBoxDireccion.Text,
-                    comboBoxMunicipios.Text,
-                    comboBoxDeptos.Text,
-                    UpdateContactoId,
-                    1,
-                    txtBoxTelefono.Text,
-                    txtBoxCorreo.Text
-                     );
-                    UpdatePass = "";
-                    MessageBox.Show("Se actualizo correctamente el usuario");
-                    btnListarUsuarios.PerformClick();
-                } else{
-                    MessageBox.Show("Campos invalidos, por favor verifiquelos.");
+                samePass = true;
+                verif = true;
+            } else {
+                if (!(txtBoxPass1.Text == txtBoxPass2.Text)) {
+                    MessageBox.Show("Las contraseñas no coinciden");
+                    newPass = "";
+                    verif = false;
+                } else {
+                    samePass = false;
+                    newPass = txtBoxPass1.Text;
+                    verif = true;
                 }
             }
-            btnIngresarUsuario.Show();
-            btnEditUsuario.Hide();
+
+            if (verif && FieldsValidation()) {
+                if (comboBoxEstadoUsuario.Text == "Activo")
+                    newEstado = true;
+                else
+                    newEstado = false;
+                objUsuarios.EditarUsuario(
+                IdUsuario,
+                txtBoxUsername.Text,
+                newPass,
+                txtBoxNombreUsr.Text,
+                newEstado,
+                Convert.ToInt32(comboBoxRoles.SelectedValue),
+                UpdateDireccionId,
+                txtBoxDireccion.Text,
+                comboBoxMunicipios.Text,
+                comboBoxDeptos.Text,
+                UpdateContactoId,
+                1,
+                txtBoxTelefono.Text,
+                txtBoxCorreo.Text
+                 );
+                UpdatePass = "";
+                MessageBox.Show("Se actualizo correctamente el usuario");
+                btnIngresarUsuario.Show();
+                btnEditUsuario.Hide();
+                btnListarUsuarios.PerformClick();
+            } else {
+                MessageBox.Show("Campos invalidos, por favor verifiquelos.");
+            }
         }
 
         private void btnIngresarUsuario_Click(object sender, EventArgs e) {
@@ -172,12 +180,14 @@ namespace Administración_Centro_de_Convenciones {
         }
 
         private void btnEditarUsuario_Click(object sender, EventArgs e) {
+            ClearData();
             if (dataGridViewUsuarios.SelectedRows.Count > 0) {
                 // Control de visualización de componentes
                 listUsers.Hide();
                 addUser.Show();
                 btnIngresarUsuario.Hide();
                 btnEditUsuario.Show();
+                btnEliminarUsuario.Enabled = false;
                 // Cargar tablas relacionadas a combobox
                 ListarRoles();
                 // Cargar datos del registro a componentes
@@ -222,11 +232,15 @@ namespace Administración_Centro_de_Convenciones {
                 pbValidation1.Hide();
                 sum += 1;
             }
-            if (!passValidation.IsMatch(txtBoxPass1.Text)){
-                pbValidation2.Show();
-            } else{
-                pbValidation2.Hide();
-                sum += 1;
+            if (!samePass) {
+                if (!passValidation.IsMatch(txtBoxPass1.Text)) {
+                    pbValidation2.Show();
+                } else {
+                    pbValidation2.Hide();
+                    sum += 1;
+                }
+            } else {
+                sum+= 1;
             }
             if (!nameValidation.IsMatch(txtBoxNombreUsr.Text)){
                 pbValidation5.Show();

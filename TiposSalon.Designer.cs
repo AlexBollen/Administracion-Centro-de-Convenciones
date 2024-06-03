@@ -72,6 +72,7 @@
             // btnEditTipoSalon
             // 
             this.btnEditTipoSalon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditTipoSalon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditTipoSalon.Location = new System.Drawing.Point(524, 69);
             this.btnEditTipoSalon.Name = "btnEditTipoSalon";
             this.btnEditTipoSalon.Size = new System.Drawing.Size(128, 46);
@@ -83,6 +84,7 @@
             // btnIngresarSalon
             // 
             this.btnIngresarSalon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIngresarSalon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresarSalon.Location = new System.Drawing.Point(524, 69);
             this.btnIngresarSalon.Name = "btnIngresarSalon";
             this.btnIngresarSalon.Size = new System.Drawing.Size(128, 46);
@@ -115,6 +117,7 @@
             // btnListarSalones
             // 
             this.btnListarSalones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListarSalones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListarSalones.Location = new System.Drawing.Point(370, 102);
             this.btnListarSalones.Name = "btnListarSalones";
             this.btnListarSalones.Size = new System.Drawing.Size(107, 35);
@@ -126,6 +129,7 @@
             // btnEliminarTipoSalon
             // 
             this.btnEliminarTipoSalon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminarTipoSalon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarTipoSalon.Location = new System.Drawing.Point(741, 102);
             this.btnEliminarTipoSalon.Name = "btnEliminarTipoSalon";
             this.btnEliminarTipoSalon.Size = new System.Drawing.Size(107, 35);
@@ -137,6 +141,7 @@
             // btnEdiicionTipoSalon
             // 
             this.btnEdiicionTipoSalon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdiicionTipoSalon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdiicionTipoSalon.Location = new System.Drawing.Point(616, 102);
             this.btnEdiicionTipoSalon.Name = "btnEdiicionTipoSalon";
             this.btnEdiicionTipoSalon.Size = new System.Drawing.Size(107, 35);
@@ -148,6 +153,7 @@
             // btnAgregarSalon
             // 
             this.btnAgregarSalon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarSalon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarSalon.Location = new System.Drawing.Point(495, 102);
             this.btnAgregarSalon.Name = "btnAgregarSalon";
             this.btnAgregarSalon.Size = new System.Drawing.Size(107, 35);

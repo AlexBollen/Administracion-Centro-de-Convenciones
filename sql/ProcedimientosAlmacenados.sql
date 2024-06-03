@@ -11,14 +11,16 @@ SELECT	e.IdEvento,
 		e.Descripcion,
 		e.EstadoEvento,
 		e.CantidadAsistentes,
-		organizador.NombrePersona as Organizador,
-		responsable.NombrePersona as Responsable,
+		perOrng.NombrePersona as Organizador,
+		perRespon.NombrePersona as Responsable,
 		e.FechaReserva,
 		NombreSalon as Salon,
 		NombreTipoEvento as TipoEvento
 FROM Evento e
-INNER JOIN Persona organizador ON e.IdOrganizador=organizador.IdPersona
-INNER JOIN Persona responsable ON e.IdResponsable=responsable.IdPersona
+INNER JOIN Organizador organizador ON e.IdOrganizador=organizador.IdOrganizador
+INNER JOIN Persona perOrng ON perOrng.IdPersona=organizador.IdPersona
+INNER JOIN Responsable responsable ON e.IdResponsable=responsable.IdResponsable
+INNER JOIN Persona perRespon ON perRespon.IdPersona=responsable.IdPersona
 INNER JOIN Salon ON e.IdSalon=Salon.IdSalon
 INNER JOIN TipoEvento ON e.IdTipoEvento=TipoEvento.IdTipoEvento
 GO
@@ -79,14 +81,13 @@ GO
 -- Procedimiento para registrar nuevo itinerario
 CREATE PROC InsertarItinerario
 @FechaInicio DATE,
-@FechaCulminacion DATE,
 @HoraInicio VARCHAR(25),
 @HoraCulminacion VARCHAR(25),
 @IdItinerario INT OUTPUT
 AS
 BEGIN
 INSERT INTO Itinerario
-VALUES (@FechaInicio, @FechaCulminacion, @HoraInicio, @HoraCulminacion);
+VALUES (@FechaInicio, @HoraInicio, @HoraCulminacion);
 SET @IdItinerario = SCOPE_IDENTITY();
 END;
 GO
@@ -128,7 +129,6 @@ CREATE PROC ActualizarEvento
 @IdSalon INT,
 @IdItinerario INT,
 @FechaInicio DATE,
-@FechaCulminacion DATE,
 @HoraInicio VARCHAR(25),
 @HoraCulminacion VARCHAR(25),
 @IdResponsable INT, 
@@ -148,7 +148,6 @@ AS BEGIN
 
 	UPDATE Itinerario SET
 	FechaInicio=@FechaInicio,
-	FechaCulminacion=@FechaCulminacion,
 	HoraInicio=@HoraInicio,
 	HoraCulminacion=@HoraCulminacion
 	WHERE IdItinerario=@IdItinerario;
@@ -638,5 +637,25 @@ from Evento e
 	inner join Organizador orga on orga.IdOrganizador = e.IdOrganizador
 	inner join Persona perorga	on perorga.IdPersona = orga.IdPersona
 where perorga.NombrePersona LIKE @Apellido AND e.FechaReserva > @FechaActual
+END;
+GO
+
+-- Procedimiento para actualizar estado de organizador al finalizar evento
+CREATE PROC ActualizarEstadoOrganizador
+@IdOrganizador INT
+AS BEGIN
+	UPDATE Organizador SET
+	EstadoOrganizador='Disponible'
+	WHERE IdOrganizador=@IdOrganizador;
+END;
+GO
+
+-- Procedimiento para actualizar estado de organizador al registrar nuevo evento
+CREATE PROC ActualizarEstadoOrganizadorOcupado
+@IdOrganizador INT
+AS BEGIN
+	UPDATE Organizador SET
+	EstadoOrganizador='No Disponible'
+	WHERE IdOrganizador=@IdOrganizador;
 END;
 GO

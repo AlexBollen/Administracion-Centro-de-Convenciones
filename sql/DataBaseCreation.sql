@@ -229,6 +229,14 @@ IF OBJECT_ID('dbo.ReporteOrganizadorFuturos') IS NOT NULL
 BEGIN
 	DROP PROC ReporteOrganizadorFuturos;
 END;
+IF OBJECT_ID('dbo.ActualizarEstadoOrganizador') IS NOT NULL
+BEGIN
+	DROP PROC ActualizarEstadoOrganizador;
+END;
+IF OBJECT_ID('dbo.ActualizarEstadoOrganizadorOcupado') IS NOT NULL
+BEGIN
+	DROP PROC ActualizarEstadoOrganizadorOcupado;
+END;
 
 CREATE TABLE Persona
 (
@@ -275,7 +283,6 @@ CREATE TABLE Itinerario
 (
   IdItinerario INTEGER PRIMARY KEY IDENTITY(1,1),
   FechaInicio DATE NOT NULL,
-  FechaCulminacion DATE NOT NULL,
   HoraInicio VARCHAR(25) NOT NULL,
   HoraCulminacion VARCHAR(25) NOT NULL,
 );
@@ -438,10 +445,10 @@ VALUES
 	('Atrio', 'Disponible', 210, 'Un nombre clásico y atemporal que denota un espacio abierto y versátil', 3),
 	('Oasis', 'Disponible', 75, '', 4),
 	('El amigo', 'Disponible', 90, '', 4);
-INSERT INTO Itinerario (FechaInicio, FechaCulminacion, HoraInicio, HoraCulminacion)
+INSERT INTO Itinerario (FechaInicio, HoraInicio, HoraCulminacion)
 VALUES
-	('2024-01-15', '2024-01-15', '9:00:00', '17:00:00'),
-	('2024-01-01', '2024-01-01', '14:00:00', '19:00:00');
+	('2024-01-15', '9:00:00', '17:00:00'),
+	('2024-01-01', '14:00:00', '19:00:00');
 INSERT INTO TipoEvento (NombreTipoEvento, Descripcion)
 VALUES
 	('Boda', 'Celebración de matrimonios'),
@@ -458,8 +465,8 @@ VALUES
 	('Pedro López Pérez');
 INSERT INTO Organizador (EstadoOrganizador, IdPersona)
 VALUES
-	('Ocupado', 1),
-	('Ocupado', 4);
+	('Disponible', 1),
+	('No Disponible', 4);
 INSERT INTO Responsable (NombreComercial, IdPersona)
 VALUES
 	(NULL, 2),
@@ -480,7 +487,7 @@ VALUES
 	(15, 5);
 INSERT INTO Evento (Nombre, Descripcion, EstadoEvento, CantidadAsistentes, FechaReserva, Servicios, IdItinerario, IdResponsable, IdOrganizador, IdTipoEvento, IdSalon)
 VALUES
-	('Boda Hernández-Dominguez', 'Celebración de matrimonio de señor Juan Hernández y Luisa Dominguez', 'Programado', 150, '2024-01-15', 1, 1, 1, 1, 1, 16),
+	('Boda Hernández-Dominguez', 'Celebración de matrimonio de señor Juan Hernández y Luisa Dominguez', 'Finalizado', 150, '2024-01-15', 1, 1, 1, 1, 1, 16),
 	('Cumpleaños Don Pedro', 'Celebración de cumpleaños No. 30 señor Don Pedro', 'Programado', 75, '2024-01-01', 0, 2, 2, 2, 2, 19);
 INSERT INTO Solicita (Detalle, Cantidad, IdEvento, IdExistencia)
 VALUES
