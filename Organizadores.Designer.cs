@@ -23,10 +23,10 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Organizadores));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Organizadores));
             this.btnListarOrganizadores = new System.Windows.Forms.Button();
             this.btnEliminarOrganizador = new System.Windows.Forms.Button();
             this.btnEdiicionOrganizador = new System.Windows.Forms.Button();
@@ -34,6 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.addOrganizador = new System.Windows.Forms.Panel();
+            this.pbValidation2 = new System.Windows.Forms.PictureBox();
+            this.pbValidation1 = new System.Windows.Forms.PictureBox();
             this.comboBoxEstadoOrganizador = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnEditOrganizador = new System.Windows.Forms.Button();
@@ -42,18 +44,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.listOrganizador = new System.Windows.Forms.Panel();
             this.dataGridViewOrganizadores = new System.Windows.Forms.DataGridView();
-            this.pbValidation1 = new System.Windows.Forms.PictureBox();
-            this.pbValidation2 = new System.Windows.Forms.PictureBox();
             this.addOrganizador.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).BeginInit();
             this.listOrganizador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrganizadores)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnListarOrganizadores
             // 
             this.btnListarOrganizadores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListarOrganizadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListarOrganizadores.Location = new System.Drawing.Point(370, 102);
             this.btnListarOrganizadores.Name = "btnListarOrganizadores";
             this.btnListarOrganizadores.Size = new System.Drawing.Size(107, 35);
@@ -65,6 +66,7 @@
             // btnEliminarOrganizador
             // 
             this.btnEliminarOrganizador.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminarOrganizador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarOrganizador.Location = new System.Drawing.Point(741, 102);
             this.btnEliminarOrganizador.Name = "btnEliminarOrganizador";
             this.btnEliminarOrganizador.Size = new System.Drawing.Size(107, 35);
@@ -76,6 +78,7 @@
             // btnEdiicionOrganizador
             // 
             this.btnEdiicionOrganizador.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdiicionOrganizador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdiicionOrganizador.Location = new System.Drawing.Point(616, 102);
             this.btnEdiicionOrganizador.Name = "btnEdiicionOrganizador";
             this.btnEdiicionOrganizador.Size = new System.Drawing.Size(107, 35);
@@ -87,6 +90,7 @@
             // btnAgregarOrganizador
             // 
             this.btnAgregarOrganizador.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarOrganizador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarOrganizador.Location = new System.Drawing.Point(495, 102);
             this.btnAgregarOrganizador.Name = "btnAgregarOrganizador";
             this.btnAgregarOrganizador.Size = new System.Drawing.Size(107, 35);
@@ -136,6 +140,26 @@
             this.addOrganizador.Size = new System.Drawing.Size(885, 419);
             this.addOrganizador.TabIndex = 65;
             // 
+            // pbValidation2
+            // 
+            this.pbValidation2.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation2.Image")));
+            this.pbValidation2.Location = new System.Drawing.Point(360, 119);
+            this.pbValidation2.Name = "pbValidation2";
+            this.pbValidation2.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation2.TabIndex = 68;
+            this.pbValidation2.TabStop = false;
+            // 
+            // pbValidation1
+            // 
+            this.pbValidation1.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation1.Image")));
+            this.pbValidation1.Location = new System.Drawing.Point(360, 43);
+            this.pbValidation1.Name = "pbValidation1";
+            this.pbValidation1.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation1.TabIndex = 67;
+            this.pbValidation1.TabStop = false;
+            // 
             // comboBoxEstadoOrganizador
             // 
             this.comboBoxEstadoOrganizador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -165,6 +189,7 @@
             // btnEditOrganizador
             // 
             this.btnEditOrganizador.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditOrganizador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditOrganizador.Location = new System.Drawing.Point(571, 70);
             this.btnEditOrganizador.Name = "btnEditOrganizador";
             this.btnEditOrganizador.Size = new System.Drawing.Size(128, 46);
@@ -176,6 +201,7 @@
             // btnIngresarOrganizador
             // 
             this.btnIngresarOrganizador.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIngresarOrganizador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresarOrganizador.Location = new System.Drawing.Point(571, 70);
             this.btnIngresarOrganizador.Name = "btnIngresarOrganizador";
             this.btnIngresarOrganizador.Size = new System.Drawing.Size(128, 46);
@@ -255,26 +281,6 @@
             this.dataGridViewOrganizadores.Size = new System.Drawing.Size(829, 392);
             this.dataGridViewOrganizadores.TabIndex = 1;
             // 
-            // pbValidation1
-            // 
-            this.pbValidation1.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation1.Image")));
-            this.pbValidation1.Location = new System.Drawing.Point(360, 43);
-            this.pbValidation1.Name = "pbValidation1";
-            this.pbValidation1.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation1.TabIndex = 67;
-            this.pbValidation1.TabStop = false;
-            // 
-            // pbValidation2
-            // 
-            this.pbValidation2.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation2.Image")));
-            this.pbValidation2.Location = new System.Drawing.Point(360, 119);
-            this.pbValidation2.Name = "pbValidation2";
-            this.pbValidation2.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation2.TabIndex = 68;
-            this.pbValidation2.TabStop = false;
-            // 
             // Organizadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,10 +301,10 @@
             this.Load += new System.EventHandler(this.Organizadores_Load);
             this.addOrganizador.ResumeLayout(false);
             this.addOrganizador.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).EndInit();
             this.listOrganizador.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrganizadores)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

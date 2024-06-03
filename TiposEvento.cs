@@ -99,6 +99,7 @@ namespace Administración_Centro_de_Convenciones {
                 addTipoEvento.Show();
                 btnIngresarTipoEvento.Hide();
                 btnEditTipoEvento.Show();
+                btnEliminarTipoEvento.Enabled = false;
                 // Cargar datos del registro a componentes
                 IdTipoEvento = Convert.ToInt32(dataGridViewTipoEventos.CurrentRow.Cells[0].Value);
                 string[] registro;

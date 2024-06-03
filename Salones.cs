@@ -109,6 +109,7 @@ namespace Administración_Centro_de_Convenciones {
                 addSalon.Show();
                 btnIngresarSalon.Hide();
                 btnEditSalon.Show();
+                btnEliminarSalon.Enabled = false;
                 // Cargar tablas relacionadas a combobox
                 ListarTipos();
                 // Cargar datos del registro a componentes

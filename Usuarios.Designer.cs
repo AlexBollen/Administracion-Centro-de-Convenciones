@@ -44,7 +44,6 @@
             this.pbValidation3 = new System.Windows.Forms.PictureBox();
             this.pbValidation2 = new System.Windows.Forms.PictureBox();
             this.pbValidation1 = new System.Windows.Forms.PictureBox();
-            this.btnEditUsuario = new System.Windows.Forms.Button();
             this.btnIngresarUsuario = new System.Windows.Forms.Button();
             this.txtBoxCorreo = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -68,6 +67,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtBoxUsername = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnEditUsuario = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnListarUsuarios = new System.Windows.Forms.Button();
             this.btnEliminarUsuario = new System.Windows.Forms.Button();
@@ -198,8 +198,8 @@
             this.addUser.Controls.Add(this.label4);
             this.addUser.Controls.Add(this.txtBoxUsername);
             this.addUser.Controls.Add(this.label3);
-            this.addUser.Controls.Add(this.dataGridView1);
             this.addUser.Controls.Add(this.btnEditUsuario);
+            this.addUser.Controls.Add(this.dataGridView1);
             this.addUser.Location = new System.Drawing.Point(-9, 161);
             this.addUser.Name = "addUser";
             this.addUser.Size = new System.Drawing.Size(879, 419);
@@ -295,20 +295,10 @@
             this.pbValidation1.TabIndex = 49;
             this.pbValidation1.TabStop = false;
             // 
-            // btnEditUsuario
-            // 
-            this.btnEditUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditUsuario.Location = new System.Drawing.Point(743, 365);
-            this.btnEditUsuario.Name = "btnEditUsuario";
-            this.btnEditUsuario.Size = new System.Drawing.Size(107, 35);
-            this.btnEditUsuario.TabIndex = 48;
-            this.btnEditUsuario.Text = "Editar";
-            this.btnEditUsuario.UseVisualStyleBackColor = true;
-            this.btnEditUsuario.Click += new System.EventHandler(this.btnEditUsuario_Click);
-            // 
             // btnIngresarUsuario
             // 
             this.btnIngresarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIngresarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresarUsuario.Location = new System.Drawing.Point(743, 365);
             this.btnIngresarUsuario.Name = "btnIngresarUsuario";
             this.btnIngresarUsuario.Size = new System.Drawing.Size(107, 35);
@@ -510,6 +500,7 @@
             this.txtBoxPass2.Name = "txtBoxPass2";
             this.txtBoxPass2.Size = new System.Drawing.Size(314, 29);
             this.txtBoxPass2.TabIndex = 16;
+            this.txtBoxPass2.UseSystemPasswordChar = true;
             // 
             // label5
             // 
@@ -531,6 +522,7 @@
             this.txtBoxPass1.Name = "txtBoxPass1";
             this.txtBoxPass1.Size = new System.Drawing.Size(314, 29);
             this.txtBoxPass1.TabIndex = 14;
+            this.txtBoxPass1.UseSystemPasswordChar = true;
             // 
             // label4
             // 
@@ -565,6 +557,18 @@
             this.label3.Size = new System.Drawing.Size(79, 22);
             this.label3.TabIndex = 11;
             this.label3.Text = "Usuario:";
+            // 
+            // btnEditUsuario
+            // 
+            this.btnEditUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditUsuario.Location = new System.Drawing.Point(743, 365);
+            this.btnEditUsuario.Name = "btnEditUsuario";
+            this.btnEditUsuario.Size = new System.Drawing.Size(107, 35);
+            this.btnEditUsuario.TabIndex = 48;
+            this.btnEditUsuario.Text = "Editar";
+            this.btnEditUsuario.UseVisualStyleBackColor = true;
+            this.btnEditUsuario.Click += new System.EventHandler(this.btnEditUsuario_Click);
             // 
             // dataGridView1
             // 
@@ -611,6 +615,7 @@
             // btnListarUsuarios
             // 
             this.btnListarUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListarUsuarios.Location = new System.Drawing.Point(370, 120);
             this.btnListarUsuarios.Name = "btnListarUsuarios";
             this.btnListarUsuarios.Size = new System.Drawing.Size(107, 35);
@@ -622,6 +627,7 @@
             // btnEliminarUsuario
             // 
             this.btnEliminarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarUsuario.Location = new System.Drawing.Point(740, 120);
             this.btnEliminarUsuario.Name = "btnEliminarUsuario";
             this.btnEliminarUsuario.Size = new System.Drawing.Size(107, 35);
@@ -633,6 +639,7 @@
             // btnEditarUsuario
             // 
             this.btnEditarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarUsuario.Location = new System.Drawing.Point(616, 120);
             this.btnEditarUsuario.Name = "btnEditarUsuario";
             this.btnEditarUsuario.Size = new System.Drawing.Size(107, 35);
@@ -644,6 +651,7 @@
             // btnAgregarUsuario
             // 
             this.btnAgregarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarUsuario.Location = new System.Drawing.Point(494, 120);
             this.btnAgregarUsuario.Name = "btnAgregarUsuario";
             this.btnAgregarUsuario.Size = new System.Drawing.Size(107, 35);

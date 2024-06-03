@@ -23,10 +23,10 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TiposEvento));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TiposEvento));
             this.btnListarTiposEventos = new System.Windows.Forms.Button();
             this.btnEliminarTipoEvento = new System.Windows.Forms.Button();
             this.btnEdiicionTipoEvento = new System.Windows.Forms.Button();
@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.addTipoEvento = new System.Windows.Forms.Panel();
+            this.pbValidation1 = new System.Windows.Forms.PictureBox();
             this.btnEditTipoEvento = new System.Windows.Forms.Button();
             this.btnIngresarTipoEvento = new System.Windows.Forms.Button();
             this.txtBoxDescripcion = new System.Windows.Forms.TextBox();
@@ -42,16 +43,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.listTipoEvento = new System.Windows.Forms.Panel();
             this.dataGridViewTipoEventos = new System.Windows.Forms.DataGridView();
-            this.pbValidation1 = new System.Windows.Forms.PictureBox();
             this.addTipoEvento.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).BeginInit();
             this.listTipoEvento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTipoEventos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnListarTiposEventos
             // 
             this.btnListarTiposEventos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListarTiposEventos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListarTiposEventos.Location = new System.Drawing.Point(370, 102);
             this.btnListarTiposEventos.Name = "btnListarTiposEventos";
             this.btnListarTiposEventos.Size = new System.Drawing.Size(107, 35);
@@ -63,6 +64,7 @@
             // btnEliminarTipoEvento
             // 
             this.btnEliminarTipoEvento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminarTipoEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarTipoEvento.Location = new System.Drawing.Point(741, 102);
             this.btnEliminarTipoEvento.Name = "btnEliminarTipoEvento";
             this.btnEliminarTipoEvento.Size = new System.Drawing.Size(107, 35);
@@ -74,6 +76,7 @@
             // btnEdiicionTipoEvento
             // 
             this.btnEdiicionTipoEvento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdiicionTipoEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdiicionTipoEvento.Location = new System.Drawing.Point(616, 102);
             this.btnEdiicionTipoEvento.Name = "btnEdiicionTipoEvento";
             this.btnEdiicionTipoEvento.Size = new System.Drawing.Size(107, 35);
@@ -85,6 +88,7 @@
             // btnAgregarTipoEvento
             // 
             this.btnAgregarTipoEvento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarTipoEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarTipoEvento.Location = new System.Drawing.Point(495, 102);
             this.btnAgregarTipoEvento.Name = "btnAgregarTipoEvento";
             this.btnAgregarTipoEvento.Size = new System.Drawing.Size(107, 35);
@@ -133,9 +137,20 @@
             this.addTipoEvento.Size = new System.Drawing.Size(885, 419);
             this.addTipoEvento.TabIndex = 73;
             // 
+            // pbValidation1
+            // 
+            this.pbValidation1.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation1.Image")));
+            this.pbValidation1.Location = new System.Drawing.Point(360, 44);
+            this.pbValidation1.Name = "pbValidation1";
+            this.pbValidation1.Size = new System.Drawing.Size(15, 15);
+            this.pbValidation1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbValidation1.TabIndex = 75;
+            this.pbValidation1.TabStop = false;
+            // 
             // btnEditTipoEvento
             // 
             this.btnEditTipoEvento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditTipoEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditTipoEvento.Location = new System.Drawing.Point(681, 84);
             this.btnEditTipoEvento.Name = "btnEditTipoEvento";
             this.btnEditTipoEvento.Size = new System.Drawing.Size(128, 46);
@@ -147,6 +162,7 @@
             // btnIngresarTipoEvento
             // 
             this.btnIngresarTipoEvento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIngresarTipoEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresarTipoEvento.Location = new System.Drawing.Point(681, 84);
             this.btnIngresarTipoEvento.Name = "btnIngresarTipoEvento";
             this.btnIngresarTipoEvento.Size = new System.Drawing.Size(128, 46);
@@ -248,16 +264,6 @@
             this.dataGridViewTipoEventos.Size = new System.Drawing.Size(829, 392);
             this.dataGridViewTipoEventos.TabIndex = 1;
             // 
-            // pbValidation1
-            // 
-            this.pbValidation1.Image = ((System.Drawing.Image)(resources.GetObject("pbValidation1.Image")));
-            this.pbValidation1.Location = new System.Drawing.Point(360, 44);
-            this.pbValidation1.Name = "pbValidation1";
-            this.pbValidation1.Size = new System.Drawing.Size(15, 15);
-            this.pbValidation1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbValidation1.TabIndex = 75;
-            this.pbValidation1.TabStop = false;
-            // 
             // TiposEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,9 +284,9 @@
             this.Load += new System.EventHandler(this.TiposEvento_Load);
             this.addTipoEvento.ResumeLayout(false);
             this.addTipoEvento.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).EndInit();
             this.listTipoEvento.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTipoEventos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbValidation1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
