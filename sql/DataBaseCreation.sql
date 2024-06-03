@@ -213,6 +213,22 @@ IF OBJECT_ID('dbo.ListarCantidadTiposSalones') IS NOT NULL
 BEGIN
 	DROP PROC ListarCantidadTiposSalones;
 END;
+IF OBJECT_ID('dbo.ReporteActividades') IS NOT NULL
+BEGIN
+	DROP PROC ReporteActividades;
+END;
+IF OBJECT_ID('dbo.ListarFechas') IS NOT NULL
+BEGIN
+	DROP PROC ListarFechas;
+END;
+IF OBJECT_ID('dbo.ReporteOrganizadorAntiguos') IS NOT NULL
+BEGIN
+	DROP PROC ReporteOrganizadorAntiguos;
+END;
+IF OBJECT_ID('dbo.ReporteOrganizadorFuturos') IS NOT NULL
+BEGIN
+	DROP PROC ReporteOrganizadorFuturos;
+END;
 
 CREATE TABLE Persona
 (
@@ -424,8 +440,8 @@ VALUES
 	('El amigo', 'Disponible', 90, '', 4);
 INSERT INTO Itinerario (FechaInicio, FechaCulminacion, HoraInicio, HoraCulminacion)
 VALUES
-	('2024-05-01', '2024-05-01', '9:00:00', '17:00:00'),
-	('2024-05-01', '2024-05-01', '14:00:00', '19:00:00');
+	('2024-01-15', '2024-01-15', '9:00:00', '17:00:00'),
+	('2024-01-01', '2024-01-01', '14:00:00', '19:00:00');
 INSERT INTO TipoEvento (NombreTipoEvento, Descripcion)
 VALUES
 	('Boda', 'Celebración de matrimonios'),
